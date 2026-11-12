@@ -44,12 +44,21 @@ Context windows never cross a split boundary or a gap in the 10-minute grid, and
 
 ## Fields
 
-- `prompt` — question with the evidence (readings) included
-- `completion` — target answer, computed only from evidence in the prompt
-- `task` — one of 14 task families (forecasting, peak/spike detection, comparisons, unanswerable questions, trap questions)
-- `split` — train / val / test
-- `answerable` — `false` for questions the data cannot answer (occupancy, per-appliance use, tariffs, faults); the completion says so instead of inventing a value
-- `label` — short categorical label for scoring
+| Column | Type | Description |
+|---|---|---|
+| `prompt` | string | Question, with the evidence (readings) included |
+| `completion` | string | Target answer, computed only from evidence in the prompt |
+| `task` | class label (14) | Task family: `forecast_next`, `forecast_hour`, `window_stats`, `daily_profile`, `level_classify`, `spike_check`, `room_compare`, `lights_activity`, `outdoor_weather`, `time_features`, `units_cost`, `noise_features`, `false_premise`, `unanswerable` |
+| `answerable` | bool | `false` for questions the data cannot answer (occupancy, per-appliance use, tariffs, faults); the completion says so instead of inventing a value |
+| `label` | class label (11) | Short answer label for scoring: `low` / `moderate` / `high` / `peak`, `yes` / `no`, `premise_true` / `premise_false`, `answerable` / `unanswerable`, or `none` for free-text answers |
+
+## Usage
+
+```python
+from datasets import load_dataset
+ds = load_dataset("Ojas1004/smart-home-energy-slm")
+print(ds["train"][0])
+```
 
 ## Notes
 
