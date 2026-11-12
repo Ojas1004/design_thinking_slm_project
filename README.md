@@ -4,6 +4,8 @@ A small language model for a home energy hub that answers short-horizon (10 min 
 
 **Processed dataset (train / validation / test):** https://huggingface.co/datasets/Ojas1004/smart-home-energy-slm
 
+**Trained model (LoRA adapter on Qwen2.5-0.5B-Instruct):** https://huggingface.co/Ojas1004/smart-home-energy-slm
+
 ## Repository layout
 
 | Path | Contents |
@@ -12,6 +14,7 @@ A small language model for a home energy hub that answers short-horizon (10 min 
 | `notebooks/energydata_to_sml_jsonl.ipynb` | Current generator: builds prompt/completion pairs, chronological splits (stdlib only) |
 | `notebooks/data_conversion.ipynb` | First, superseded pipeline (kept for comparison) |
 | `convert_to_hf.py` | Converts the generated JSONL splits into Hugging Face Parquet layout |
+| `train.py` | LoRA fine-tune of Qwen2.5-0.5B-Instruct on the dataset (`--smoke` for a 20-step trial) |
 | `data/positive_negative_prompts.jsonl` | Positive / negative prompt set for evaluating the model |
 | `docs/` | Design-thinking sheets (problem framing, persona, HMW, business model canvas) and the dataset card |
 
@@ -28,6 +31,17 @@ A small language model for a home energy hub that answers short-horizon (10 min 
 | test | after 2016-05-08 | 4,547 |
 
 Key design choices: chronological split with no context window crossing a boundary; thresholds from the train split only; completions computed only from evidence in the prompt; balanced yes/no tasks; explicit "cannot be determined" answers for occupancy, per-appliance use, tariffs and faults; trap questions on misleading channels (T6, rv1/rv2, Wh vs kW).
+
+## Training
+
+```bash
+uv venv --python 3.12 .venv && source .venv/bin/activate
+uv pip install torch --index-url https://download.pytorch.org/whl/cu128
+uv pip install transformers datasets peft trl accelerate
+python train.py        # ~1.5 h on an 8 GB RTX 5060 Laptop GPU
+```
+
+LoRA r=16 on all linear layers, 2 epochs (1,564 steps, effective batch 32), lr 2e-4 cosine, loss on completions only. Final validation loss 0.040, token accuracy 98.5%. Output: `out/qwen0.5b-energy-lora/final`. Known weakness: exact arithmetic and weekday lookups, which a deployment should compute in code.
 
 ## Data licence
 
