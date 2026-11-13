@@ -1,3 +1,11 @@
+
+# Teammates 
+# Ojas Chaudhary (Leader)
+# Parameswar Sahoo
+# Omsai
+# Nandhakishore
+
+
 # Smart-Home Appliance Energy SLM
 
 A small language model for a home energy hub that answers short-horizon (10 min – 24 h) questions about appliance electricity use, trained on instruction data built from the UCI *Appliances Energy Prediction* dataset (Candanedo et al., 2017).
