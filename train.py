@@ -11,7 +11,7 @@ from peft import LoraConfig
 from trl import SFTConfig, SFTTrainer
 
 BASE = "Qwen/Qwen2.5-0.5B-Instruct"
-DATASET = "Ojas1004/smart-home-energy-slm"
+DATASET = "Design-Thinking-SLM/smart-home-energy-slm"
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--smoke", action="store_true", help="20-step trial run")

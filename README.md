@@ -10,9 +10,9 @@
 
 A small language model for a home energy hub that answers short-horizon (10 min – 24 h) questions about appliance electricity use, trained on instruction data built from the UCI *Appliances Energy Prediction* dataset (Candanedo et al., 2017).
 
-**Processed dataset (train / validation / test):** https://huggingface.co/datasets/Ojas1004/smart-home-energy-slm
+**Processed dataset (train / validation / test):** https://huggingface.co/datasets/Design-Thinking-SLM/smart-home-energy-slm
 
-**Trained model (LoRA adapter on Qwen2.5-0.5B-Instruct):** https://huggingface.co/Ojas1004/smart-home-energy-slm
+**Trained model (LoRA adapter on Qwen2.5-0.5B-Instruct):** https://huggingface.co/Design-Thinking-SLM/smart-home-energy-slm
 
 ## Repository layout
 

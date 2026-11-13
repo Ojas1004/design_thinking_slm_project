@@ -222,6 +222,6 @@ CC BY 4.0, following the source UCI dataset.
 ```python
 from datasets import load_dataset
 
-ds = load_dataset("Ojas1004/smart-home-energy-slm")
+ds = load_dataset("Design-Thinking-SLM/smart-home-energy-slm")
 print(ds["train"][0])
 ```

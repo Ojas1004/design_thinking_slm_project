@@ -11,7 +11,7 @@ from peft import AutoPeftModelForCausalLM
 from transformers import AutoTokenizer
 
 local = "out/qwen0.5b-energy-lora/final"
-path = local if os.path.isdir(local) else "Ojas1004/smart-home-energy-slm"
+path = local if os.path.isdir(local) else "Design-Thinking-SLM/smart-home-energy-slm"
 
 tok = AutoTokenizer.from_pretrained(path)
 model = AutoPeftModelForCausalLM.from_pretrained(path, dtype=torch.bfloat16, device_map="auto").eval()
