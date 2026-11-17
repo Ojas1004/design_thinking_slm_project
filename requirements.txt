@@ -1,0 +1,16 @@
+# PyTorch with CUDA: install first, from the PyTorch index
+#   uv pip install torch --index-url https://download.pytorch.org/whl/cu128
+transformers
+datasets
+huggingface_hub
+peft
+trl
+accelerate
+safetensors
+pyarrow        # REFIT parquet -> CSV in the generator
+numpy
+matplotlib
+tqdm
+scipy          # statistics in scripts/analyze_eval.py
+gguf           # GGUF export for Ollama (scripts/export_hf_to_gguf.py)
+jupyter

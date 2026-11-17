@@ -1,0 +1,27 @@
+# Ollama recipe for the LoRA model: Qwen2.5-0.5B-Instruct fine-tuned with LoRA on the energy QA data
+# (adapter merged by merge_lora.py, converted by export_hf_to_gguf.py).
+# Build:  ollama create energy-lora -f Modelfile.lora      (run from the repo root)
+# Chat:   ollama run energy-lora
+FROM ./out/lora/energy-lora-f16.gguf
+
+# Qwen2.5's chat format with its default system prompt, which is what training used.
+# Only the latest user message is sent: the model was fine-tuned on single questions.
+TEMPLATE """{{- $last := "" }}{{ range .Messages }}{{ if eq .Role "user" }}{{ $last = .Content }}{{ end }}{{ end }}<|im_start|>system
+{{ if .System }}{{ .System }}{{ else }}You are Qwen, created by Alibaba Cloud. You are a helpful assistant.{{ end }}<|im_end|>
+<|im_start|>user
+{{ $last }}<|im_end|>
+<|im_start|>assistant
+"""
+
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|endoftext|>"
+PARAMETER temperature 0
+# A mild penalty on tokens repeated within the last 16 stops greedy decoding from looping (e.g. "000000...")
+# on unusual questions. A wider window also penalises numbers copied from the question (76 -> 69 of 112 exact
+# answers on test questions); this setting costs 3 (76 -> 73).
+PARAMETER repeat_penalty 1.1
+PARAMETER repeat_last_n 16
+PARAMETER num_ctx 2048
+# The longest training answer is 132 tokens, so 200 is enough and cuts off any loop early.
+PARAMETER num_predict 200

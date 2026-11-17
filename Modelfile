@@ -1,0 +1,17 @@
+# Ollama recipe for the from-scratch Qwen3 energy SLM.
+# Build:  ollama create energy-slm -f Modelfile      (run from the repo root)
+# Chat:   ollama run energy-slm
+FROM ./out/qwen3_scratch/energy-slm-f16.gguf
+
+# The model was trained on single questions, so only the latest user message is sent.
+# This also keeps each prompt inside the 448-token context it was trained with.
+TEMPLATE """{{- $last := "" }}{{ range .Messages }}{{ if eq .Role "user" }}{{ $last = .Content }}{{ end }}{{ end }}<|im_start|>user
+{{ $last }}<|im_end|>
+<|im_start|>assistant
+"""
+
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "<|im_start|>"
+PARAMETER temperature 0
+PARAMETER num_ctx 512
+PARAMETER num_predict 200

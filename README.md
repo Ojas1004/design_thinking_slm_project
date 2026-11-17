@@ -1,56 +1,196 @@
-
-# Teammates 
-# Ojas Chaudhary (Leader)
-# Parameswar Sahoo
-# Omsai
-# Nandhakishore
-
-
 # Smart-Home Appliance Energy SLM
 
-A small language model for a home energy hub that answers short-horizon (10 min – 24 h) questions about appliance electricity use, trained on instruction data built from the UCI *Appliances Energy Prediction* dataset (Candanedo et al., 2017).
+**Team:** Ojas Chaudhary (Leader), Parameswar Sahoo, Omsai, Nandhakishore. Jain University, Design Thinking course
+(25ESHS01), guided by Dr. Sujeet S. Jagtap.
 
-**Processed dataset (train / validation / test):** https://huggingface.co/datasets/Design-Thinking-SLM/smart-home-energy-slm
+Small language models for a home energy hub. They answer short questions about household electricity readings
+(costs, load levels, spikes, short-horizon forecasts) and say **"cannot be determined"** when the meter data cannot
+answer: occupancy, which appliance was running, faults, tariffs.
 
-**Trained model (LoRA adapter on Qwen2.5-0.5B-Instruct):** https://huggingface.co/Design-Thinking-SLM/smart-home-energy-slm
+This repository covers the whole project: data collection, question–answer generation, training, evaluation,
+the research article, and the chat demo in Ollama.
+
+| | Link |
+|---|---|
+| Dataset (`default`: UCI house, 33,916 pairs; `large`: UCI + 20 REFIT homes, 200,335 pairs) | https://huggingface.co/datasets/Design-Thinking-SLM/smart-home-energy-slm |
+| Model 1: Qwen3 architecture trained **from scratch** (109M), with GGUF for Ollama | https://huggingface.co/Design-Thinking-SLM/smart-home-energy-qwen3-scratch |
+| Model 2: **LoRA** on Qwen2.5-0.5B-Instruct, with GGUF for Ollama | https://huggingface.co/Design-Thinking-SLM/smart-home-energy-slm |
+| Research article (IEEE format, LaTeX) | [`paper/`](paper/) |
+
+## Results at a glance
+
+From-scratch model, 3,956 held-out test questions (details and statistical tests in [`paper/`](paper/)):
+
+| | First version (UCI corpus only) | Final version (UCI + REFIT) |
+|---|---|---|
+| Exact match, UCI house | 61.2% | **69.0%** (95% CI 67.1–70.9) |
+| Exact match, REFIT homes | 7.8% | **43.1%** (95% CI 39.7–46.6) |
+| Unanswerable questions answered anyway | 0 of 364 | **0 of 364** |
+| Answerable questions refused | 0 | **0 of 3,592** |
+
+- **Errors:** wrong answers are mostly arithmetic. 82% have the right wording with a wrong number.
+- **Forecasts:** no better than repeating the last reading.
+- **Speed:** in Ollama the model answers in 0.6 s on a laptop CPU.
 
 ## Repository layout
 
 | Path | Contents |
 |---|---|
-| `data/energydata_complete.csv` | Raw UCI data: 10-minute readings, 2016-01-11 to 2016-05-27 |
-| `notebooks/energydata_to_sml_jsonl.ipynb` | Current generator: builds prompt/completion pairs, chronological splits (stdlib only) |
+| `data/energydata_complete.csv` | Raw UCI data: one house in Belgium, 10-minute readings, 2016-01-11 to 2016-05-27 |
+| `notebooks/energydata_to_sml_jsonl.ipynb` | **Step 2.** Generator: question–answer pairs from UCI (+ REFIT), chronological splits |
+| `notebooks/5_slm_from_scratch_qwen.ipynb` | **Step 3a.** The course reference notebook adapted to our data: Qwen3 architecture trained from scratch |
+| `notebooks/reference/` | The unmodified course notebook, and the first from-scratch run (UCI corpus only) |
+| `train.py` | **Step 3b.** LoRA fine-tune of Qwen2.5-0.5B-Instruct (`--smoke` for a 20-step trial) |
+| `scripts/evaluate_full.py`, `scripts/analyze_eval.py` | **Step 4.** Large test-set evaluation and statistics (Wilson CIs, McNemar, Wilcoxon, bootstrap) |
+| `scripts/export_qwen3_to_hf.py`, `scripts/merge_lora.py`, `scripts/export_hf_to_gguf.py` | **Step 5.** Convert both models to GGUF for Ollama |
+| `Modelfile`, `Modelfile.lora` | **Step 6.** Ollama recipes for the two models |
+| `scripts/check_ollama.py` | Asks one test question per task through Ollama and compares with the reference |
+| `docs/demo_questions.md` | Questions to paste into the chat demo, with the answers the model gives |
+| `paper/` | Research article: `main.tex`, `refs.bib`, figures, `results.json` |
+| `docs/` | Design-thinking sheets: problem framing, persona, How-Might-We, business model canvas |
+| `convert_to_hf.py`, `chat.py` | Parquet conversion of the original corpus; terminal chat with the LoRA adapter |
 | `notebooks/data_conversion.ipynb` | First, superseded pipeline (kept for comparison) |
-| `convert_to_hf.py` | Converts the generated JSONL splits into Hugging Face Parquet layout |
-| `train.py` | LoRA fine-tune of Qwen2.5-0.5B-Instruct on the dataset (`--smoke` for a 20-step trial) |
-| `data/positive_negative_prompts.jsonl` | Positive / negative prompt set for evaluating the model |
-| `docs/` | Design-thinking sheets (problem framing, persona, HMW, business model canvas) and the dataset card |
 
-## Data pipeline
+Run every command below from the repository root. Generated data and models go to `data/` and `out/`, which git
+ignores.
 
-1. Run `notebooks/energydata_to_sml_jsonl.ipynb` → `energydata_sml_{train,val,test}.jsonl` (seed 42, 2,500 train examples per task).
-2. `python convert_to_hf.py <jsonl dir> hf_dataset` → Parquet splits.
-3. Upload `hf_dataset/` to the Hugging Face Hub.
-
-| Split | Period | Rows |
-|---|---|---|
-| train | up to 2016-04-20 | 25,027 |
-| validation | 2016-04-20 – 2016-05-08 | 4,342 |
-| test | after 2016-05-08 | 4,547 |
-
-Key design choices: chronological split with no context window crossing a boundary; thresholds from the train split only; completions computed only from evidence in the prompt; balanced yes/no tasks; explicit "cannot be determined" answers for occupancy, per-appliance use, tariffs and faults; trap questions on misleading channels (T6, rv1/rv2, Wh vs kW).
-
-## Training
+## Step 0: Environment
 
 ```bash
-uv venv --python 3.12 .venv && source .venv/bin/activate
+uv venv --python 3.12 .venv && source .venv/bin/activate      # fish: source .venv/bin/activate.fish
 uv pip install torch --index-url https://download.pytorch.org/whl/cu128
-uv pip install transformers datasets peft trl accelerate
-python train.py        # ~1.5 h on an 8 GB RTX 5060 Laptop GPU
+uv pip install -r requirements.txt
 ```
 
-LoRA r=16 on all linear layers, 2 epochs (1,564 steps, effective batch 32), lr 2e-4 cosine, loss on completions only. Final validation loss 0.040, token accuracy 98.5%. Output: `out/qwen0.5b-energy-lora/final`. Known weakness: exact arithmetic and weekday lookups, which a deployment should compute in code.
+All training ran on one laptop: RTX 5060 Laptop GPU (8 GB), Ryzen 7 250, 14 GB RAM.
 
-## Data licence
+## Step 1: Data collection
 
-UCI Appliances Energy Prediction dataset — CC BY 4.0. Candanedo, L. M., Feldheim, V., & Deramaix, D. (2017). Data driven prediction models of energy use of appliances in a low-energy house. *Energy and Buildings*, 140, 81–97.
+| Source | What | Licence |
+|---|---|---|
+| [UCI Appliances Energy Prediction](https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction) (Candanedo et al. 2017) | One house, 19,735 ten-minute readings: appliance energy (Wh), lights, 9 room temperature/humidity pairs, weather | CC BY 4.0 |
+| [REFIT](https://doi.org/10.1038/sdata.2016.122) (Murray et al. 2017), via [`Jainam03/RESCAST-100k-REFIT`](https://huggingface.co/datasets/Jainam03/RESCAST-100k-REFIT) | 20 UK homes, 1,044,201 fifteen-minute whole-house readings, 2013–2015 | CC BY 4.0 |
+
+The UCI file is in `data/`. The generator downloads REFIT the first time it runs, into `data/refit_data/`.
+
+The exploratory analysis behind the design (skewed load, autocorrelation, misleading sensor columns) is in
+`docs/problem_framing_answers.md` and the article's Data section.
+
+## Step 2: Generate the question–answer corpus
+
+```bash
+cd notebooks && jupyter nbconvert --to notebook --execute --inplace energydata_to_sml_jsonl.ipynb && cd ..
+```
+
+This writes `data/energydata_sml_large{,_train,_val,_test}.jsonl`: 200,335 pairs over 14 task families
+(148,363 train / 23,734 validation / 28,238 test). Generation is seeded: a rerun reproduces the published files
+byte for byte. The design rules, each one a fix for a problem found in the data, are:
+
+- **Chronological split.** UCI: train to 2016-04-20, validation to 2016-05-08. REFIT: train to 2015-01-31,
+  validation to 2015-03-31. No context window crosses a split or a gap in the time grid.
+- **Answers come from the prompt.** Every answer is computed by code from numbers in the question.
+- **No leakage.** Level and spike thresholds are percentiles of the training split only.
+- **Refusals and traps.** Explicit "cannot be determined" questions (occupancy, appliances, faults, tariffs) and
+  false-premise questions. Trap questions cover `T6` (an outdoor sensor), `rv1`/`rv2` (random noise) and Wh vs kW.
+- **Balanced and unique.** Yes/no questions are balanced 50/50, prompts are unique, and an assertion checks that
+  no prompt appears in two splits.
+
+The smaller original corpus is the dataset's `default` configuration, and the LoRA model was trained on it. To
+regenerate it, set `OUTPUT_STEM = 'energydata_sml'`, `EXAMPLES_PER_TASK_TRAIN = 2500` and `INCLUDE_REFIT = False`
+in the notebook's first code cell.
+
+## Step 3a: Train the from-scratch model (course notebook)
+
+```bash
+cd notebooks && jupyter nbconvert --to notebook --execute --inplace 5_slm_from_scratch_qwen.ipynb && cd ..
+```
+
+This trains a 109M-parameter Qwen3-architecture decoder from random weights: 8 layers, width 512, grouped-query
+attention, the Qwen3-8B tokenizer. Loss is on answer tokens only, 72,000 steps of batch 8. It takes about 97
+minutes and uses at most 4.6 GB of GPU memory.
+
+The notebook's first cell lists every change from the course reference notebook (`notebooks/reference/`). It
+writes `out/qwen3_scratch/` (the checkpoint, loss curve, test scores, and an `hf_export/` folder). Set
+`PUSH_TO_HUB = True` in its last cell to upload.
+
+## Step 3b: Train the LoRA model
+
+```bash
+python train.py --smoke      # optional 20-step check
+python train.py              # about 1.5 h
+```
+
+This is a LoRA fine-tune of Qwen2.5-0.5B-Instruct (r = 16 on all linear layers, 2 epochs, lr 2e-4) on the `default`
+configuration. It writes `out/qwen0.5b-energy-lora/final` and reaches validation loss 0.040 and token accuracy
+98.5%. Because it starts from an instruction-tuned model, it also handles casually worded questions.
+
+## Step 4: Evaluate
+
+```bash
+python scripts/export_qwen3_to_hf.py                        # needed by the evaluation (and by Step 5)
+python scripts/evaluate_full.py out/qwen3_scratch/hf_qwen3 out/qwen3_scratch/eval_full.jsonl 200
+python scripts/analyze_eval.py                              # -> paper/results.json, paper/tables, paper/figures
+python scripts/make_article_figures.py                      # data and loss figures
+```
+
+`evaluate_full.py` asks up to 200 test questions per (task, source) group with greedy decoding. `analyze_eval.py`
+compares two runs on the same questions. It expects the first (UCI-only) model's answers in
+`out/qwen3_scratch_v1/eval_full.jsonl`; to get them, train the notebook with `DATA_STEM = "energydata_sml"` and
+evaluate it the same way.
+
+## Step 5: Convert to GGUF for Ollama
+
+Ollama runs models in the GGUF format. `export_hf_to_gguf.py` writes it directly with the `gguf` package, because
+Ollama 0.40 on Linux cannot import safetensors folders.
+
+```bash
+# from-scratch model: notebook checkpoint -> Hugging Face Qwen3 -> GGUF (379 MB)
+python scripts/export_qwen3_to_hf.py
+python scripts/export_hf_to_gguf.py
+
+# LoRA model: merge the adapter into Qwen2.5-0.5B-Instruct -> GGUF (994 MB)
+python scripts/merge_lora.py
+python scripts/export_hf_to_gguf.py out/lora_merged out/lora/energy-lora-f16.gguf "Smart-Home Energy SLM (Qwen2.5-0.5B-Instruct + LoRA)"
+```
+
+The from-scratch model scales its token embeddings by √512, which Hugging Face Qwen3 does not. The converter
+folds that scale into the input embedding; the converted model's logits match the original to within 1.5 × 10⁻⁵.
+
+Instead of converting, you can download the ready GGUF files from the two model repositories above.
+
+## Step 6: Chat demo in Ollama
+
+Install Ollama (Arch/CachyOS: `sudo pacman -S ollama-cuda && sudo systemctl start ollama`), then:
+
+```bash
+ollama create energy-slm  -f Modelfile         # from-scratch model
+ollama create energy-lora -f Modelfile.lora    # LoRA model
+ollama run energy-lora
+```
+
+| Model | Best for |
+|---|---|
+| `energy-lora` | Casually worded questions ("My appliances used 450 Wh in the last 10 minutes. Is that normal?") |
+| `energy-slm` | Questions phrased like the dataset. It was trained from scratch, so it knows no other English. |
+
+Questions known to work, with the answers they get, are in [`docs/demo_questions.md`](docs/demo_questions.md).
+Paste one question at a time; wrap multi-line questions in `"""`. Both Modelfiles decode greedily and send only
+the latest message, because the models were trained on single questions. `Modelfile.lora` adds a light
+repetition penalty, which stops greedy decoding from looping on unusual questions.
+
+`python scripts/check_ollama.py energy-lora` asks one test question per task through Ollama's API.
+
+## Step 7: Research article
+
+`paper/` holds the article in IEEE conference format. To compile it, upload `main.tex`, `refs.bib` and `figures/`
+to Overleaf (pdfLaTeX + BibTeX). The tables in `main.tex` were pasted from `paper/tables/` (written by
+`analyze_eval.py`).
+
+## Data licence and citations
+
+The data is CC BY 4.0, following the sources:
+
+- Candanedo, L. M., Feldheim, V., & Deramaix, D. (2017). Data driven prediction models of energy use of appliances
+  in a low-energy house. *Energy and Buildings*, 140, 81–97.
+- Murray, D., Stankovic, L., & Stankovic, V. (2017). An electrical load measurements dataset of United Kingdom
+  households from a two-year longitudinal study. *Scientific Data*, 4, 160122.
