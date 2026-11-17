@@ -32,6 +32,45 @@ From-scratch model, 3,956 held-out test questions (details and statistical tests
 - **Forecasts:** no better than repeating the last reading.
 - **Speed:** in Ollama the model answers in 0.6 s on a laptop CPU.
 
+## Limitations of the from-scratch Qwen3 model
+
+**Language**
+- **It only understands the dataset's question formats.** It started from random weights and saw only 148,363
+  generated question–answer pairs, so it has never read ordinary English. Casual questions such as "current
+  temperature is 32, how will it influence?" produce broken text. Use the LoRA model (`energy-lora`) for those.
+- **One question at a time.** It was trained on single questions with a 448-token limit, so it cannot hold a
+  conversation; the Ollama recipe sends only the latest message.
+
+**Answers**
+- **Arithmetic is unreliable.** 82% of its wrong answers have the right sentence with a wrong number.
+  - Accuracy falls as the question holds more numbers: on window statistics, from 54% (fewer than 20 numbers) to
+    26% (40 or more).
+  - Sums over a day of hourly values are right only 5% (UCI) to 15% (REFIT) of the time.
+  - Cost questions are reliable only with the exact numbers seen in tests. With new prices it multiplied wrongly
+    (0.120 × €0.30 = €0.0376 instead of €0.0360).
+- **Values that must be worked out can be wrong:** the weekday of a date (88% right for the UCI house, 62% for
+  REFIT homes) and the warmest or coldest room (47%).
+- **Forecasts are no better than repeating the last reading.** In none of the four forecast comparisons does the
+  95% bootstrap interval show it beating that baseline. For the next REFIT reading it is slightly worse (+6.0 Wh,
+  95% CI +0.4 to +12.1).
+  It sees only the last 3–12 readings, not the same time yesterday or last week.
+
+**Scope**
+- **Narrow data.** Room, weather and lighting questions come from one house in Belgium, January–May 2016. REFIT
+  adds 20 UK homes, but only whole-house load. "High" and "peak" thresholds are specific to each house.
+- **Inefficient size.** 77.7M of its 109M parameters are the embedding table that comes with the 151,669-token
+  Qwen3 tokenizer, which the course notebook uses. That tokenizer also splits every number into single digits,
+  which makes arithmetic harder.
+
+**Evaluation**
+- **The test checks new readings, not new wording.** Test questions use the same templates as training, on later
+  dates.
+- **Scoring is strict.** Exact match counts an answer off by 10 Wh as wrong.
+- **One run only.** Each model was trained once, with one seed.
+
+It is a course prototype, not a tool for billing, forecasting or safety decisions. A deployment should compute
+sums and dates in code and let the model explain the result.
+
 ## Repository layout
 
 | Path | Contents |
