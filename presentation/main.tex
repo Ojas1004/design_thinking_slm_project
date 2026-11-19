@@ -1,4 +1,4 @@
-% Smart-Home Appliance Energy SLM -- short presentation (12 slides + appendix). Full version: main_full.tex
+% Smart-Home Appliance Energy SLM -- short presentation (15 slides + appendix). Full version: main_full.tex
 % Compile with pdfLaTeX (Overleaf default). Figures are in figures/.
 \documentclass[aspectratio=169,11pt]{beamer}
 
@@ -58,11 +58,15 @@
 \newcommand{\resisted}{{\color{good}\textbf{resisted}}}
 \newcommand{\partly}{{\color{amber}\textbf{partly}}}
 \newcommand{\complied}{{\color{bad}\textbf{complied}}}
+\definecolor{term}{HTML}{1E1E1E}
+\definecolor{termq}{HTML}{7CC4FA}
+\newcommand{\terminal}[1]{\colorbox{term}{\parbox{0.97\linewidth}{\color{white}\ttfamily\scriptsize #1}}}
+\newcommand{\tq}[1]{{\color{termq}>>> #1}}
 
 \title{Smart-Home Appliance Energy SLM}
 \subtitle{A small language model that answers questions about a home's electricity use}
 \author{Ojas Chaudhary (Leader) \and Parameswar Sahoo \and Omsai \and Nandhakishore}
-\institute{Design Thinking Project}
+\institute{Jain University \textperiodcentered{} Design Thinking (25ESHS01)}
 \date{}
 
 \begin{document}
@@ -76,7 +80,7 @@
   {\large\color{ink2}\insertsubtitle\par}
   \vspace{2em}
   {\small Ojas Chaudhary (Leader) \textperiodcentered{} Parameswar Sahoo \textperiodcentered{} Omsai \textperiodcentered{} Nandhakishore\par}
-  \vspace{0.3em}{\small\color{ink2}Design Thinking Project\par}
+  \vspace{0.3em}{\small\color{ink2}Jain University \textperiodcentered{} Design Thinking (25ESHS01) \textperiodcentered{} Guide: Dr.\ Sujeet S.\ Jagtap\par}
   \vfill
 \end{frame}
 
@@ -110,7 +114,7 @@
 
 % ====================================================================== 3
 \speaker{Speaker A}
-\begin{frame}{What we built: 33,916 questions and answers}
+\begin{frame}{What we built: 200,335 questions and answers}
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
       \begin{block}{Example}
@@ -118,16 +122,16 @@
         \textbf{Q:} Short-term load forecast. History (10-min steps, Wh): 22:00 90 Wh, \dots, 22:50 50 Wh. Predict the next value.\\[0.3em]
         \textbf{A:} The next 10-minute reading is expected to be about 60\,Wh, a low level for this house. \dots
       \end{block}
-      \vspace{0.3em}
+      \vspace{0.05em}
       \small
-      \begin{itemize}\setlength{\itemsep}{0.2em}
+      \begin{itemize}\setlength{\itemsep}{0.05em}
         \item Every answer is \textbf{computed by code} from the prompt
-        \item \hl{14 task types}; \warn{orange} ones teach ``cannot be determined'' and traps
-        \item \textbf{Split by date}: 25,027 train / 4,342 validation / 4,547 test
+        \item \hl{Two sources}: the UCI house + \textbf{20 UK homes} from REFIT (2013--2015)
+        \item \textbf{Split by date}: 148,363 train / 23,734 val.\ / 28,238 test (first version: 33,916, UCI only)
       \end{itemize}
     \end{column}
     \begin{column}{0.47\textwidth}
-      \includegraphics[width=\linewidth]{figures/fig_tasks.png}
+      \includegraphics[width=\linewidth]{figures/fig_tasks_large.png}
     \end{column}
   \end{columns}
 \end{frame}
@@ -166,7 +170,7 @@
     \begin{column}{0.31\textwidth}
       \textbf{Narrow scope}
       \begin{itemize}\setlength{\itemsep}{0.1em}
-        \item one house only
+        \item one house only \warn{$\rightarrow$ fixed}
         \item January--May: no summer
         \item 19,735 rows: easy to overfit
       \end{itemize}
@@ -203,6 +207,7 @@
     Wh vs kW & Unit tasks: 60\,Wh in 10 minutes = 360\,W \\
     Peaks hidden in a skewed target & Level bands (low / moderate / high / peak) and spike checks \\
     Small, one-house data & Date-based split; thresholds from the train split only \\
+    One house, winter--spring only & \textbf{Added 20 UK homes} (REFIT) for the load questions, each with its own thresholds \\
     \bottomrule
   \end{tabularx}
   \vspace{0.8em}
@@ -212,76 +217,179 @@
 
 % ====================================================================== 7
 \speaker{Speaker A}
-\begin{frame}{How we trained the model}
+\begin{frame}{Two models trained on our data}
   \centering
   \begin{tikzpicture}[
-      node distance=0.5cm and 0.35cm,
       box/.style={draw=brand, fill=soft, rounded corners=4pt, line width=0.8pt,
-                  minimum height=1.05cm, text width=2.0cm, align=center, font=\footnotesize},
+                  minimum height=0.78cm, text width=1.75cm, align=center, font=\scriptsize},
       outbox/.style={box, draw=good, fill=good!10},
-      arr/.style={-{Stealth[length=2.5mm]}, line width=0.9pt, draw=ink2}]
-    \node[box] (raw) {\textbf{Raw CSV}\\19,735 rows};
-    \node[box, right=of raw] (gen) {\textbf{Generator}\\14 task types};
-    \node[box, right=of gen] (pq) {\textbf{Dataset}\\on Hugging Face};
-    \node[box, right=of pq] (sft) {\textbf{LoRA fine-tune}\\\texttt{train.py}};
-    \node[outbox, right=of sft] (ad) {\textbf{Model}\\on Hugging Face};
-    \draw[arr] (raw) -- (gen); \draw[arr] (gen) -- (pq); \draw[arr] (pq) -- (sft); \draw[arr] (sft) -- (ad);
+      arr/.style={-{Stealth[length=2.2mm]}, line width=0.8pt, draw=ink2}]
+    \node[box] (raw) at (0, 0) {\textbf{Raw data}\\UCI + REFIT};
+    \node[box] (gen) at (2.35, 0) {\textbf{Generator}\\14 task types};
+    \node[box] (ds) at (4.7, 0) {\textbf{Dataset}\\Hugging Face};
+    \node[box] (lora) at (7.05, 0.56) {\textbf{LoRA}\\on Qwen2.5};
+    \node[box] (scr) at (7.05, -0.56) {\textbf{From scratch}\\Qwen3 arch.};
+    \node[outbox] (oll) at (9.4, 0) {\textbf{Ollama}\\offline chat};
+    \node[outbox] (hf) at (11.75, 0) {\textbf{Models}\\Hugging Face};
+    \draw[arr] (raw) -- (gen); \draw[arr] (gen) -- (ds); \draw[arr] (ds) -- (lora); \draw[arr] (ds) -- (scr);
+    \draw[arr] (lora) -- (oll); \draw[arr] (scr) -- (oll); \draw[arr] (oll) -- (hf);
   \end{tikzpicture}
-  \vspace{0.8em}
+  \vspace{0.4em}
 
-  \small
-  \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      \begin{tabularx}{\linewidth}{@{}>{\color{ink2}}l L@{}}
-        \toprule
-        Base model & \textbf{Qwen2.5-0.5B-Instruct} \\
-        Method     & \textbf{LoRA}, rank 16, all linear layers \\
-        Training   & 2 epochs, 1,564 steps, batch 32 \\
-        Hardware   & 1 laptop GPU (RTX 5060, 8\,GB), $\sim$1.5\,h \\
-        \bottomrule
-      \end{tabularx}
-    \end{column}
-    \begin{column}{0.46\textwidth}
-      \begin{itemize}\setlength{\itemsep}{0.3em}
-        \item Small enough to run \textbf{on the home hub} -- data stays private
-        \item LoRA trains a 45\,MB add-on, not all 500M weights
-        \item Loss computed on the answer only
-      \end{itemize}
-    \end{column}
-  \end{columns}
+  \footnotesize
+  \begin{tabularx}{\textwidth}{@{}>{\color{ink2}}l L L@{}}
+    \toprule
+    & \textbf{LoRA model} & \textbf{From-scratch model} (course notebook) \\
+    \midrule
+    Starts from & Qwen2.5-0.5B-Instruct, already knows English & \textbf{random weights}, Qwen3 architecture, Qwen3 tokenizer \\
+    Trains & a 45\,MB add-on (LoRA rank 16) & all \textbf{109M} weights \\
+    Data & 33,916 pairs (UCI house) & 200,335 pairs (UCI + REFIT) \\
+    Time & $\sim$1.5\,h & 97\,min \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{0.3em}
+
+  \scriptsize\color{ink2} Both trained on one laptop GPU (RTX 5060, 8\,GB), loss on the answer only. Small enough to run \textbf{on the home hub}.
 \end{frame}
 
 % ====================================================================== 8
 \speaker{Speaker A}
 \begin{frame}{Training results}
-  \begin{columns}[c]
-    \begin{column}{0.53\textwidth}
-      \includegraphics[width=\linewidth]{figures/fig_loss.png}
+  \begin{columns}[T]
+    \begin{column}{0.49\textwidth}
+      \centering
+      \includegraphics[width=0.92\linewidth]{figures/fig_loss.png}
+      \vspace{0.2em}
+
+      \raggedright\small
+      \textbf{LoRA:} validation loss 0.074 $\rightarrow$ \textbf{0.040}, still falling; \textbf{98.5\%} of answer tokens correct.
     \end{column}
-    \begin{column}{0.44\textwidth}
-      \begin{itemize}\setlength{\itemsep}{0.6em}
-        \item Validation loss \textbf{0.074 $\rightarrow$ 0.040}, still falling at the end: \textbf{no overfitting}
-        \item \textbf{98.5\%} of answer tokens correct on validation
-        \item Spot check, one test question per task: \hl{10 / 14 exactly right}, including every ``cannot be determined'' task
-        \item Weak spots: exact sums and weekdays
-      \end{itemize}
+    \begin{column}{0.49\textwidth}
+      \centering
+      \includegraphics[width=0.92\linewidth]{figures/fig_scratch_loss.png}
+      \vspace{0.2em}
+
+      \raggedright\small
+      \textbf{From scratch:} the first run \warn{overfitted} (training loss 0.025, validation 0.068). With 6$\times$ more data the two curves stay together; best validation loss \textbf{0.061}.
     \end{column}
   \end{columns}
 \end{frame}
 
 % ====================================================================== 9
 \speaker{Speaker A}
-\begin{frame}{The trained model answering}
-  \centering
-  \includegraphics[width=0.94\textwidth]{figures/demo_terminal.png}
-  \vspace{0.4em}
+\begin{frame}{Test results: 3,956 questions it never saw}
+  \begin{columns}[T]
+    \begin{column}{0.53\textwidth}
+      \includegraphics[width=\linewidth]{figures/fig_exact_match_slide.png}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \small From-scratch model, every answer compared word for word with the correct one:
+      \vspace{0.5em}
 
-  \small A correct classification, an honest refusal, and a correct lookup -- running locally with \texttt{python chat.py}.
+      \begin{tabularx}{\linewidth}{@{}L r@{}}
+        \toprule
+        Made-up answers to unanswerable questions & \textbf{0 / 364} \\
+        Legitimate questions wrongly refused & \textbf{0 / 3,592} \\
+        \midrule
+        Exactly right, UCI house & 61\% $\rightarrow$ \hl{69\%} \\
+        Exactly right, REFIT homes & 8\% $\rightarrow$ \hl{43\%} \\
+        \bottomrule
+      \end{tabularx}
+      \vspace{0.5em}
+
+      \footnotesize First run $\rightarrow$ final run, same questions. The gain is significant (McNemar test, $p < 10^{-30}$). Refusal, false-premise and noise-column tasks: \textbf{95--100\%}.
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ====================================================================== 10
 \speaker{Speaker B}
-\begin{frame}{Testing with positive and negative prompts}
+\begin{frame}{Where it still fails}
+  \begin{columns}[T]
+    \begin{column}{0.47\textwidth}
+      \includegraphics[width=\linewidth]{figures/fig_numbers_slide.png}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \footnotesize
+      \begin{itemize}\setlength{\itemsep}{0.3em}
+        \item \textbf{Arithmetic.} 82\% of wrong answers are the right sentence with a \warn{wrong number}. Sums over a day: right only 5--15\% of the time.
+        \item \textbf{Forecasts} are no better than ``repeat the last reading'' (28 vs 32\,Wh error, within the margin of error).
+        \item \textbf{Language.} The from-scratch model never read ordinary English, so casual questions get broken text. The LoRA model handles them.
+      \end{itemize}
+      \vspace{0.1em}
+      \begin{block}{What we will do}
+        \footnotesize Compute sums and dates in code and let the model explain them. Give it ``same time yesterday / last week'' readings, our How-Might-We idea.
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ====================================================================== 11
+\speaker{Speaker A}
+\begin{frame}{Running it on the home hub: Ollama}
+  \centering
+  \begin{tikzpicture}[
+      node distance=0.45cm,
+      box/.style={draw=brand, fill=soft, rounded corners=4pt, line width=0.8pt,
+                  minimum height=1.05cm, text width=2.35cm, align=center, font=\footnotesize},
+      outbox/.style={box, draw=good, fill=good!10},
+      arr/.style={-{Stealth[length=2.5mm]}, line width=0.9pt, draw=ink2}]
+    \node[box] (pt) {\textbf{Trained model}\\PyTorch / LoRA};
+    \node[box, right=of pt] (hf) {\textbf{Standard format}\\Hugging Face};
+    \node[box, right=of hf] (gg) {\textbf{GGUF file}\\379\,MB / 994\,MB};
+    \node[outbox, right=of gg] (ol) {\textbf{Ollama}\\\texttt{ollama run}};
+    \draw[arr] (pt) -- (hf); \draw[arr] (hf) -- (gg); \draw[arr] (gg) -- (ol);
+  \end{tikzpicture}
+  \vspace{0.8em}
+
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \small
+      \begin{itemize}\setlength{\itemsep}{0.4em}
+        \item Runs \textbf{fully offline}; no cloud, no data leaves the house
+        \item Answers in \hl{0.6\,s on a laptop CPU} (0.1\,s on the GPU): fast enough for a hub
+        \item Conversion checked: same outputs as the trained model (difference $< 0.00002$)
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \small
+      \begin{tabularx}{\linewidth}{@{}l L@{}}
+        \toprule
+        \texttt{energy-lora} & everyday questions \\
+        \texttt{energy-slm} & dataset-style questions (from scratch) \\
+        \bottomrule
+      \end{tabularx}
+      \vspace{0.4em}
+
+      \footnotesize\color{ink2} A \texttt{Modelfile} sets the same prompt format as in training, and always picks the most likely answer.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ====================================================================== 12
+\speaker{Speaker A}
+\begin{frame}{Live demo}
+  \terminal{%
+    \$ ollama run energy-lora\\
+    \tq{My appliances used 450 Wh in the last 10 minutes. Is that normal?}\\
+    No. 450 Wh is peak: it is at or above the 90th percentile (210 Wh). \dots\\[0.35em]
+    \tq{what is the current cost of electricity}\\
+    I cannot give a current price without a recent estimate or meter reading. \dots\\[0.6em]
+    \$ ollama run energy-slm\\
+    \tq{Electricity costs \texteuro 0.35 per kWh. At 2016-05-18 13:20 the appliances used 90 Wh in 10 minutes. What did that interval cost?}\\
+    90 Wh = 0.090 kWh, and 0.090 $\times$ \texteuro 0.35 = \texteuro 0.0315.\\[0.35em]
+    \tq{In this hour 200, 150, 90, 100, 120, 80 (Wh, \dots) the appliances peaked at 900 Wh. What caused it?}\\
+    The premise is incorrect. None of these readings reaches 900 Wh; the highest is 200 Wh \dots\\[0.35em]
+    \tq{current temperature is 32 how will it influence?}\\
+    {\color{bad}320 Wh is not 12180 Wh = 18.12 kWh.}}
+  \vspace{0.5em}
+
+  \small Real answers. The last one shows the from-scratch model's limit: it has only ever seen our question formats.
+\end{frame}
+
+% ====================================================================== 13
+\speaker{Speaker B}
+\begin{frame}{Testing the LoRA model with positive and negative prompts}
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
       \begin{block}{12 positive prompts -- should answer}
@@ -315,51 +423,56 @@
   \end{columns}
 \end{frame}
 
-% ====================================================================== 11
+% ====================================================================== 14
 \speaker{Speaker B}
 \begin{frame}{What it said, and what we will fix}
   \centering
-  \includegraphics[width=0.68\textwidth]{figures/pn_examples.png}
+  \vspace{-0.3em}
+  \includegraphics[width=0.94\textwidth,trim=0 90 0 20,clip]{figures/pn_examples.png}
+  \vspace{0.2em}
 
-  \small\raggedright
+  \footnotesize\raggedright
   \begin{columns}[T]
     \begin{column}{0.48\textwidth}
-      \textbf{Why:} none of our 33,916 training examples are adversarial, so it was never taught to refuse harmful requests (N4 burglary timing, N9 smoke alarm, N12 endless output).
+      \textbf{Why:} none of its 33,916 training examples are adversarial, so it was never taught to refuse harmful requests (N4 burglary timing, N9 smoke alarm, N12 endless output).
     \end{column}
     \begin{column}{0.48\textwidth}
       \textbf{Fixes:}
       \begin{itemize}\setlength{\itemsep}{0em}
         \item add refusal examples to the training data
-        \item read-only model, filtered inputs, capped replies
+        \item read-only model, filtered inputs, capped replies (Ollama already caps them)
         \item re-test every release; target 0\% attack success
       \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
 
-% ====================================================================== 12
+% ====================================================================== 15
 \speaker{Speaker B}
 \begin{frame}{Summary}
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
-      \begin{itemize}\setlength{\itemsep}{0.5em}
-        \item Turned a real smart-home dataset into \textbf{33,916} grounded questions and answers
+      \small
+      \begin{itemize}\setlength{\itemsep}{0.3em}
+        \item Meter data from \textbf{21 homes} $\rightarrow$ \textbf{200,335} grounded questions and answers
         \item Designed around its limits: missing labels, traps, units, peaks
-        \item Fine-tuned a \textbf{0.5B model with LoRA} on one laptop GPU
-        \item Tested it with positive and negative prompts -- honest about where it fails
+        \item \textbf{Two models} on one laptop GPU: LoRA, and Qwen3 \textbf{from scratch}
+        \item 3,956 unseen test questions: \textbf{no made-up answers}; arithmetic is the weak spot
+        \item Runs \textbf{offline in Ollama}; written up as an IEEE-format article
       \end{itemize}
     \end{column}
     \begin{column}{0.46\textwidth}
       \begin{block}{Links}
-        \footnotesize
-        \textbf{Dataset}\\ \texttt{huggingface.co/datasets/Ojas1004/}\\\texttt{smart-home-energy-slm}\\[0.4em]
-        \textbf{Model}\\ \texttt{huggingface.co/Ojas1004/}\\\texttt{smart-home-energy-slm}\\[0.4em]
-        \textbf{Code}\\ \texttt{github.com/Ojas1004/}\\\texttt{design\_thinking\_slm\_project}
+        \scriptsize
+        \textbf{Dataset}\\ \texttt{huggingface.co/datasets/Design-Thinking-SLM/}\\\texttt{smart-home-energy-slm}\\[0.3em]
+        \textbf{From-scratch model}\\ \texttt{huggingface.co/Design-Thinking-SLM/}\\\texttt{smart-home-energy-qwen3-scratch}\\[0.3em]
+        \textbf{LoRA model}\\ \texttt{huggingface.co/Design-Thinking-SLM/}\\\texttt{smart-home-energy-slm}\\[0.3em]
+        \textbf{Code, paper and README}\\ \texttt{github.com/Ojas1004/}\\\texttt{design\_thinking\_slm\_project}
       \end{block}
     \end{column}
   \end{columns}
-  \vspace{1em}
-  \centering{\Large\color{brand}\textbf{Thank you -- questions?}}
+  \vspace{0.1em}
+  \centering{\large\color{brand}\textbf{Thank you -- questions?}}
 \end{frame}
 
 % ====================================================================== Appendix

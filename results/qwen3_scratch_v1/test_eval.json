@@ -1,0 +1,1047 @@
+{
+  "overall": {
+    "n": 350,
+    "exact_match": 0.54,
+    "numbers_match": 0.5571428571428572
+  },
+  "per_task": {
+    "daily_profile": {
+      "n": 25,
+      "exact_match": 0.0,
+      "numbers_match": 0.0
+    },
+    "false_premise": {
+      "n": 25,
+      "exact_match": 1.0,
+      "numbers_match": 1.0
+    },
+    "forecast_hour": {
+      "n": 25,
+      "exact_match": 0.12,
+      "numbers_match": 0.12
+    },
+    "forecast_next": {
+      "n": 25,
+      "exact_match": 0.04,
+      "numbers_match": 0.04
+    },
+    "level_classify": {
+      "n": 25,
+      "exact_match": 1.0,
+      "numbers_match": 1.0
+    },
+    "lights_activity": {
+      "n": 25,
+      "exact_match": 1.0,
+      "numbers_match": 1.0
+    },
+    "noise_features": {
+      "n": 25,
+      "exact_match": 1.0,
+      "numbers_match": 1.0
+    },
+    "outdoor_weather": {
+      "n": 25,
+      "exact_match": 0.36,
+      "numbers_match": 0.36
+    },
+    "room_compare": {
+      "n": 25,
+      "exact_match": 0.4,
+      "numbers_match": 0.4
+    },
+    "spike_check": {
+      "n": 25,
+      "exact_match": 0.08,
+      "numbers_match": 0.08
+    },
+    "time_features": {
+      "n": 25,
+      "exact_match": 0.52,
+      "numbers_match": 0.76
+    },
+    "unanswerable": {
+      "n": 25,
+      "exact_match": 1.0,
+      "numbers_match": 1.0
+    },
+    "units_cost": {
+      "n": 25,
+      "exact_match": 0.88,
+      "numbers_match": 0.88
+    },
+    "window_stats": {
+      "n": 25,
+      "exact_match": 0.16,
+      "numbers_match": 0.16
+    }
+  },
+  "mismatches": [
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Monday 2016-05-16: 00h=370, 01h=320, 02h=340, 03h=320, 04h=330, 05h=310, 06h=320, 07h=370, 08h=530, 09h=420, 10h=890, 11h=620, 12h=1240, 13h=1600, 14h=530, 15h=670, 16h=530, 17h=1460, 18h=930, 19h=690, 20h=580, 21h=410, 22h=280, 23h=360.\nHow much energy was used from 17:00 to 20:00?",
+      "model": "From 17:00 to 20:00 the appliances used 2160 Wh (2.16 kWh), the sum of 2 hourly values.",
+      "reference": "From 17:00 to 20:00 the appliances used 3080 Wh (3.08 kWh), the sum of 3 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Friday 2016-05-20: 00h=310, 01h=310, 02h=220, 03h=350, 04h=310, 05h=370, 06h=400, 07h=480, 08h=760, 09h=440, 10h=490, 11h=440, 12h=430, 13h=370, 14h=360, 15h=280, 16h=290, 17h=450, 18h=470, 19h=390, 20h=420, 21h=390, 22h=320, 23h=270.\nHow much energy was used between midnight and 06:00, and what share of the day is that?",
+      "model": "Between 00:00 and 06:00 the appliances used 1800 Wh, which is 20% of the daily 9620 Wh.",
+      "reference": "Between 00:00 and 06:00 the appliances used 1870 Wh, which is 20% of the daily 9320 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Sunday 2016-05-15: 00h=320, 01h=330, 02h=310, 03h=240, 04h=310, 05h=340, 06h=310, 07h=560, 08h=710, 09h=610, 10h=650, 11h=630, 12h=580, 13h=820, 14h=530, 15h=560, 16h=860, 17h=1420, 18h=590, 19h=580, 20h=1480, 21h=1220, 22h=520, 23h=500.\nIn how many hours did consumption exceed 500 Wh?",
+      "model": "12 hours exceeded 500 Wh: 08h, 11h, 12h, 13h, 14h, 15h, 16h, 17h, 18h, 19h, 20h.",
+      "reference": "16 hours exceeded 500 Wh: 07h, 08h, 09h, 10h, 11h, 12h, 13h, 14h, 15h, 16h, 17h, 18h, 19h, 20h, 21h, 22h."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Friday 2016-05-13: 00h=330, 01h=320, 02h=350, 03h=350, 04h=300, 05h=350, 06h=880, 07h=1060, 08h=2030, 09h=560, 10h=440, 11h=2130, 12h=1810, 13h=1610, 14h=1910, 15h=1210, 16h=2110, 17h=1390, 18h=2090, 19h=1250, 20h=720, 21h=380, 22h=330, 23h=370.\nHow much energy was used from 06:00 to 20:00?",
+      "model": "From 06:00 to 20:00 the appliances used 1790 Wh (1.79 kWh), the sum of 4 hourly values.",
+      "reference": "From 06:00 to 20:00 the appliances used 20480 Wh (20.48 kWh), the sum of 14 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-10: 00h=310, 01h=330, 02h=340, 03h=340, 04h=300, 05h=430, 06h=380, 07h=360, 08h=340, 09h=330, 10h=320, 11h=340, 12h=350, 13h=320, 14h=320, 15h=340, 16h=380, 17h=760, 18h=610, 19h=630, 20h=570, 21h=410, 22h=350, 23h=340.\nHow much energy was used from 04:00 to 11:00?",
+      "model": "From 04:00 to 11:00 the appliances used 3160 Wh (3.16 kWh), the sum of 9 hourly values.",
+      "reference": "From 04:00 to 11:00 the appliances used 2460 Wh (2.46 kWh), the sum of 7 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-10: 00h=310, 01h=330, 02h=340, 03h=340, 04h=300, 05h=430, 06h=380, 07h=360, 08h=340, 09h=330, 10h=320, 11h=340, 12h=350, 13h=320, 14h=320, 15h=340, 16h=380, 17h=760, 18h=610, 19h=630, 20h=570, 21h=410, 22h=350, 23h=340.\nWhat was the total appliance energy for the day in kWh?",
+      "model": "The daily total is 9.70 kWh (9700 Wh, the sum of the 24 hourly values).",
+      "reference": "The daily total is 9.50 kWh (9500 Wh, the sum of the 24 hourly values)."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Saturday 2016-05-21: 00h=290, 01h=310, 02h=340, 03h=290, 04h=340, 05h=310, 06h=360, 07h=340, 08h=1250, 09h=1860, 10h=2300, 11h=2590, 12h=1370, 13h=2060, 14h=1820, 15h=2170, 16h=600, 17h=570, 18h=750, 19h=650, 20h=570, 21h=810, 22h=440, 23h=890.\nIn how many hours did consumption exceed 1500 Wh?",
+      "model": "6 hours exceeded 1500 Wh: 06h, 07h, 08h, 09h, 10h, 11h, 18h.",
+      "reference": "6 hours exceeded 1500 Wh: 09h, 10h, 11h, 13h, 14h, 15h."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-18: 00h=310, 01h=320, 02h=330, 03h=310, 04h=310, 05h=390, 06h=420, 07h=320, 08h=370, 09h=390, 10h=350, 11h=420, 12h=340, 13h=520, 14h=490, 15h=500, 16h=630, 17h=710, 18h=1070, 19h=860, 20h=1340, 21h=490, 22h=310, 23h=340.\nHow much energy was used from 03:00 to 18:00?",
+      "model": "From 03:00 to 18:00 the appliances used 11880 Wh (11.88 kWh), the sum of 17 hourly values.",
+      "reference": "From 03:00 to 18:00 the appliances used 6470 Wh (6.47 kWh), the sum of 15 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-25: 00h=320, 01h=320, 02h=340, 03h=290, 04h=330, 05h=330, 06h=330, 07h=390, 08h=500, 09h=540, 10h=470, 11h=300, 12h=360, 13h=430, 14h=480, 15h=480, 16h=1390, 17h=710, 18h=940, 19h=710, 20h=1140, 21h=340, 22h=320, 23h=320.\nIn how many hours did consumption exceed 1000 Wh?",
+      "model": "2 hours exceeded 1000 Wh: 18h, 20h.",
+      "reference": "2 hours exceeded 1000 Wh: 16h, 20h."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-24: 00h=300, 01h=340, 02h=330, 03h=320, 04h=320, 05h=640, 06h=430, 07h=970, 08h=340, 09h=230, 10h=400, 11h=610, 12h=770, 13h=710, 14h=900, 15h=850, 16h=850, 17h=1220, 18h=820, 19h=740, 20h=580, 21h=460, 22h=370, 23h=350.\nWas more energy used in the morning (06-12h) or the evening (18-24h)?",
+      "model": "Morning used 2650 Wh and evening used 3340 Wh, so more was used in the evening (18-24h).",
+      "reference": "Morning used 2980 Wh and evening used 3320 Wh, so more was used in the evening (18-24h)."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Friday 2016-05-13: 00h=330, 01h=320, 02h=350, 03h=350, 04h=300, 05h=350, 06h=880, 07h=1060, 08h=2030, 09h=560, 10h=440, 11h=2130, 12h=1810, 13h=1610, 14h=1910, 15h=1210, 16h=2110, 17h=1390, 18h=2090, 19h=1250, 20h=720, 21h=380, 22h=330, 23h=370.\nHow much energy was used from 11:00 to 19:00?",
+      "model": "From 11:00 to 19:00 the appliances used 1910 Wh (1.91 kWh), the sum of 3 hourly values.",
+      "reference": "From 11:00 to 19:00 the appliances used 14260 Wh (14.26 kWh), the sum of 8 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Thursday 2016-05-12: 00h=340, 01h=340, 02h=340, 03h=300, 04h=340, 05h=370, 06h=290, 07h=350, 08h=310, 09h=290, 10h=350, 11h=300, 12h=330, 13h=340, 14h=340, 15h=410, 16h=710, 17h=1250, 18h=630, 19h=740, 20h=600, 21h=430, 22h=360, 23h=340.\nHow much energy was used from 13:00 to 17:00?",
+      "model": "From 13:00 to 17:00 the appliances used 5140 Wh (5.14 kWh), the sum of 9 hourly values.",
+      "reference": "From 13:00 to 17:00 the appliances used 1800 Wh (1.80 kWh), the sum of 4 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Saturday 2016-05-14: 00h=350, 01h=380, 02h=360, 03h=360, 04h=360, 05h=340, 06h=380, 07h=680, 08h=800, 09h=710, 10h=950, 11h=580, 12h=700, 13h=680, 14h=640, 15h=780, 16h=670, 17h=1450, 18h=1000, 19h=540, 20h=520, 21h=450, 22h=370, 23h=290.\nIn how many hours did consumption exceed 750 Wh?",
+      "model": "6 hours exceeded 750 Wh: 08h, 09h, 10h, 11h, 12h, 13h.",
+      "reference": "5 hours exceeded 750 Wh: 08h, 10h, 15h, 17h, 18h."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Sunday 2016-05-22: 00h=360, 01h=340, 02h=310, 03h=320, 04h=330, 05h=300, 06h=350, 07h=380, 08h=1140, 09h=680, 10h=1210, 11h=2060, 12h=760, 13h=620, 14h=640, 15h=580, 16h=530, 17h=1590, 18h=720, 19h=580, 20h=700, 21h=530, 22h=470, 23h=360.\nHow much energy was used from 08:00 to 13:00?",
+      "model": "From 08:00 to 13:00 the appliances used 3110 Wh (3.11 kWh), the sum of 8 hourly values.",
+      "reference": "From 08:00 to 13:00 the appliances used 5850 Wh (5.85 kWh), the sum of 5 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-25: 00h=320, 01h=320, 02h=340, 03h=290, 04h=330, 05h=330, 06h=330, 07h=390, 08h=500, 09h=540, 10h=470, 11h=300, 12h=360, 13h=430, 14h=480, 15h=480, 16h=1390, 17h=710, 18h=940, 19h=710, 20h=1140, 21h=340, 22h=320, 23h=320.\nHow much energy was used from 11:00 to 21:00?",
+      "model": "From 11:00 to 21:00 the appliances used 3170 Wh (3.17 kWh), the sum of 3 hourly values.",
+      "reference": "From 11:00 to 21:00 the appliances used 6940 Wh (6.94 kWh), the sum of 10 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-24: 00h=300, 01h=340, 02h=330, 03h=320, 04h=320, 05h=640, 06h=430, 07h=970, 08h=340, 09h=230, 10h=400, 11h=610, 12h=770, 13h=710, 14h=900, 15h=850, 16h=850, 17h=1220, 18h=820, 19h=740, 20h=580, 21h=460, 22h=370, 23h=350.\nHow much energy was used from 07:00 to 22:00?",
+      "model": "From 07:00 to 22:00 the appliances used 8260 Wh (8.26 kWh), the sum of 16 hourly values.",
+      "reference": "From 07:00 to 22:00 the appliances used 10450 Wh (10.45 kWh), the sum of 15 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Saturday 2016-05-14: 00h=350, 01h=380, 02h=360, 03h=360, 04h=360, 05h=340, 06h=380, 07h=680, 08h=800, 09h=710, 10h=950, 11h=580, 12h=700, 13h=680, 14h=640, 15h=780, 16h=670, 17h=1450, 18h=1000, 19h=540, 20h=520, 21h=450, 22h=370, 23h=290.\nHow much energy was used from 02:00 to 07:00?",
+      "model": "From 02:00 to 07:00 the appliances used 740 Wh (0.74 kWh), the sum of 2 hourly values.",
+      "reference": "From 02:00 to 07:00 the appliances used 1800 Wh (1.80 kWh), the sum of 5 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-11: 00h=310, 01h=340, 02h=340, 03h=320, 04h=310, 05h=410, 06h=660, 07h=460, 08h=970, 09h=390, 10h=380, 11h=330, 12h=340, 13h=440, 14h=480, 15h=460, 16h=450, 17h=550, 18h=610, 19h=570, 20h=510, 21h=370, 22h=330, 23h=340.\nIn how many hours did consumption exceed 500 Wh?",
+      "model": "12 hours exceeded 500 Wh: 18h, 19h, 20h, 21h, 22h, 23h.",
+      "reference": "6 hours exceeded 500 Wh: 06h, 08h, 17h, 18h, 19h, 20h."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-24: 00h=300, 01h=340, 02h=330, 03h=320, 04h=320, 05h=640, 06h=430, 07h=970, 08h=340, 09h=230, 10h=400, 11h=610, 12h=770, 13h=710, 14h=900, 15h=850, 16h=850, 17h=1220, 18h=820, 19h=740, 20h=580, 21h=460, 22h=370, 23h=350.\nIn how many hours did consumption exceed 1500 Wh?",
+      "model": "1 hours exceeded 1500 Wh: 18h.",
+      "reference": "No hour exceeded 1500 Wh; the highest was 1220 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Monday 2016-05-09: 00h=330, 01h=350, 02h=330, 03h=320, 04h=340, 05h=390, 06h=330, 07h=340, 08h=370, 09h=400, 10h=330, 11h=370, 12h=810, 13h=1040, 14h=530, 15h=420, 16h=470, 17h=1610, 18h=720, 19h=660, 20h=570, 21h=430, 22h=430, 23h=360.\nHow much energy was used between midnight and 06:00, and what share of the day is that?",
+      "model": "Between 00:00 and 06:00 the appliances used 1800 Wh, which is 16% of the daily 10340 Wh.",
+      "reference": "Between 00:00 and 06:00 the appliances used 2060 Wh, which is 17% of the daily 12250 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-11: 00h=310, 01h=340, 02h=340, 03h=320, 04h=310, 05h=410, 06h=660, 07h=460, 08h=970, 09h=390, 10h=380, 11h=330, 12h=340, 13h=440, 14h=480, 15h=460, 16h=450, 17h=550, 18h=610, 19h=570, 20h=510, 21h=370, 22h=330, 23h=340.\nIn how many hours did consumption exceed 1000 Wh?",
+      "model": "No hour exceeded 1000 Wh; the highest was 600 Wh.",
+      "reference": "No hour exceeded 1000 Wh; the highest was 970 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Saturday 2016-05-14: 00h=350, 01h=380, 02h=360, 03h=360, 04h=360, 05h=340, 06h=380, 07h=680, 08h=800, 09h=710, 10h=950, 11h=580, 12h=700, 13h=680, 14h=640, 15h=780, 16h=670, 17h=1450, 18h=1000, 19h=540, 20h=520, 21h=450, 22h=370, 23h=290.\nHow much energy was used between midnight and 06:00, and what share of the day is that?",
+      "model": "Between 00:00 and 06:00 the appliances used 1800 Wh, which is 16% of the daily 10550 Wh.",
+      "reference": "Between 00:00 and 06:00 the appliances used 2150 Wh, which is 15% of the daily 14340 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Thursday 2016-05-12: 00h=340, 01h=340, 02h=340, 03h=300, 04h=340, 05h=370, 06h=290, 07h=350, 08h=310, 09h=290, 10h=350, 11h=300, 12h=330, 13h=340, 14h=340, 15h=410, 16h=710, 17h=1250, 18h=630, 19h=740, 20h=600, 21h=430, 22h=360, 23h=340.\nHow much energy was used between midnight and 06:00, and what share of the day is that?",
+      "model": "Between 00:00 and 06:00 the appliances used 1800 Wh, which is 16% of the daily 9010 Wh.",
+      "reference": "Between 00:00 and 06:00 the appliances used 2030 Wh, which is 20% of the daily 10400 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-25: 00h=320, 01h=320, 02h=340, 03h=290, 04h=330, 05h=330, 06h=330, 07h=390, 08h=500, 09h=540, 10h=470, 11h=300, 12h=360, 13h=430, 14h=480, 15h=480, 16h=1390, 17h=710, 18h=940, 19h=710, 20h=1140, 21h=340, 22h=320, 23h=320.\nHow much energy was used from 06:00 to 19:00?",
+      "model": "From 06:00 to 19:00 the appliances used 5160 Wh (5.16 kWh), the sum of 9 hourly values.",
+      "reference": "From 06:00 to 19:00 the appliances used 7320 Wh (7.32 kWh), the sum of 13 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "prompt": "Hourly appliance energy (Wh) for Thursday 2016-05-19: 00h=310, 01h=310, 02h=300, 03h=310, 04h=340, 05h=330, 06h=350, 07h=300, 08h=320, 09h=220, 10h=330, 11h=310, 12h=330, 13h=300, 14h=380, 15h=490, 16h=540, 17h=1250, 18h=720, 19h=590, 20h=710, 21h=400, 22h=300, 23h=340.\nHow much energy was used from 09:00 to 18:00?",
+      "model": "From 09:00 to 18:00 the appliances used 1180 Wh (1.18 kWh), the sum of 4 hourly values.",
+      "reference": "From 09:00 to 18:00 the appliances used 4150 Wh (4.15 kWh), the sum of 9 hourly values."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: 60, 60, 60, 60, 50, 60, 60, 60, 60, 60, 60, 50 (Wh, oldest first, 10-minute intervals).\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 310 Wh (0.31 kWh), which is the sum of six 10-minute intervals with an average of 52 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 390 Wh (0.39 kWh), which is the sum of six 10-minute intervals with an average of 65 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings \n22:30  70 Wh\n22:40  60 Wh\n22:50  50 Wh\n23:00  70 Wh\n23:10  50 Wh\n23:20  60 Wh\n23:30  60 Wh\n23:40  50 Wh\n23:50  60 Wh\n00:00  60 Wh\n00:10  50 Wh\n00:20  40 Wh, forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 310 Wh (0.31 kWh), which is the sum of six 10-minute intervals with an average of 52 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 320 Wh (0.32 kWh), which is the sum of six 10-minute intervals with an average of 53 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings \n05:10  60 Wh\n05:20  50 Wh\n05:30  60 Wh\n05:40  60 Wh\n05:50  70 Wh\n06:00  60 Wh\n06:10  70 Wh\n06:20  190 Wh\n06:30  370 Wh\n06:40  100 Wh\n06:50  90 Wh\n07:00  110 Wh, forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 1040 Wh (1.04 kWh), which is the sum of six 10-minute intervals with an average of 173 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 1610 Wh (1.61 kWh), which is the sum of six 10-minute intervals with an average of 268 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: 60, 70, 190, 370, 100, 90, 110, 80, 120, 110, 80, 560 (Wh, oldest first, 10-minute intervals).\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 1020 Wh (1.02 kWh), which is the sum of six 10-minute intervals with an average of 167 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 2030 Wh (2.03 kWh), which is the sum of six 10-minute intervals with an average of 338 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings 60, 50, 50, 40, 60, 40, 40, 50, 60, 70, 60, 70 (Wh, oldest first, 10-minute intervals), forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 350 Wh (0.35 kWh), which is the sum of six 10-minute intervals with an average of 58 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 290 Wh (0.29 kWh), which is the sum of six 10-minute intervals with an average of 48 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: 50, 60, 60, 80, 70, 70, 60, 230, 190, 180, 80, 80 (Wh, oldest first, 10-minute intervals).\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 580 Wh (0.58 kWh), which is the sum of six 10-minute intervals with an average of 97 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 1030 Wh (1.03 kWh), which is the sum of six 10-minute intervals with an average of 172 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings 50, 50, 50, 50, 40, 60, 60, 60, 50, 60, 70, 50 (Wh, oldest first, 10-minute intervals), forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 310 Wh (0.31 kWh), which is the sum of six 10-minute intervals with an average of 52 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 460 Wh (0.46 kWh), which is the sum of six 10-minute intervals with an average of 77 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: \n09:20  80 Wh\n09:30  100 Wh\n09:40  100 Wh\n09:50  100 Wh\n10:00  70 Wh\n10:10  80 Wh\n10:20  80 Wh\n10:30  200 Wh\n10:40  110 Wh\n10:50  110 Wh\n11:00  100 Wh\n11:10  100 Wh.\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 580 Wh (0.58 kWh), which is the sum of six 10-minute intervals with an average of 97 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 620 Wh (0.62 kWh), which is the sum of six 10-minute intervals with an average of 103 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings 60, 60, 60, 70, 100, 40, 50, 50, 80, 50, 180, 90 (Wh, oldest first, 10-minute intervals), forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 510 Wh (0.51 kWh), which is the sum of six 10-minute intervals with an average of 85 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 900 Wh (0.90 kWh), which is the sum of six 10-minute intervals with an average of 150 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: 90, 100, 100, 90, 80, 70, 80, 60, 80, 100, 80, 70 (Wh, oldest first, 10-minute intervals).\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 480 Wh (0.48 kWh), which is the sum of six 10-minute intervals with an average of 80 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 360 Wh (0.36 kWh), which is the sum of six 10-minute intervals with an average of 60 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings 120, 110, 170, 110, 110, 110, 110, 110, 110, 110, 100, 110 (Wh, oldest first, 10-minute intervals), forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 580 Wh (0.58 kWh), which is the sum of six 10-minute intervals with an average of 97 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 480 Wh (0.48 kWh), which is the sum of six 10-minute intervals with an average of 80 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings \n23:30  50 Wh\n23:40  50 Wh\n23:50  50 Wh\n00:00  50 Wh\n00:10  50 Wh\n00:20  50 Wh\n00:30  60 Wh\n00:40  50 Wh\n00:50  60 Wh\n01:00  60 Wh\n01:10  60 Wh\n01:20  50 Wh, forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 320 Wh (0.32 kWh), which is the sum of six 10-minute intervals with an average of 53 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 300 Wh (0.30 kWh), which is the sum of six 10-minute intervals with an average of 50 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: 350, 160, 70, 80, 70, 70, 70, 80, 80, 100, 90, 290 (Wh, oldest first, 10-minute intervals).\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 1230 Wh (1.23 kWh), which is the sum of six 10-minute intervals with an average of 205 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 950 Wh (0.95 kWh), which is the sum of six 10-minute intervals with an average of 158 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings 90, 100, 100, 110, 130, 110, 110, 300, 360, 140, 100, 200 (Wh, oldest first, 10-minute intervals), forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 1140 Wh (1.14 kWh), which is the sum of six 10-minute intervals with an average of 190 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 1000 Wh (1.00 kWh), which is the sum of six 10-minute intervals with an average of 167 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: 60, 60, 60, 50, 60, 60, 60, 60, 50, 60, 60, 60 (Wh, oldest first, 10-minute intervals).\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 310 Wh (0.31 kWh), which is the sum of six 10-minute intervals with an average of 52 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 340 Wh (0.34 kWh), which is the sum of six 10-minute intervals with an average of 57 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: \n16:10  300 Wh\n16:20  450 Wh\n16:30  450 Wh\n16:40  290 Wh\n16:50  270 Wh\n17:00  280 Wh\n17:10  200 Wh\n17:20  120 Wh\n17:30  120 Wh\n17:40  110 Wh\n17:50  560 Wh\n18:00  450 Wh.\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 1380 Wh (1.38 kWh), which is the sum of six 10-minute intervals with an average of 230 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 1950 Wh (1.95 kWh), which is the sum of six 10-minute intervals with an average of 325 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: 60, 50, 50, 50, 50, 50, 50, 50, 60, 60, 50, 60 (Wh, oldest first, 10-minute intervals).\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 310 Wh (0.31 kWh), which is the sum of six 10-minute intervals with an average of 52 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 340 Wh (0.34 kWh), which is the sum of six 10-minute intervals with an average of 57 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: \n11:20  720 Wh\n11:30  600 Wh\n11:40  260 Wh\n11:50  310 Wh\n12:00  270 Wh\n12:10  250 Wh\n12:20  270 Wh\n12:30  230 Wh\n12:40  200 Wh\n12:50  150 Wh\n13:00  80 Wh\n13:10  550 Wh.\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 1020 Wh (1.02 kWh), which is the sum of six 10-minute intervals with an average of 170 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 1920 Wh (1.92 kWh), which is the sum of six 10-minute intervals with an average of 320 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings \n15:40  100 Wh\n15:50  200 Wh\n16:00  350 Wh\n16:10  300 Wh\n16:20  450 Wh\n16:30  450 Wh\n16:40  290 Wh\n16:50  270 Wh\n17:00  280 Wh\n17:10  200 Wh\n17:20  120 Wh\n17:30  120 Wh, forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 1040 Wh (1.04 kWh), which is the sum of six 10-minute intervals with an average of 173 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 2170 Wh (2.17 kWh), which is the sum of six 10-minute intervals with an average of 362 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings 70, 50, 60, 50, 60, 50, 60, 60, 60, 50, 50, 70 (Wh, oldest first, 10-minute intervals), forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 330 Wh (0.33 kWh), which is the sum of six 10-minute intervals with an average of 55 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 390 Wh (0.39 kWh), which is the sum of six 10-minute intervals with an average of 65 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "The last two hours of appliance energy readings (10-minute intervals) are: 100, 600, 510, 280, 250, 260, 250, 180, 110, 80, 70, 80 (Wh, oldest first, 10-minute intervals).\nEstimate the total appliances energy for the next hour.",
+      "model": "The next hour is expected to total about 1000 Wh (1.00 kWh), which is the sum of six 10-minute intervals with an average of 167 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 440 Wh (0.44 kWh), which is the sum of six 10-minute intervals with an average of 73 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_hour",
+      "prompt": "Using the previous 12 readings \n18:20  110 Wh\n18:30  90 Wh\n18:40  110 Wh\n18:50  110 Wh\n19:00  130 Wh\n19:10  120 Wh\n19:20  120 Wh\n19:30  120 Wh\n19:40  130 Wh\n19:50  120 Wh\n20:00  130 Wh\n20:10  120 Wh, forecast the energy the appliances will use over the coming 60 minutes.",
+      "model": "The next hour is expected to total about 650 Wh (0.65 kWh), which is the sum of six 10-minute intervals with an average of 108 Wh each. Treat this as an estimate; individual intervals can spike well above the average.",
+      "reference": "The next hour is expected to total about 500 Wh (0.50 kWh), which is the sum of six 10-minute intervals with an average of 83 Wh each. Treat this as an estimate; individual intervals can spike well above the average."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Here are the last 6 appliance energy readings of a house ending 2016-05-22 09:00: \n08:10  50 Wh\n08:20  60 Wh\n08:30  220 Wh\n08:40  490 Wh\n08:50  260 Wh\n09:00  120 Wh.\nForecast the appliances energy use for the next 10-minute interval.",
+      "model": "The next 10-minute reading is expected to be about 190 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 120 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Given these 6 consecutive 10-minute appliance readings: 60, 60, 50, 60, 60, 60 (Wh, oldest first, 10-minute intervals) Current conditions: temperature in the living room is 22.4 °C; temperature in the kitchen is 24.9 °C.\nWhat is the expected energy use in the following 10 minutes?",
+      "model": "The next 10-minute reading is expected to be about 60 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 70 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Given these 6 consecutive 10-minute appliance readings: \n21:50  60 Wh\n22:00  40 Wh\n22:10  60 Wh\n22:20  50 Wh\n22:30  60 Wh\n22:40  60 Wh\nWhat is the expected energy use in the following 10 minutes?",
+      "model": "The next 10-minute reading is expected to be about 60 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 50 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Here are the last 6 appliance energy readings of a house ending 2016-05-26 19:40: 290, 270, 260, 310, 250, 130 (Wh, oldest first, 10-minute intervals).\nForecast the appliances energy use for the next 10-minute interval.",
+      "model": "The next 10-minute reading is expected to be about 110 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 120 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Short-term load forecast. History (10-min steps, Wh): \n08:20  70 Wh\n08:30  80 Wh\n08:40  70 Wh\n08:50  70 Wh\n09:00  70 Wh\n09:10  80 Wh. Current conditions: lighting energy use is 0 Wh; temperature in the kitchen is 24.4 °C. Predict the next value.",
+      "model": "The next 10-minute reading is expected to be about 60 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 80 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Given these 12 consecutive 10-minute appliance readings: \n18:30  120 Wh\n18:40  120 Wh\n18:50  110 Wh\n19:00  170 Wh\n19:10  110 Wh\n19:20  110 Wh\n19:30  110 Wh\n19:40  110 Wh\n19:50  110 Wh\n20:00  110 Wh\n20:10  110 Wh\n20:20  100 Wh\nWhat is the expected energy use in the following 10 minutes?",
+      "model": "The next 10-minute reading is expected to be about 100 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 110 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Here are the last 6 appliance energy readings of a house ending Tuesday 24 May 2016 at 11:00: \n10:10  60 Wh\n10:20  60 Wh\n10:30  60 Wh\n10:40  70 Wh\n10:50  90 Wh\n11:00  90 Wh. Current conditions: lighting energy use is 0 Wh; temperature in the living room is 22.2 °C.\nForecast the appliances energy use for the next 10-minute interval.",
+      "model": "The next 10-minute reading is expected to be about 80 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 100 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Here are the last 6 appliance energy readings of a house ending Friday 27 May 2016 at 17:50: 110, 90, 100, 90, 270, 420 (Wh, oldest first, 10-minute intervals).\nForecast the appliances energy use for the next 10-minute interval.",
+      "model": "The next 10-minute reading is expected to be about 190 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 430 Wh, a peak level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Given these 6 consecutive 10-minute appliance readings: \n02:00  50 Wh\n02:10  40 Wh\n02:20  60 Wh\n02:30  40 Wh\n02:40  70 Wh\n02:50  50 Wh Current conditions: lighting energy use (lights) is 0 Wh.\nWhat is the expected energy use in the following 10 minutes?",
+      "model": "The next 10-minute reading is expected to be about 50 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 60 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Given these 6 consecutive 10-minute appliance readings: 70, 90, 70, 80, 80, 80 (Wh, oldest first, 10-minute intervals)\nWhat is the expected energy use in the following 10 minutes?",
+      "model": "The next 10-minute reading is expected to be about 60 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 80 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Here are the last 3 appliance energy readings of a house ending 2016-05-09 04:00: \n03:40  60 Wh\n03:50  60 Wh\n04:00  50 Wh.\nForecast the appliances energy use for the next 10-minute interval.",
+      "model": "The next 10-minute reading is expected to be about 50 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 60 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Short-term load forecast. History (10-min steps, Wh): 50, 50, 60 (Wh, oldest first, 10-minute intervals). Current conditions: lights is 0 Wh; T_out is 10.9 °C. Predict the next value.",
+      "model": "The next 10-minute reading is expected to be about 50 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 90 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Given these 3 consecutive 10-minute appliance readings: \n18:40  110 Wh\n18:50  110 Wh\n19:00  130 Wh\nWhat is the expected energy use in the following 10 minutes?",
+      "model": "The next 10-minute reading is expected to be about 130 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 120 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Here are the last 6 appliance energy readings of a house ending 2016-05-10 14:30: \n13:40  50 Wh\n13:50  50 Wh\n14:00  50 Wh\n14:10  50 Wh\n14:20  50 Wh\n14:30  50 Wh. Current conditions: outdoor temperature (weather station) is 18.1 °C; wind speed is 3.5 m/s; outdoor humidity (weather station) is 82.0 %.\nForecast the appliances energy use for the next 10-minute interval.",
+      "model": "The next 10-minute reading is expected to be about 50 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 60 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Given these 12 consecutive 10-minute appliance readings: 80, 80, 70, 100, 100, 90, 100, 220, 180, 120, 110, 90 (Wh, oldest first, 10-minute intervals) Current conditions: temperature in the kitchen (T1) is 25.5 °C; wind speed (Windspeed) is 3.2 m/s.\nWhat is the expected energy use in the following 10 minutes?",
+      "model": "The next 10-minute reading is expected to be about 110 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 100 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Short-term load forecast. History (10-min steps, Wh): 80, 110, 600 (Wh, oldest first, 10-minute intervals). Predict the next value.",
+      "model": "The next 10-minute reading is expected to be about 230 Wh, a high level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 560 Wh, a peak level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Here are the last 6 appliance energy readings of a house ending 2016-05-26 12:50: \n12:00  280 Wh\n12:10  250 Wh\n12:20  260 Wh\n12:30  250 Wh\n12:40  180 Wh\n12:50  110 Wh. Current conditions: outdoor temperature (weather station) is 19.0 °C; lighting energy use is 0 Wh.\nForecast the appliances energy use for the next 10-minute interval.",
+      "model": "The next 10-minute reading is expected to be about 110 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 80 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Short-term load forecast. History (10-min steps, Wh): \n09:40  90 Wh\n09:50  290 Wh\n10:00  430 Wh\n10:10  100 Wh\n10:20  100 Wh\n10:30  100 Wh. Current conditions: lighting energy use is 0 Wh; temperature in the kitchen is 24.4 °C. Predict the next value.",
+      "model": "The next 10-minute reading is expected to be about 100 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 110 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Short-term load forecast. History (10-min steps, Wh): \n20:30  70 Wh\n20:40  80 Wh\n20:50  60 Wh\n21:00  70 Wh\n21:10  60 Wh\n21:20  80 Wh\n21:30  70 Wh\n21:40  50 Wh\n21:50  60 Wh\n22:00  40 Wh\n22:10  60 Wh\n22:20  50 Wh. Predict the next value.",
+      "model": "The next 10-minute reading is expected to be about 50 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 60 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Here are the last 3 appliance energy readings of a house ending 2016-05-16 06:50: \n06:30  60 Wh\n06:40  50 Wh\n06:50  60 Wh.\nForecast the appliances energy use for the next 10-minute interval.",
+      "model": "The next 10-minute reading is expected to be about 50 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 60 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Short-term load forecast. History (10-min steps, Wh): \n11:30  100 Wh\n11:40  90 Wh\n11:50  100 Wh. Current conditions: temperature in the living room is 25.0 °C. Predict the next value.",
+      "model": "The next 10-minute reading is expected to be about 100 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 110 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Given these 6 consecutive 10-minute appliance readings: \n15:00  380 Wh\n15:10  550 Wh\n15:20  540 Wh\n15:30  340 Wh\n15:40  220 Wh\n15:50  140 Wh\nWhat is the expected energy use in the following 10 minutes?",
+      "model": "The next 10-minute reading is expected to be about 70 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 110 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Given these 6 consecutive 10-minute appliance readings: 100, 130, 100, 110, 80, 90 (Wh, oldest first, 10-minute intervals)\nWhat is the expected energy use in the following 10 minutes?",
+      "model": "The next 10-minute reading is expected to be about 100 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 80 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "forecast_next",
+      "prompt": "Given these 6 consecutive 10-minute appliance readings: \n04:30  50 Wh\n04:40  50 Wh\n04:50  60 Wh\n05:00  60 Wh\n05:10  50 Wh\n05:20  60 Wh Current conditions: T_out is 12.2 °C; RH_out is 98.3 %; Windspeed is 1.0 m/s.\nWhat is the expected energy use in the following 10 minutes?",
+      "model": "The next 10-minute reading is expected to be about 60 Wh, a low level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh).",
+      "reference": "The next 10-minute reading is expected to be about 90 Wh, a moderate level for this house. This is a point forecast from the recent readings and it carries uncertainty: appliance load in this dataset is spiky and right-skewed (median ≈ 60 Wh)."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "Weather at Sunday 22 May 2016 at 09:50: \n- outdoor temperature (weather station) (T_out): 15.9 °C\n- outdoor dew point (Tdewpoint): 14.7 °C\n- outdoor humidity (weather station) (RH_out): 93.0 %\nWhat is the dew-point spread, and is the air close to saturation?",
+      "model": "The spread is 1.0 °C (T_out − Tdewpoint). That is small, so the air is close to saturation, consistent with RH_out of 93%.",
+      "reference": "The spread is 1.2 °C (T_out − Tdewpoint). That is small, so the air is close to saturation, consistent with RH_out of 93%."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "temperature outside the building (north side) (T6)=10.1 °C, outdoor temperature (weather station) (T_out)=12.2 °C\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (10.1 °C) is measured by a sensor on the north side of the building. T_out (12.2 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.0 °C.",
+      "reference": "T6 (10.1 °C) is measured by a sensor on the north side of the building. T_out (12.2 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 2.1 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "Weather at 2016-05-24 02:40: outdoor temperature (weather station) (T_out) is 10.7 °C; outdoor dew point (Tdewpoint) is 8.4 °C; outdoor humidity (weather station) (RH_out) is 86.0 %.\nWhat is the dew-point spread, and is the air close to saturation?",
+      "model": "The spread is 2.6 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 86%).",
+      "reference": "The spread is 2.2 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 86%)."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "temperature in the ironing room is 22.7 °C; outdoor temperature (weather station) is 13.8 °C.\nHow much warmer is the ironing room than outdoors?",
+      "model": "The ironing room is 7.6 °C warmer than outdoors.",
+      "reference": "The ironing room is 8.9 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "\n- temperature outside the building (north side) (T6): 21.2 °C\n- outdoor temperature (weather station) (T_out): 19.3 °C\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (21.2 °C) is measured by a sensor on the north side of the building. T_out (19.3 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.1 °C.",
+      "reference": "T6 (21.2 °C) is measured by a sensor on the north side of the building. T_out (19.3 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 1.9 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "temperature in the office room (T4)=23.8 °C, outdoor temperature (weather station) (T_out)=15.3 °C\nHow much warmer is the office room than outdoors?",
+      "model": "The office room is 7.7 °C warmer than outdoors.",
+      "reference": "The office room is 8.5 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "temperature outside the building (north side) (T6)=12.9 °C, outdoor temperature (weather station) (T_out)=10.6 °C\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (12.9 °C) is measured by a sensor on the north side of the building. T_out (10.6 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 2.9 °C.",
+      "reference": "T6 (12.9 °C) is measured by a sensor on the north side of the building. T_out (10.6 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 2.2 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "Weather at 2016-05-16 09:00: T_out is 8.5 °C; Tdewpoint is 6.2 °C; RH_out is 86.0 %.\nWhat is the dew-point spread, and is the air close to saturation?",
+      "model": "The spread is 2.9 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 86%).",
+      "reference": "The spread is 2.3 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 86%)."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "T7=23.4 °C, T_out=7.9 °C\nHow much warmer is the ironing room than outdoors?",
+      "model": "The ironing room is 12.0 °C warmer than outdoors.",
+      "reference": "The ironing room is 15.5 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "\n- temperature outside the building (north side) (T6): 24.8 °C\n- outdoor temperature (weather station) (T_out): 22.7 °C\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (2.8 °C) is measured by a sensor on the north side of the building. T_out (2.7 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.1 °C.",
+      "reference": "T6 (24.8 °C) is measured by a sensor on the north side of the building. T_out (22.7 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 2.1 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "temperature in the ironing room (T7)=25.1 °C, outdoor temperature (weather station) (T_out)=18.9 °C\nHow much warmer is the ironing room than outdoors?",
+      "model": "The ironing room is 17.1 °C warmer than outdoors.",
+      "reference": "The ironing room is 6.2 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "\n- temperature in the office room (T4): 23.8 °C\n- outdoor temperature (weather station) (T_out): 13.6 °C\nHow much warmer is the office room than outdoors?",
+      "model": "The office room is 18.8 °C warmer than outdoors.",
+      "reference": "The office room is 10.2 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "Weather at 2016-05-26 13:50: \n- outdoor temperature (weather station) (T_out): 19.7 °C\n- outdoor dew point (Tdewpoint): 8.7 °C\n- outdoor humidity (weather station) (RH_out): 48.8 %\nWhat is the dew-point spread, and is the air close to saturation?",
+      "model": "The spread is 1.9 °C (T_out − Tdewpoint). That is small, so the air is close to saturation, consistent with RH_out of 48%.",
+      "reference": "The spread is 11.1 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 49%)."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "Weather at Thursday 12 May 2016 at 04:20: outdoor temperature (weather station)=12.5 °C, outdoor dew point=12.2 °C, outdoor humidity (weather station)=98.3 %\nWhat is the dew-point spread, and is the air close to saturation?",
+      "model": "The spread is 0.7 °C (T_out − Tdewpoint). That is small, so the air is close to saturation, consistent with RH_out of 98%.",
+      "reference": "The spread is 0.3 °C (T_out − Tdewpoint). That is small, so the air is close to saturation, consistent with RH_out of 98%."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "temperature outside the building (north side) (T6)=17.1 °C, outdoor temperature (weather station) (T_out)=14.4 °C\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (17.1 °C) is measured by a sensor on the north side of the building. T_out (14.4 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 2.0 °C.",
+      "reference": "T6 (17.1 °C) is measured by a sensor on the north side of the building. T_out (14.4 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 2.7 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "prompt": "temperature in the teenager room is 25.7 °C; outdoor temperature (weather station) is 8.7 °C.\nHow much warmer is the teenager room than outdoors?",
+      "model": "The teenager room is 10.1 °C warmer than outdoors.",
+      "reference": "The teenager room is 17.0 °C warmer than outdoors."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Sensor snapshot at Monday 23 May 2016 at 11:40: T2=22.7 °C, T8=24.3 °C, T5=22.9 °C\nWhich room is the coldest?",
+      "model": "The bathroom (T5) is the coldest room at 22.9 °C.",
+      "reference": "The living room (T2) is the coldest room at 22.7 °C."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Snapshot: humidity in the laundry room (RH_3) is 37.7 %; humidity in the teenager room (RH_8) is 41.0 %; humidity in the living room (RH_2) is 41.8 %; humidity in the bathroom (RH_5) is 42.6 %; humidity in the office room (RH_4) is 37.0 %.\nHow much higher is the humidity in the bathroom than in the teenager room?",
+      "model": "The bathroom is 14.8 percentage points higher than the teenager room (42.6 vs 41.0 %).",
+      "reference": "The bathroom is 1.6 percentage points higher than the teenager room (42.6 vs 41.0 %)."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Snapshot: \n- humidity in the ironing room (RH_7): 44.6 %\n- humidity in the office room (RH_4): 47.5 %\n- humidity in the bathroom (RH_5): 53.1 %\n- humidity in the living room (RH_2): 48.9 %\nHow much higher is the humidity in the office room than in the ironing room?",
+      "model": "The office room is 2.1 percentage points higher than the ironing room (47.5 vs 44.6 %).",
+      "reference": "The office room is 2.9 percentage points higher than the ironing room (47.5 vs 44.6 %)."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Sensor snapshot at 2016-05-11 23:30: humidity in the ironing room=43.0 %, humidity outside the building (north side)=54.5 %, humidity in the kitchen=48.2 %, humidity in the parents room=48.0 %\nWhich room is the most humid?",
+      "model": "The parents room (RH_9) is the most humid room at 48.0 %. RH_6 is not a room: that sensor is outside the building (north side), so it is excluded.",
+      "reference": "The kitchen (RH_1) is the most humid room at 48.2 %. RH_6 is not a room: that sensor is outside the building (north side), so it is excluded."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Snapshot: \n- T9: 23.2 °C\n- T2: 26.0 °C\n- T3: 28.0 °C\n- T1: 25.4 °C\n- T4: 24.7 °C\nHow much higher is the temperature in the kitchen than in the laundry room?",
+      "model": "The kitchen is 2.2 °C lower than the laundry room (25.4 vs 28.0 °C).",
+      "reference": "The kitchen is 2.6 °C lower than the laundry room (25.4 vs 28.0 °C)."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Sensor snapshot at Sunday 15 May 2016 at 13:10: humidity in the parents room is 33.0 %; humidity outside the building (north side) is 1.0 %; humidity in the laundry room is 35.0 %; humidity in the teenager room is 35.0 %; humidity in the kitchen is 35.0 %.\nWhich room is the driest?",
+      "model": "The laundry room (RH_3) is the driest room at 35.0 %. RH_6 is not a room: that sensor is outside the building (north side), so it is excluded.",
+      "reference": "The parents room (RH_9) is the driest room at 33.0 %. RH_6 is not a room: that sensor is outside the building (north side), so it is excluded."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Snapshot: T3 is 26.3 °C; T4 is 24.6 °C; T6 is 13.0 °C; T7 is 24.3 °C.\nHow much higher is the temperature in the laundry room than in the office room?",
+      "model": "The laundry room is 0.1 °C higher than the office room (26.3 vs 24.6 °C).",
+      "reference": "The laundry room is 1.7 °C higher than the office room (26.3 vs 24.6 °C)."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Snapshot: temperature in the living room is 25.1 °C; temperature in the ironing room is 25.0 °C; temperature in the office room is 25.5 °C; temperature outside the building (north side) is 22.0 °C.\nHow much higher is the temperature in the living room than in the office room?",
+      "model": "The living room is 0.7 °C lower than the office room (25.1 vs 25.5 °C).",
+      "reference": "The living room is 0.4 °C lower than the office room (25.1 vs 25.5 °C)."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Snapshot: \n- temperature in the living room (T2): 22.6 °C\n- temperature in the teenager room (T8): 25.0 °C\n- temperature in the laundry room (T3): 24.4 °C\nHow much higher is the temperature in the living room than in the laundry room?",
+      "model": "The living room is 0.6 °C lower than the laundry room (22.6 vs 24.4 °C).",
+      "reference": "The living room is 1.8 °C lower than the laundry room (22.6 vs 24.4 °C)."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Snapshot: \n- humidity in the teenager room: 46.0 %\n- humidity in the office room: 40.7 %\n- humidity in the laundry room: 38.9 %\n- humidity in the kitchen: 40.1 %\n- humidity in the ironing room: 34.6 %\nHow much higher is the humidity in the laundry room than in the teenager room?",
+      "model": "The laundry room is 2.9 percentage points lower than the teenager room (38.9 vs 46.0 %).",
+      "reference": "The laundry room is 7.1 percentage points lower than the teenager room (38.9 vs 46.0 %)."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Sensor snapshot at 2016-05-12 06:40: T4 is 25.1 °C; T9 is 24.0 °C; T5 is 23.8 °C; T7 is 24.6 °C; T3 is 26.1 °C.\nWhich room is the coldest?",
+      "model": "The parents room (T9) is the coldest room at 24.0 °C.",
+      "reference": "The bathroom (T5) is the coldest room at 23.8 °C."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Snapshot: humidity in the laundry room (RH_3)=38.6 %, humidity in the bathroom (RH_5)=56.8 %, humidity in the parents room (RH_9)=41.6 %\nHow much higher is the humidity in the bathroom than in the laundry room?",
+      "model": "The bathroom is 13.1 percentage points higher than the laundry room (56.8 vs 38.6 %).",
+      "reference": "The bathroom is 18.2 percentage points higher than the laundry room (56.8 vs 38.6 %)."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Snapshot: humidity in the teenager room (RH_8) is 45.4 %; humidity in the laundry room (RH_3) is 39.3 %; humidity in the kitchen (RH_1) is 40.9 %; humidity in the office room (RH_4) is 38.5 %.\nHow much higher is the humidity in the laundry room than in the office room?",
+      "model": "The laundry room is 1.1 percentage points lower than the office room (39.3 vs 38.5 %).",
+      "reference": "The laundry room is 0.8 percentage points higher than the office room (39.3 vs 38.5 %)."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Snapshot: \n- T1: 25.5 °C\n- T6: 25.9 °C\n- T4: 24.7 °C\n- T2: 26.0 °C\nHow much higher is the temperature in the office room than in the kitchen?",
+      "model": "The office room is 0.4 °C lower than the kitchen (24.7 vs 25.5 °C).",
+      "reference": "The office room is 0.8 °C lower than the kitchen (24.7 vs 25.5 °C)."
+    },
+    {
+      "task": "room_compare",
+      "prompt": "Sensor snapshot at Tuesday 10 May 2016 at 12:00: \n- humidity in the parents room: 47.8 %\n- humidity in the ironing room: 45.1 %\n- humidity in the teenager room: 49.0 %\n- humidity in the laundry room: 42.0 %\nWhich room is the most humid?",
+      "model": "The parents room (RH_9) is the most humid room at 47.8 %.",
+      "reference": "The teenager room (RH_8) is the most humid room at 49.0 %."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Check this reading for an anomaly. Recent history: 60, 50, 60, 80, 50, 40, 20, 30, 30, 60, 60, 60 (Wh, oldest first, 10-minute intervals). Current: 60 Wh at 2016-05-17 23:40.",
+      "model": "No. The recent median is 55 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +0.3 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 55 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +0.5 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Context (12 readings, 10-min): \n05:50  60 Wh\n06:00  70 Wh\n06:10  70 Wh\n06:20  70 Wh\n06:30  70 Wh\n06:40  80 Wh\n06:50  70 Wh\n07:00  90 Wh\n07:10  70 Wh\n07:20  80 Wh\n07:30  120 Wh\n07:40  400 Wh\nNew reading: 210 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +11.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +14.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Previous two hours of appliance readings: 490, 260, 120, 120, 100, 130, 100, 110, 80, 90, 80, 150 (Wh, oldest first, 10-minute intervals).\nThe next reading is 490 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 130 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is +15.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 115 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is +12.6 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Context (12 readings, 10-min): 140, 140, 140, 150, 140, 140, 150, 150, 150, 130, 160, 480 (Wh, oldest first, 10-minute intervals)\nNew reading: 260 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 145 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +9.1 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 145 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +11.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Check this reading for an anomaly. Recent history: 60, 80, 60, 80, 80, 100, 100, 110, 200, 100, 100, 100 (Wh, oldest first, 10-minute intervals). Current: 110 Wh at 2016-05-12 17:10.",
+      "model": "No. The recent median is 100 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +2.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 100 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +0.4 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Previous two hours of appliance readings: 60, 60, 60, 60, 60, 70, 70, 60, 60, 50, 60, 220 (Wh, oldest first, 10-minute intervals).\nThe next reading is 490 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 60 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +25.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 60 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +43.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Previous two hours of appliance readings: 60, 60, 60, 50, 70, 70, 130, 390, 420, 710, 850, 470 (Wh, oldest first, 10-minute intervals).\nThe next reading is 360 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 75 Wh with a robust spread (1.4826 × MAD) of 37 Wh, so the new reading is +6.6 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 100 Wh with a robust spread (1.4826 × MAD) of 67 Wh, so the new reading is +3.9 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Previous two hours of appliance readings: \n07:50  320 Wh\n08:00  350 Wh\n08:10  160 Wh\n08:20  70 Wh\n08:30  80 Wh\n08:40  70 Wh\n08:50  70 Wh\n09:00  70 Wh\n09:10  80 Wh\n09:20  80 Wh\n09:30  100 Wh\n09:40  90 Wh.\nThe next reading is 290 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 80 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +12.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 80 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +14.2 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Context (12 readings, 10-min): \n15:50  80 Wh\n16:00  100 Wh\n16:10  100 Wh\n16:20  110 Wh\n16:30  200 Wh\n16:40  100 Wh\n16:50  100 Wh\n17:00  100 Wh\n17:10  110 Wh\n17:20  120 Wh\n17:30  110 Wh\n17:40  470 Wh\nNew reading: 340 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 105 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +11.1 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 105 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +23.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Check this reading for an anomaly. Recent history: \n11:00  60 Wh\n11:10  40 Wh\n11:20  60 Wh\n11:30  40 Wh\n11:40  60 Wh\n11:50  50 Wh\n12:00  60 Wh\n12:10  50 Wh\n12:20  50 Wh\n12:30  60 Wh\n12:40  50 Wh\n12:50  50 Wh. Current: 40 Wh at 2016-05-17 13:00.",
+      "model": "No. The recent median is 50 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is -1.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 50 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -0.7 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Check this reading for an anomaly. Recent history: 70, 70, 70, 70, 80, 60, 90, 70, 70, 60, 70, 100 (Wh, oldest first, 10-minute intervals). Current: 290 Wh at 2016-05-23 16:40.",
+      "model": "Yes, flag it. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +12.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +22.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Check this reading for an anomaly. Recent history: \n15:40  90 Wh\n15:50  80 Wh\n16:00  100 Wh\n16:10  90 Wh\n16:20  90 Wh\n16:30  80 Wh\n16:40  100 Wh\n16:50  80 Wh\n17:00  70 Wh\n17:10  90 Wh\n17:20  70 Wh\n17:30  100 Wh. Current: 400 Wh at 2016-05-19 17:40.",
+      "model": "Yes, flag it. The recent median is 90 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +22.6 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 90 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +20.9 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Context (12 readings, 10-min): 230, 190, 160, 80, 60, 60, 60, 60, 70, 80, 80, 70 (Wh, oldest first, 10-minute intervals)\nNew reading: 100 Wh. Should it be flagged as anomalous?",
+      "model": "No. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +0.7 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 75 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +1.1 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Previous two hours of appliance readings: 60, 80, 80, 50, 50, 60, 50, 50, 80, 330, 280, 130 (Wh, oldest first, 10-minute intervals).\nThe next reading is 330 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 60 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +18.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is +8.8 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Previous two hours of appliance readings: 60, 60, 50, 50, 40, 60, 40, 40, 50, 60, 70, 60 (Wh, oldest first, 10-minute intervals).\nThe next reading is 70 Wh. Is this a consumption spike?",
+      "model": "No. The recent median is 50 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +1.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 55 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +1.5 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Previous two hours of appliance readings: 50, 50, 80, 330, 280, 130, 330, 100, 100, 80, 90, 390 (Wh, oldest first, 10-minute intervals).\nThe next reading is 790 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 100 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +33.6 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 100 Wh with a robust spread (1.4826 × MAD) of 59 Wh, so the new reading is +11.6 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Previous two hours of appliance readings: \n15:50  70 Wh\n16:00  70 Wh\n16:10  50 Wh\n16:20  70 Wh\n16:30  140 Wh\n16:40  240 Wh\n16:50  60 Wh\n17:00  70 Wh\n17:10  90 Wh\n17:20  100 Wh\n17:30  110 Wh\n17:40  100 Wh.\nThe next reading is 240 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 95 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +7.1 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 80 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is +5.4 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Check this reading for an anomaly. Recent history: \n18:30  210 Wh\n18:40  330 Wh\n18:50  130 Wh\n19:00  130 Wh\n19:10  150 Wh\n19:20  140 Wh\n19:30  160 Wh\n19:40  140 Wh\n19:50  140 Wh\n20:00  160 Wh\n20:10  140 Wh\n20:20  130 Wh. Current: 290 Wh at 2016-05-18 20:30.",
+      "model": "Yes, flag it. The recent median is 145 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +7.1 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 140 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +10.1 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Context (12 readings, 10-min): 80, 80, 60, 100, 80, 70, 90, 70, 80, 70, 80, 60 (Wh, oldest first, 10-minute intervals)\nNew reading: 60 Wh. Should it be flagged as anomalous?",
+      "model": "No. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +0.7 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 80 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -1.3 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Check this reading for an anomaly. Recent history: \n16:30  90 Wh\n16:40  80 Wh\n16:50  90 Wh\n17:00  90 Wh\n17:10  120 Wh\n17:20  110 Wh\n17:30  110 Wh\n17:40  630 Wh\n17:50  400 Wh\n18:00  350 Wh\n18:10  120 Wh\n18:20  100 Wh. Current: 110 Wh at 2016-05-16 18:30.",
+      "model": "No. The recent median is 155 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +0.2 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 110 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is +0.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Context (12 readings, 10-min): 60, 60, 60, 60, 70, 70, 60, 60, 50, 60, 220, 490 (Wh, oldest first, 10-minute intervals)\nNew reading: 260 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 60 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +12.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 60 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +20.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Context (12 readings, 10-min): \n17:30  240 Wh\n17:40  200 Wh\n17:50  160 Wh\n18:00  130 Wh\n18:10  110 Wh\n18:20  120 Wh\n18:30  110 Wh\n18:40  120 Wh\n18:50  130 Wh\n19:00  110 Wh\n19:10  110 Wh\n19:20  110 Wh\nNew reading: 90 Wh. Should it be flagged as anomalous?",
+      "model": "No. The recent median is 110 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -0.7 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 120 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -2.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "prompt": "Context (12 readings, 10-min): \n22:10  80 Wh\n22:20  50 Wh\n22:30  40 Wh\n22:40  20 Wh\n22:50  30 Wh\n23:00  30 Wh\n23:10  60 Wh\n23:20  60 Wh\n23:30  60 Wh\n23:40  60 Wh\n23:50  60 Wh\n00:00  50 Wh\nNew reading: 60 Wh. Should it be flagged as anomalous?",
+      "model": "No. The recent median is 50 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +0.7 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 55 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +0.5 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "time_features",
+      "prompt": "Is 2016-05-25 a weekend day?",
+      "model": "No, 2016-05-25 is a Tuesday, so its week status is weekday.",
+      "reference": "No, 2016-05-25 is a Wednesday, so its week status is weekday."
+    },
+    {
+      "task": "time_features",
+      "prompt": "What day of the week was 2016-05-19?",
+      "model": "2016-05-19 was a Tuesday.",
+      "reference": "2016-05-19 was a Thursday."
+    },
+    {
+      "task": "time_features",
+      "prompt": "How many seconds after midnight is the timestamp 2016-05-13 07:20 (the NSM feature)?",
+      "model": "07:20 is 26800 seconds after midnight (7 h × 3600 + 20 min × 60).",
+      "reference": "07:20 is 26400 seconds after midnight (7 h × 3600 + 20 min × 60)."
+    },
+    {
+      "task": "time_features",
+      "prompt": "Is 2016-05-16 a weekend day?",
+      "model": "No, 2016-05-16 is a Tuesday, so its week status is weekday.",
+      "reference": "No, 2016-05-16 is a Monday, so its week status is weekday."
+    },
+    {
+      "task": "time_features",
+      "prompt": "What day of the week was 2016-05-22?",
+      "model": "2016-05-22 was a Friday.",
+      "reference": "2016-05-22 was a Sunday."
+    },
+    {
+      "task": "time_features",
+      "prompt": "How many seconds after midnight is the timestamp 2016-05-26 02:10 (the NSM feature)?",
+      "model": "02:10 is 8200 seconds after midnight (2 h × 3600 + 10 min × 60).",
+      "reference": "02:10 is 7800 seconds after midnight (2 h × 3600 + 10 min × 60)."
+    },
+    {
+      "task": "time_features",
+      "prompt": "Is 2016-05-11 a weekend day?",
+      "model": "No, 2016-05-11 is a Tuesday, so its week status is weekday.",
+      "reference": "No, 2016-05-11 is a Wednesday, so its week status is weekday."
+    },
+    {
+      "task": "time_features",
+      "prompt": "How many seconds after midnight is the timestamp 2016-05-21 19:10 (the NSM feature)?",
+      "model": "19:10 is 69600 seconds after midnight (19 h × 3600 + 10 min × 60).",
+      "reference": "19:10 is 69000 seconds after midnight (19 h × 3600 + 10 min × 60)."
+    },
+    {
+      "task": "time_features",
+      "prompt": "What day of the week was 2016-05-12?",
+      "model": "2016-05-12 was a Friday.",
+      "reference": "2016-05-12 was a Thursday."
+    },
+    {
+      "task": "time_features",
+      "prompt": "How many seconds after midnight is the timestamp 2016-05-20 21:30 (the NSM feature)?",
+      "model": "21:30 is 76600 seconds after midnight (21 h × 3600 + 30 min × 60).",
+      "reference": "21:30 is 77400 seconds after midnight (21 h × 3600 + 30 min × 60)."
+    },
+    {
+      "task": "time_features",
+      "prompt": "How many seconds after midnight is the timestamp 2016-05-15 05:20 (the NSM feature)?",
+      "model": "05:20 is 18000 seconds after midnight (5 h × 3600 + 20 min × 60).",
+      "reference": "05:20 is 19200 seconds after midnight (5 h × 3600 + 20 min × 60)."
+    },
+    {
+      "task": "time_features",
+      "prompt": "How many seconds after midnight is the timestamp 2016-05-10 08:10 (the NSM feature)?",
+      "model": "08:10 is 31400 seconds after midnight (8 h × 3600 + 10 min × 60).",
+      "reference": "08:10 is 29400 seconds after midnight (8 h × 3600 + 10 min × 60)."
+    },
+    {
+      "task": "units_cost",
+      "prompt": "A 10-minute appliance reading is 220 Wh. Convert it to average watts.",
+      "model": "220 Wh over 10 minutes (1/6 h) is an average of 1420 W (1.42 kW).",
+      "reference": "220 Wh over 10 minutes (1/6 h) is an average of 1320 W (1.32 kW)."
+    },
+    {
+      "task": "units_cost",
+      "prompt": "If 360 Wh were used every 10 minutes for a whole day, how many kWh would that be?",
+      "model": "144 intervals × 360 Wh = 54440 Wh = 54.44 kWh.",
+      "reference": "144 intervals × 360 Wh = 51840 Wh = 51.84 kWh."
+    },
+    {
+      "task": "units_cost",
+      "prompt": "Electricity costs €0.15 per kWh. At 2016-05-14 12:20 the appliances used 130 Wh in 10 minutes. What did that interval cost?",
+      "model": "130 Wh = 0.130 kWh, and 0.130 × €0.15 = €0.0155.",
+      "reference": "130 Wh = 0.130 kWh, and 0.130 × €0.15 = €0.0195."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-11 11:30 to 2016-05-11 12:40 (10-minute intervals): 50, 60, 50, 70, 50, 60, 50, 60 (Wh, oldest first, 10-minute intervals).\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 50 Wh, at 11:30, 11:40, 11:50, 12:00.",
+      "reference": "The lowest reading is 50 Wh, at 11:30, 11:50, 12:10, 12:30."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-23 03:00 to 2016-05-23 03:50 (10-minute intervals): 50, 60, 50, 50, 50, 50 (Wh, oldest first, 10-minute intervals).\nWhat is the average reading?",
+      "model": "The average is 52.5 Wh per 10-minute interval (equivalent to an average power of about 315 W).",
+      "reference": "The average is 51.7 Wh per 10-minute interval (equivalent to an average power of about 310 W)."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-12 22:20 to 2016-05-13 01:10 (10-minute intervals): 70, 50, 60, 60, 60, 60, 60, 50, 60, 50, 70, 50, 60, 40, 60, 50, 50, 50 (Wh, oldest first, 10-minute intervals).\nWhat is the total energy used?",
+      "model": "The total is 990 Wh (0.990 kWh) across 18 readings.",
+      "reference": "The total is 1010 Wh (1.010 kWh) across 18 readings."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-14 03:30 to 2016-05-14 04:20 (10-minute intervals): \n03:30  60 Wh\n03:40  50 Wh\n03:50  60 Wh\n04:00  60 Wh\n04:10  50 Wh\n04:20  60 Wh.\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 60 Wh, at 03:30, 03:40, 04:50.",
+      "reference": "The highest reading is 60 Wh, at 03:30, 03:50, 04:00, 04:20."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-15 01:50 to 2016-05-15 02:20 (10-minute intervals): 60, 50, 60, 50 (Wh, oldest first, 10-minute intervals).\nWhat is the average reading?",
+      "model": "The average is 57.5 Wh per 10-minute interval (equivalent to an average power of about 345 W).",
+      "reference": "The average is 55.0 Wh per 10-minute interval (equivalent to an average power of about 330 W)."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-23 18:00 to 2016-05-23 19:10 (10-minute intervals): \n18:00  160 Wh\n18:10  120 Wh\n18:20  110 Wh\n18:30  120 Wh\n18:40  120 Wh\n18:50  110 Wh\n19:00  170 Wh\n19:10  110 Wh.\nWhat is the average reading?",
+      "model": "The average is 166.2 Wh per 10-minute interval (equivalent to an average power of about 918 W).",
+      "reference": "The average is 127.5 Wh per 10-minute interval (equivalent to an average power of about 765 W)."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-12 18:50 to 2016-05-12 19:40 (10-minute intervals): 110, 130, 120, 120, 120, 130 (Wh, oldest first, 10-minute intervals).\nWhat is the average reading?",
+      "model": "The average is 128.8 Wh per 10-minute interval (equivalent to an average power of about 772 W).",
+      "reference": "The average is 121.7 Wh per 10-minute interval (equivalent to an average power of about 730 W)."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-27 14:40 to 2016-05-27 15:50 (10-minute intervals): \n14:40  60 Wh\n14:50  60 Wh\n15:00  60 Wh\n15:10  70 Wh\n15:20  80 Wh\n15:30  80 Wh\n15:40  70 Wh\n15:50  100 Wh.\nWhat is the total energy used?",
+      "model": "The total is 560 Wh (0.560 kWh) across 8 readings.",
+      "reference": "The total is 580 Wh (0.580 kWh) across 8 readings."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-26 03:20 to 2016-05-26 03:50 (10-minute intervals): 60, 50, 60, 60 (Wh, oldest first, 10-minute intervals).\nWhat is the total energy used?",
+      "model": "The total is 210 Wh (0.210 kWh) across 4 readings.",
+      "reference": "The total is 230 Wh (0.230 kWh) across 4 readings."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-11 01:50 to 2016-05-11 02:40 (10-minute intervals): \n01:50  50 Wh\n02:00  60 Wh\n02:10  50 Wh\n02:20  60 Wh\n02:30  60 Wh\n02:40  60 Wh.\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 60 Wh, at 02:10, 02:20, 02:30, 02:40.",
+      "reference": "The highest reading is 60 Wh, at 02:00, 02:20, 02:30, 02:40."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-12 11:30 to 2016-05-12 13:20 (10-minute intervals): \n11:30  50 Wh\n11:40  50 Wh\n11:50  50 Wh\n12:00  50 Wh\n12:10  60 Wh\n12:20  60 Wh\n12:30  50 Wh\n12:40  60 Wh\n12:50  50 Wh\n13:00  60 Wh\n13:10  60 Wh\n13:20  60 Wh.\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 50 Wh, at 11:00, 11:10, 11:20, 11:30.",
+      "reference": "The lowest reading is 50 Wh, at 11:30, 11:40, 11:50, 12:00, 12:30, 12:50."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-17 06:00 to 2016-05-17 07:50 (10-minute intervals): 60, 40, 50, 40, 80, 70, 60, 70, 110, 50, 50, 50 (Wh, oldest first, 10-minute intervals).\nWhat is the average reading?",
+      "model": "The average is 67.5 Wh per 10-minute interval (equivalent to an average power of about 405 W).",
+      "reference": "The average is 60.8 Wh per 10-minute interval (equivalent to an average power of about 365 W)."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-22 00:30 to 2016-05-22 01:40 (10-minute intervals): 60, 60, 60, 50, 60, 60, 50, 60 (Wh, oldest first, 10-minute intervals).\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 50 Wh, at 00:30, 00:40, 00:50, 01:00.",
+      "reference": "The lowest reading is 50 Wh, at 01:00, 01:30."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-16 10:30 to 2016-05-16 11:00 (10-minute intervals): 100, 110, 100, 100 (Wh, oldest first, 10-minute intervals).\nWhat is the average reading?",
+      "model": "The average is 110.0 Wh per 10-minute interval (equivalent to an average power of about 660 W).",
+      "reference": "The average is 102.5 Wh per 10-minute interval (equivalent to an average power of about 615 W)."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-15 06:00 to 2016-05-15 07:50 (10-minute intervals): \n06:00  50 Wh\n06:10  50 Wh\n06:20  60 Wh\n06:30  40 Wh\n06:40  60 Wh\n06:50  50 Wh\n07:00  90 Wh\n07:10  80 Wh\n07:20  50 Wh\n07:30  60 Wh\n07:40  60 Wh\n07:50  220 Wh.\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 320 Wh, at 07:10.",
+      "reference": "The highest reading is 220 Wh, at 07:50."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-09 08:40 to 2016-05-09 10:30 (10-minute intervals): \n08:40  60 Wh\n08:50  70 Wh\n09:00  70 Wh\n09:10  70 Wh\n09:20  70 Wh\n09:30  70 Wh\n09:40  60 Wh\n09:50  60 Wh\n10:00  60 Wh\n10:10  60 Wh\n10:20  50 Wh\n10:30  60 Wh.\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 70 Wh, at 09:50.",
+      "reference": "The highest reading is 70 Wh, at 08:50, 09:00, 09:10, 09:20, 09:30."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-13 21:20 to 2016-05-14 00:10 (10-minute intervals): \n21:20  60 Wh\n21:30  60 Wh\n21:40  60 Wh\n21:50  60 Wh\n22:00  60 Wh\n22:10  50 Wh\n22:20  50 Wh\n22:30  50 Wh\n22:40  60 Wh\n22:50  60 Wh\n23:00  60 Wh\n23:10  70 Wh\n23:20  60 Wh\n23:30  60 Wh\n23:40  60 Wh\n23:50  60 Wh\n00:00  50 Wh\n00:10  60 Wh.\nWhat is the average reading?",
+      "model": "The average is 56.4 Wh per 10-minute interval (equivalent to an average power of about 347 W).",
+      "reference": "The average is 58.3 Wh per 10-minute interval (equivalent to an average power of about 350 W)."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-17 18:10 to 2016-05-17 19:00 (10-minute intervals): 90, 110, 90, 110, 100, 90 (Wh, oldest first, 10-minute intervals).\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 90 Wh, at 18:20, 18:40.",
+      "reference": "The lowest reading is 90 Wh, at 18:10, 18:30, 19:00."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-16 02:10 to 2016-05-16 02:40 (10-minute intervals): \n02:10  70 Wh\n02:20  50 Wh\n02:30  60 Wh\n02:40  60 Wh.\nHow much energy did the appliances use in total over this period?",
+      "model": "The total is 310 Wh (0.310 kWh) across 4 readings.",
+      "reference": "The total is 240 Wh (0.240 kWh) across 4 readings."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-16 03:00 to 2016-05-16 03:30 (10-minute intervals): 70, 50, 50, 50 (Wh, oldest first, 10-minute intervals).\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 70 Wh, at 03:10.",
+      "reference": "The highest reading is 70 Wh, at 03:00."
+    },
+    {
+      "task": "window_stats",
+      "prompt": "Appliance energy readings from 2016-05-18 23:20 to 2016-05-18 23:50 (10-minute intervals): 60, 50, 70, 60 (Wh, oldest first, 10-minute intervals).\nHow much energy did the appliances use in total over this period?",
+      "model": "The total is 210 Wh (0.210 kWh) across 4 readings.",
+      "reference": "The total is 240 Wh (0.240 kWh) across 4 readings."
+    }
+  ]
+}

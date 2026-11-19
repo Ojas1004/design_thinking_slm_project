@@ -1,0 +1,1345 @@
+{
+  "exact_match_overall": {
+    "uci": {
+      "n": 360,
+      "exact_match": 0.7111111111111111
+    },
+    "refit": {
+      "n": 120,
+      "exact_match": 0.39166666666666666
+    }
+  },
+  "exact_match": {
+    "daily_profile/refit": {
+      "n": 30,
+      "exact_match": 0.2
+    },
+    "daily_profile/uci": {
+      "n": 30,
+      "exact_match": 0.0
+    },
+    "false_premise/uci": {
+      "n": 30,
+      "exact_match": 1.0
+    },
+    "level_classify/uci": {
+      "n": 30,
+      "exact_match": 1.0
+    },
+    "lights_activity/uci": {
+      "n": 30,
+      "exact_match": 1.0
+    },
+    "noise_features/uci": {
+      "n": 30,
+      "exact_match": 1.0
+    },
+    "outdoor_weather/uci": {
+      "n": 30,
+      "exact_match": 0.36666666666666664
+    },
+    "room_compare/uci": {
+      "n": 30,
+      "exact_match": 0.5333333333333333
+    },
+    "spike_check/refit": {
+      "n": 30,
+      "exact_match": 0.36666666666666664
+    },
+    "spike_check/uci": {
+      "n": 30,
+      "exact_match": 0.36666666666666664
+    },
+    "time_features/refit": {
+      "n": 30,
+      "exact_match": 0.43333333333333335
+    },
+    "time_features/uci": {
+      "n": 30,
+      "exact_match": 0.9333333333333333
+    },
+    "unanswerable/uci": {
+      "n": 30,
+      "exact_match": 1.0
+    },
+    "units_cost/uci": {
+      "n": 30,
+      "exact_match": 0.9333333333333333
+    },
+    "window_stats/refit": {
+      "n": 30,
+      "exact_match": 0.5666666666666667
+    },
+    "window_stats/uci": {
+      "n": 30,
+      "exact_match": 0.4
+    }
+  },
+  "forecast": {
+    "forecast_hour/refit": {
+      "n": 30,
+      "unparsed": 0,
+      "model_mae_wh": 148.0,
+      "persistence_mae_wh": 143.0
+    },
+    "forecast_hour/uci": {
+      "n": 30,
+      "unparsed": 0,
+      "model_mae_wh": 152.66666666666666,
+      "persistence_mae_wh": 198.66666666666666
+    },
+    "forecast_next/refit": {
+      "n": 30,
+      "unparsed": 0,
+      "model_mae_wh": 31.666666666666668,
+      "persistence_mae_wh": 27.0
+    },
+    "forecast_next/uci": {
+      "n": 30,
+      "unparsed": 0,
+      "model_mae_wh": 13.333333333333334,
+      "persistence_mae_wh": 14.666666666666666
+    }
+  },
+  "mismatches": [
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Wednesday 2015-04-08: 00h=200, 01h=180, 02h=200, 03h=170, 04h=160, 05h=200, 06h=350, 07h=520, 08h=190, 09h=170, 10h=290, 11h=480, 12h=350, 13h=210, 14h=210, 15h=200, 16h=220, 17h=400, 18h=1060, 19h=500, 20h=500, 21h=590, 22h=480, 23h=220.\nHow much energy was used from 13:00 to 18:00?",
+      "model": "From 13:00 to 18:00 the household used 1920 Wh (1.92 kWh), the sum of 5 hourly values.",
+      "reference": "From 13:00 to 18:00 the household used 1240 Wh (1.24 kWh), the sum of 5 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Monday 2015-04-06: 00h=240, 01h=240, 02h=240, 03h=240, 04h=240, 05h=240, 06h=240, 07h=240, 08h=240, 09h=240, 10h=240, 11h=240, 12h=240, 13h=240, 14h=240, 15h=240, 16h=240, 17h=240, 18h=240, 19h=240, 20h=240, 21h=240, 22h=240, 23h=240.\nHow much energy was used from 21:00 to 24:00?",
+      "model": "From 21:00 to 24:00 the household used 640 Wh (0.64 kWh), the sum of 3 hourly values.",
+      "reference": "From 21:00 to 24:00 the household used 720 Wh (0.72 kWh), the sum of 3 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Monday 2015-04-20: 00h=410, 01h=420, 02h=1240, 03h=720, 04h=770, 05h=540, 06h=5280, 07h=690, 08h=220, 09h=360, 10h=390, 11h=240, 12h=340, 13h=240, 14h=580, 15h=470, 16h=630, 17h=430, 18h=530, 19h=370, 20h=510, 21h=900, 22h=470, 23h=420.\nHow much energy was used from 02:00 to 11:00?",
+      "model": "From 02:00 to 11:00 the household used 5780 Wh (5.78 kWh), the sum of 9 hourly values.",
+      "reference": "From 02:00 to 11:00 the household used 10210 Wh (10.21 kWh), the sum of 9 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Friday 2015-04-10: 00h=170, 01h=160, 02h=180, 03h=160, 04h=160, 05h=170, 06h=180, 07h=280, 08h=220, 09h=190, 10h=160, 11h=170, 12h=160, 13h=160, 14h=160, 15h=170, 16h=200, 17h=210, 18h=330, 19h=840, 20h=320, 21h=300, 22h=300, 23h=590.\nHow much energy was used from 00:00 to 21:00?",
+      "model": "From 00:00 to 21:00 the household used 4880 Wh (4.88 kWh), the sum of 21 hourly values.",
+      "reference": "From 00:00 to 21:00 the household used 4750 Wh (4.75 kWh), the sum of 21 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Friday 2015-04-17: 00h=210, 01h=180, 02h=180, 03h=200, 04h=160, 05h=200, 06h=240, 07h=250, 08h=300, 09h=320, 10h=520, 11h=1010, 12h=1150, 13h=550, 14h=530, 15h=520, 16h=430, 17h=210, 18h=590, 19h=340, 20h=210, 21h=250, 22h=210, 23h=260.\nHow much energy was used from 21:00 to 24:00?",
+      "model": "From 21:00 to 24:00 the household used 600 Wh (0.60 kWh), the sum of 3 hourly values.",
+      "reference": "From 21:00 to 24:00 the household used 720 Wh (0.72 kWh), the sum of 3 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Friday 2015-06-19: 00h=160, 01h=160, 02h=160, 03h=200, 04h=170, 05h=330, 06h=310, 07h=370, 08h=560, 09h=280, 10h=160, 11h=160, 12h=160, 13h=160, 14h=160, 15h=160, 16h=160, 17h=200, 18h=370, 19h=870, 20h=890, 21h=1020, 22h=880, 23h=180.\nHow much energy was used from 20:00 to 22:00?",
+      "model": "From 20:00 to 22:00 the household used 1150 Wh (1.15 kWh), the sum of 2 hourly values.",
+      "reference": "From 20:00 to 22:00 the household used 1910 Wh (1.91 kWh), the sum of 2 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Thursday 2015-07-09: 00h=250, 01h=190, 02h=230, 03h=190, 04h=220, 05h=170, 06h=210, 07h=230, 08h=210, 09h=210, 10h=200, 11h=230, 12h=200, 13h=230, 14h=200, 15h=240, 16h=190, 17h=220, 18h=190, 19h=190, 20h=210, 21h=360, 22h=420, 23h=1140.\nHow much energy was used from 13:00 to 21:00?",
+      "model": "From 13:00 to 21:00 the household used 2190 Wh (2.19 kWh), the sum of 8 hourly values.",
+      "reference": "From 13:00 to 21:00 the household used 1670 Wh (1.67 kWh), the sum of 8 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Monday 2015-06-22: 00h=1800, 01h=1800, 02h=1800, 03h=1800, 04h=1800, 05h=1800, 06h=1800, 07h=1800, 08h=1800, 09h=1800, 10h=1800, 11h=1800, 12h=1800, 13h=1800, 14h=1800, 15h=1800, 16h=1800, 17h=1800, 18h=1800, 19h=1800, 20h=1800, 21h=1800, 22h=1800, 23h=1800.\nDuring which hour was consumption highest?",
+      "model": "The peak hour was 00:00-01:00 with 18000 with 49% of the 23080 Wh.",
+      "reference": "The peak hour was 00:00-01:00 with 1800 Wh, which is 4% of the daily total of 43200 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Thursday 2015-06-25: 00h=170, 01h=160, 02h=160, 03h=1410, 04h=420, 05h=210, 06h=160, 07h=200, 08h=180, 09h=170, 10h=170, 11h=260, 12h=180, 13h=170, 14h=180, 15h=170, 16h=180, 17h=200, 18h=240, 19h=210, 20h=150, 21h=210, 22h=200, 23h=150.\nWas more energy used in the morning (06-12h) or the evening (18-24h)?",
+      "model": "Morning used 1110 Wh and evening used 1290 Wh, so more was used in the evening (18-24h).",
+      "reference": "Morning used 1140 Wh and evening used 1160 Wh, so more was used in the evening (18-24h)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Thursday 2015-06-18: 00h=200, 01h=180, 02h=210, 03h=200, 04h=210, 05h=190, 06h=210, 07h=630, 08h=840, 09h=580, 10h=240, 11h=170, 12h=330, 13h=280, 14h=230, 15h=260, 16h=330, 17h=290, 18h=430, 19h=290, 20h=450, 21h=410, 22h=380, 23h=230.\nHow much energy was used from 14:00 to 18:00?",
+      "model": "From 14:00 to 18:00 the household used 1150 Wh (1.15 kWh), the sum of 4 hourly values.",
+      "reference": "From 14:00 to 18:00 the household used 1110 Wh (1.11 kWh), the sum of 4 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Saturday 2015-04-25: 00h=260, 01h=130, 02h=120, 03h=80, 04h=120, 05h=80, 06h=130, 07h=200, 08h=360, 09h=2710, 10h=400, 11h=890, 12h=330, 13h=1010, 14h=910, 15h=280, 16h=310, 17h=120, 18h=160, 19h=150, 20h=220, 21h=230, 22h=550, 23h=990.\nWhat was the total household energy for the day in kWh?",
+      "model": "The daily total is 9.98 kWh (9980 Wh, the sum of the 24 hourly values).",
+      "reference": "The daily total is 10.74 kWh (10740 Wh, the sum of the 24 hourly values)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Friday 2015-04-24: 00h=760, 01h=250, 02h=530, 03h=230, 04h=230, 05h=370, 06h=400, 07h=570, 08h=230, 09h=240, 10h=340, 11h=300, 12h=240, 13h=240, 14h=280, 15h=350, 16h=230, 17h=240, 18h=280, 19h=460, 20h=470, 21h=370, 22h=300, 23h=220.\nHow much energy was used from 02:00 to 17:00?",
+      "model": "From 02:00 to 17:00 the household used 4820 Wh (4.82 kWh), the sum of 15 hourly values.",
+      "reference": "From 02:00 to 17:00 the household used 4780 Wh (4.78 kWh), the sum of 15 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Tuesday 2015-04-14: 00h=330, 01h=380, 02h=390, 03h=410, 04h=490, 05h=470, 06h=490, 07h=420, 08h=230, 09h=750, 10h=350, 11h=1180, 12h=510, 13h=360, 14h=180, 15h=350, 16h=200, 17h=310, 18h=1480, 19h=300, 20h=350, 21h=400, 22h=560, 23h=430.\nHow much energy was used from 17:00 to 24:00?",
+      "model": "From 17:00 to 24:00 the household used 3380 Wh (3.38 kWh), the sum of 7 hourly values.",
+      "reference": "From 17:00 to 24:00 the household used 3830 Wh (3.83 kWh), the sum of 7 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Saturday 2015-06-20: 00h=140, 01h=140, 02h=140, 03h=140, 04h=140, 05h=140, 06h=180, 07h=160, 08h=180, 09h=180, 10h=160, 11h=160, 12h=160, 13h=160, 14h=160, 15h=160, 16h=1340, 17h=490, 18h=230, 19h=330, 20h=210, 21h=140, 22h=160, 23h=160.\nIn how many hours did consumption exceed 300 Wh?",
+      "model": "3 hours exceeded 300 Wh: 16h, 17h, 18h.",
+      "reference": "3 hours exceeded 300 Wh: 16h, 17h, 19h."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Saturday 2015-04-11: 00h=150, 01h=140, 02h=130, 03h=130, 04h=140, 05h=140, 06h=140, 07h=170, 08h=160, 09h=160, 10h=160, 11h=290, 12h=160, 13h=260, 14h=210, 15h=160, 16h=160, 17h=160, 18h=190, 19h=330, 20h=230, 21h=290, 22h=280, 23h=300.\nDuring which hour was consumption highest?",
+      "model": "The peak hour was 19:00-20:00 with 330 Wh, which is 7% of the daily total of 4610 Wh.",
+      "reference": "The peak hour was 19:00-20:00 with 330 Wh, which is 7% of the daily total of 4640 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Tuesday 2015-05-05: 00h=200, 01h=210, 02h=180, 03h=210, 04h=190, 05h=170, 06h=350, 07h=220, 08h=690, 09h=280, 10h=1370, 11h=290, 12h=1130, 13h=460, 14h=180, 15h=420, 16h=220, 17h=220, 18h=1160, 19h=560, 20h=380, 21h=420, 22h=570, 23h=270.\nDuring which hour was consumption highest?",
+      "model": "The peak hour was 10:00-11:00 with 1370 Wh, which is 13% of the daily total of 10220 Wh.",
+      "reference": "The peak hour was 10:00-11:00 with 1370 Wh, which is 13% of the daily total of 10350 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Saturday 2015-04-18: 00h=300, 01h=320, 02h=280, 03h=250, 04h=240, 05h=240, 06h=340, 07h=440, 08h=460, 09h=440, 10h=350, 11h=510, 12h=710, 13h=1290, 14h=2120, 15h=810, 16h=450, 17h=460, 18h=1020, 19h=1100, 20h=540, 21h=530, 22h=480, 23h=430.\nWhat was the total household energy for the day in kWh?",
+      "model": "The daily total is 14.22 kWh (14220 Wh, the sum of the 24 hourly values).",
+      "reference": "The daily total is 14.11 kWh (14110 Wh, the sum of the 24 hourly values)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Wednesday 2015-05-27: 00h=290, 01h=220, 02h=170, 03h=180, 04h=210, 05h=180, 06h=250, 07h=280, 08h=210, 09h=230, 10h=190, 11h=570, 12h=620, 13h=440, 14h=240, 15h=380, 16h=170, 17h=220, 18h=360, 19h=250, 20h=300, 21h=340, 22h=530, 23h=320.\nWhat was the total household energy for the day in kWh?",
+      "model": "The daily total is 6.98 kWh (6980 Wh, the sum of the 24 hourly values).",
+      "reference": "The daily total is 7.15 kWh (7150 Wh, the sum of the 24 hourly values)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Saturday 2015-04-11: 00h=310, 01h=310, 02h=340, 03h=290, 04h=260, 05h=260, 06h=280, 07h=410, 08h=430, 09h=520, 10h=510, 11h=400, 12h=460, 13h=1460, 14h=1200, 15h=400, 16h=540, 17h=430, 18h=1410, 19h=1110, 20h=2210, 21h=820, 22h=980, 23h=810.\nWhat was the total household energy for the day in kWh?",
+      "model": "The daily total is 16.91 kWh (16910 Wh, the sum of the 24 hourly values).",
+      "reference": "The daily total is 16.15 kWh (16150 Wh, the sum of the 24 hourly values)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Tuesday 2015-04-07: 00h=200, 01h=200, 02h=200, 03h=200, 04h=200, 05h=200, 06h=200, 07h=200, 08h=200, 09h=200, 10h=250, 11h=380, 12h=820, 13h=1490, 14h=420, 15h=320, 16h=460, 17h=1840, 18h=380, 19h=570, 20h=560, 21h=420, 22h=340, 23h=180.\nWhat was the total household energy for the day in kWh?",
+      "model": "The daily total is 10.01 kWh (10010 Wh, the sum of the 24 hourly values).",
+      "reference": "The daily total is 10.43 kWh (10430 Wh, the sum of the 24 hourly values)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Friday 2015-05-08: 00h=200, 01h=190, 02h=220, 03h=180, 04h=180, 05h=210, 06h=340, 07h=480, 08h=220, 09h=190, 10h=370, 11h=870, 12h=800, 13h=230, 14h=300, 15h=390, 16h=250, 17h=520, 18h=1180, 19h=240, 20h=360, 21h=400, 22h=620, 23h=360.\nHow much energy was used from 22:00 to 24:00?",
+      "model": "From 22:00 to 24:00 the household used 640 Wh (0.64 kWh), the sum of 2 hourly values.",
+      "reference": "From 22:00 to 24:00 the household used 980 Wh (0.98 kWh), the sum of 2 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Tuesday 2015-05-05: 00h=150, 01h=150, 02h=160, 03h=150, 04h=160, 05h=160, 06h=440, 07h=1180, 08h=1170, 09h=650, 10h=170, 11h=180, 12h=250, 13h=170, 14h=160, 15h=220, 16h=170, 17h=170, 18h=250, 19h=900, 20h=1030, 21h=1020, 22h=310, 23h=170.\nIn how many hours did consumption exceed 200 Wh?",
+      "model": "10 hours exceeded 200 Wh: 06h, 07h, 08h, 09h, 16h, 17h, 18h, 19h, 20h, 21h.",
+      "reference": "11 hours exceeded 200 Wh: 06h, 07h, 08h, 09h, 12h, 15h, 18h, 19h, 20h, 21h, 22h."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Tuesday 2015-05-05: 00h=160, 01h=180, 02h=160, 03h=160, 04h=160, 05h=160, 06h=190, 07h=1050, 08h=1640, 09h=180, 10h=210, 11h=240, 12h=320, 13h=180, 14h=280, 15h=250, 16h=220, 17h=830, 18h=540, 19h=410, 20h=980, 21h=300, 22h=350, 23h=160.\nHow much energy was used between midnight and 06:00, and what share of the day is that?",
+      "model": "Between 00:00 and 06:00 the household used 980 Wh, which is 10% of the daily 9510 Wh.",
+      "reference": "Between 00:00 and 06:00 the household used 980 Wh, which is 11% of the daily 9310 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "source": "refit",
+      "prompt": "Hourly household electricity (Wh) for Friday 2015-04-03: 00h=200, 01h=150, 02h=200, 03h=200, 04h=200, 05h=200, 06h=200, 07h=200, 08h=200, 09h=200, 10h=200, 11h=200, 12h=200, 13h=200, 14h=200, 15h=200, 16h=200, 17h=200, 18h=200, 19h=200, 20h=200, 21h=200, 22h=200, 23h=200.\nWhat was the total household energy for the day in kWh?",
+      "model": "The daily total is 4.80 kWh (4800 Wh, the sum of the 24 hourly values).",
+      "reference": "The daily total is 4.75 kWh (4750 Wh, the sum of the 24 hourly values)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-18: 00h=310, 01h=320, 02h=330, 03h=310, 04h=310, 05h=390, 06h=420, 07h=320, 08h=370, 09h=390, 10h=350, 11h=420, 12h=340, 13h=520, 14h=490, 15h=500, 16h=630, 17h=710, 18h=1070, 19h=860, 20h=1340, 21h=490, 22h=310, 23h=340.\nHow much energy was used from 07:00 to 17:00?",
+      "model": "From 07:00 to 17:00 the appliances used 4880 Wh (4.88 kWh), the sum of 10 hourly values.",
+      "reference": "From 07:00 to 17:00 the appliances used 4330 Wh (4.33 kWh), the sum of 10 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Thursday 2016-05-19: 00h=310, 01h=310, 02h=300, 03h=310, 04h=340, 05h=330, 06h=350, 07h=300, 08h=320, 09h=220, 10h=330, 11h=310, 12h=330, 13h=300, 14h=380, 15h=490, 16h=540, 17h=1250, 18h=720, 19h=590, 20h=710, 21h=400, 22h=300, 23h=340.\nHow much energy was used from 06:00 to 18:00?",
+      "model": "From 06:00 to 18:00 the appliances used 4020 Wh (4.02 kWh), the sum of 12 hourly values.",
+      "reference": "From 06:00 to 18:00 the appliances used 5120 Wh (5.12 kWh), the sum of 12 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-17: 00h=300, 01h=330, 02h=310, 03h=320, 04h=320, 05h=350, 06h=340, 07h=390, 08h=340, 09h=310, 10h=320, 11h=310, 12h=320, 13h=250, 14h=320, 15h=310, 16h=400, 17h=920, 18h=600, 19h=740, 20h=710, 21h=390, 22h=280, 23h=330.\nHow much energy was used between midnight and 06:00, and what share of the day is that?",
+      "model": "Between 00:00 and 06:00 the appliances used 1910 Wh, which is 21% of the daily 9900 Wh.",
+      "reference": "Between 00:00 and 06:00 the appliances used 1930 Wh, which is 20% of the daily 9510 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-10: 00h=310, 01h=330, 02h=340, 03h=340, 04h=300, 05h=430, 06h=380, 07h=360, 08h=340, 09h=330, 10h=320, 11h=340, 12h=350, 13h=320, 14h=320, 15h=340, 16h=380, 17h=760, 18h=610, 19h=630, 20h=570, 21h=410, 22h=350, 23h=340.\nHow much energy was used between midnight and 06:00, and what share of the day is that?",
+      "model": "Between 00:00 and 06:00 the appliances used 2030 Wh, which is 22% of the daily 9740 Wh.",
+      "reference": "Between 00:00 and 06:00 the appliances used 2050 Wh, which is 22% of the daily 9500 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Saturday 2016-05-14: 00h=350, 01h=380, 02h=360, 03h=360, 04h=360, 05h=340, 06h=380, 07h=680, 08h=800, 09h=710, 10h=950, 11h=580, 12h=700, 13h=680, 14h=640, 15h=780, 16h=670, 17h=1450, 18h=1000, 19h=540, 20h=520, 21h=450, 22h=370, 23h=290.\nHow much energy was used from 07:00 to 20:00?",
+      "model": "From 07:00 to 20:00 the appliances used 9780 Wh (9.78 kWh), the sum of 13 hourly values.",
+      "reference": "From 07:00 to 20:00 the appliances used 10180 Wh (10.18 kWh), the sum of 13 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-17: 00h=300, 01h=330, 02h=310, 03h=320, 04h=320, 05h=350, 06h=340, 07h=390, 08h=340, 09h=310, 10h=320, 11h=310, 12h=320, 13h=250, 14h=320, 15h=310, 16h=400, 17h=920, 18h=600, 19h=740, 20h=710, 21h=390, 22h=280, 23h=330.\nHow much energy was used from 14:00 to 20:00?",
+      "model": "From 14:00 to 20:00 the appliances used 3900 Wh (3.90 kWh), the sum of 6 hourly values.",
+      "reference": "From 14:00 to 20:00 the appliances used 3290 Wh (3.29 kWh), the sum of 6 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-24: 00h=300, 01h=340, 02h=330, 03h=320, 04h=320, 05h=640, 06h=430, 07h=970, 08h=340, 09h=230, 10h=400, 11h=610, 12h=770, 13h=710, 14h=900, 15h=850, 16h=850, 17h=1220, 18h=820, 19h=740, 20h=580, 21h=460, 22h=370, 23h=350.\nWas more energy used in the morning (06-12h) or the evening (18-24h)?",
+      "model": "Morning used 2910 Wh and evening used 3300 Wh, so more was used in the evening (18-24h).",
+      "reference": "Morning used 2980 Wh and evening used 3320 Wh, so more was used in the evening (18-24h)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Thursday 2016-05-12: 00h=340, 01h=340, 02h=340, 03h=300, 04h=340, 05h=370, 06h=290, 07h=350, 08h=310, 09h=290, 10h=350, 11h=300, 12h=330, 13h=340, 14h=340, 15h=410, 16h=710, 17h=1250, 18h=630, 19h=740, 20h=600, 21h=430, 22h=360, 23h=340.\nHow much energy was used from 09:00 to 21:00?",
+      "model": "From 09:00 to 21:00 the appliances used 5760 Wh (5.76 kWh), the sum of 12 hourly values.",
+      "reference": "From 09:00 to 21:00 the appliances used 6290 Wh (6.29 kWh), the sum of 12 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Monday 2016-05-16: 00h=370, 01h=320, 02h=340, 03h=320, 04h=330, 05h=310, 06h=320, 07h=370, 08h=530, 09h=420, 10h=890, 11h=620, 12h=1240, 13h=1600, 14h=530, 15h=670, 16h=530, 17h=1460, 18h=930, 19h=690, 20h=580, 21h=410, 22h=280, 23h=360.\nHow much energy was used from 00:00 to 16:00?",
+      "model": "From 00:00 to 16:00 the appliances used 9820 Wh (9.82 kWh), the sum of 16 hourly values.",
+      "reference": "From 00:00 to 16:00 the appliances used 9180 Wh (9.18 kWh), the sum of 16 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Monday 2016-05-23: 00h=350, 01h=310, 02h=350, 03h=310, 04h=300, 05h=400, 06h=360, 07h=340, 08h=310, 09h=330, 10h=310, 11h=340, 12h=370, 13h=340, 14h=350, 15h=440, 16h=940, 17h=2280, 18h=740, 19h=720, 20h=630, 21h=410, 22h=380, 23h=350.\nIn how many hours did consumption exceed 500 Wh?",
+      "model": "6 hours exceeded 500 Wh: 15h, 16h, 17h, 18h, 19h, 20h.",
+      "reference": "5 hours exceeded 500 Wh: 16h, 17h, 18h, 19h, 20h."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Sunday 2016-05-22: 00h=360, 01h=340, 02h=310, 03h=320, 04h=330, 05h=300, 06h=350, 07h=380, 08h=1140, 09h=680, 10h=1210, 11h=2060, 12h=760, 13h=620, 14h=640, 15h=580, 16h=530, 17h=1590, 18h=720, 19h=580, 20h=700, 21h=530, 22h=470, 23h=360.\nHow much energy was used from 10:00 to 12:00?",
+      "model": "From 10:00 to 12:00 the appliances used 3380 Wh (3.38 kWh), the sum of 2 hourly values.",
+      "reference": "From 10:00 to 12:00 the appliances used 3270 Wh (3.27 kWh), the sum of 2 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Thursday 2016-05-12: 00h=340, 01h=340, 02h=340, 03h=300, 04h=340, 05h=370, 06h=290, 07h=350, 08h=310, 09h=290, 10h=350, 11h=300, 12h=330, 13h=340, 14h=340, 15h=410, 16h=710, 17h=1250, 18h=630, 19h=740, 20h=600, 21h=430, 22h=360, 23h=340.\nIn how many hours did consumption exceed 750 Wh?",
+      "model": "1 hours exceeded 750 Wh: 16h.",
+      "reference": "1 hours exceeded 750 Wh: 17h."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-25: 00h=320, 01h=320, 02h=340, 03h=290, 04h=330, 05h=330, 06h=330, 07h=390, 08h=500, 09h=540, 10h=470, 11h=300, 12h=360, 13h=430, 14h=480, 15h=480, 16h=1390, 17h=710, 18h=940, 19h=710, 20h=1140, 21h=340, 22h=320, 23h=320.\nHow much energy was used from 09:00 to 19:00?",
+      "model": "From 09:00 to 19:00 the appliances used 7730 Wh (7.73 kWh), the sum of 10 hourly values.",
+      "reference": "From 09:00 to 19:00 the appliances used 6100 Wh (6.10 kWh), the sum of 10 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Thursday 2016-05-12: 00h=340, 01h=340, 02h=340, 03h=300, 04h=340, 05h=370, 06h=290, 07h=350, 08h=310, 09h=290, 10h=350, 11h=300, 12h=330, 13h=340, 14h=340, 15h=410, 16h=710, 17h=1250, 18h=630, 19h=740, 20h=600, 21h=430, 22h=360, 23h=340.\nHow much energy was used from 00:00 to 18:00?",
+      "model": "From 00:00 to 18:00 the appliances used 6290 Wh (6.29 kWh), the sum of 18 hourly values.",
+      "reference": "From 00:00 to 18:00 the appliances used 7300 Wh (7.30 kWh), the sum of 18 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-11: 00h=310, 01h=340, 02h=340, 03h=320, 04h=310, 05h=410, 06h=660, 07h=460, 08h=970, 09h=390, 10h=380, 11h=330, 12h=340, 13h=440, 14h=480, 15h=460, 16h=450, 17h=550, 18h=610, 19h=570, 20h=510, 21h=370, 22h=330, 23h=340.\nWas more energy used in the morning (06-12h) or the evening (18-24h)?",
+      "model": "Morning used 2890 Wh and evening used 2890 Wh, so more was used in the morning (06-12h).",
+      "reference": "Morning used 3190 Wh and evening used 2730 Wh, so more was used in the morning (06-12h)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Thursday 2016-05-26: 00h=320, 01h=330, 02h=300, 03h=340, 04h=300, 05h=340, 06h=370, 07h=600, 08h=940, 09h=1660, 10h=1590, 11h=1460, 12h=1330, 13h=450, 14h=410, 15h=370, 16h=2970, 17h=2640, 18h=1290, 19h=1340, 20h=550, 21h=460, 22h=420, 23h=390.\nIn how many hours did consumption exceed 1000 Wh?",
+      "model": "8 hours exceeded 1000 Wh: 08h, 09h, 10h, 11h, 12h, 15h, 16h, 17h.",
+      "reference": "8 hours exceeded 1000 Wh: 09h, 10h, 11h, 12h, 16h, 17h, 18h, 19h."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Sunday 2016-05-22: 00h=360, 01h=340, 02h=310, 03h=320, 04h=330, 05h=300, 06h=350, 07h=380, 08h=1140, 09h=680, 10h=1210, 11h=2060, 12h=760, 13h=620, 14h=640, 15h=580, 16h=530, 17h=1590, 18h=720, 19h=580, 20h=700, 21h=530, 22h=470, 23h=360.\nHow much energy was used from 12:00 to 18:00?",
+      "model": "From 12:00 to 18:00 the appliances used 4950 Wh (4.95 kWh), the sum of 6 hourly values.",
+      "reference": "From 12:00 to 18:00 the appliances used 4720 Wh (4.72 kWh), the sum of 6 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Saturday 2016-05-21: 00h=290, 01h=310, 02h=340, 03h=290, 04h=340, 05h=310, 06h=360, 07h=340, 08h=1250, 09h=1860, 10h=2300, 11h=2590, 12h=1370, 13h=2060, 14h=1820, 15h=2170, 16h=600, 17h=570, 18h=750, 19h=650, 20h=570, 21h=810, 22h=440, 23h=890.\nIn how many hours did consumption exceed 1000 Wh?",
+      "model": "10 hours exceeded 1000 Wh: 08h, 09h, 10h, 11h, 12h, 13h, 14h, 15h, 16h, 17h.",
+      "reference": "8 hours exceeded 1000 Wh: 08h, 09h, 10h, 11h, 12h, 13h, 14h, 15h."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Friday 2016-05-13: 00h=330, 01h=320, 02h=350, 03h=350, 04h=300, 05h=350, 06h=880, 07h=1060, 08h=2030, 09h=560, 10h=440, 11h=2130, 12h=1810, 13h=1610, 14h=1910, 15h=1210, 16h=2110, 17h=1390, 18h=2090, 19h=1250, 20h=720, 21h=380, 22h=330, 23h=370.\nWhat was the total appliance energy for the day in kWh?",
+      "model": "The daily total is 24.91 kWh (24910 Wh, the sum of the 24 hourly values).",
+      "reference": "The daily total is 24.28 kWh (24280 Wh, the sum of the 24 hourly values)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-18: 00h=310, 01h=320, 02h=330, 03h=310, 04h=310, 05h=390, 06h=420, 07h=320, 08h=370, 09h=390, 10h=350, 11h=420, 12h=340, 13h=520, 14h=490, 15h=500, 16h=630, 17h=710, 18h=1070, 19h=860, 20h=1340, 21h=490, 22h=310, 23h=340.\nWhat was the total appliance energy for the day in kWh?",
+      "model": "The daily total is 11.01 kWh (11010 Wh, the sum of the 24 hourly values).",
+      "reference": "The daily total is 11.84 kWh (11840 Wh, the sum of the 24 hourly values)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-24: 00h=300, 01h=340, 02h=330, 03h=320, 04h=320, 05h=640, 06h=430, 07h=970, 08h=340, 09h=230, 10h=400, 11h=610, 12h=770, 13h=710, 14h=900, 15h=850, 16h=850, 17h=1220, 18h=820, 19h=740, 20h=580, 21h=460, 22h=370, 23h=350.\nIn how many hours did consumption exceed 1000 Wh?",
+      "model": "1 hours exceeded 1000 Wh: 14h.",
+      "reference": "1 hours exceeded 1000 Wh: 17h."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Thursday 2016-05-19: 00h=310, 01h=310, 02h=300, 03h=310, 04h=340, 05h=330, 06h=350, 07h=300, 08h=320, 09h=220, 10h=330, 11h=310, 12h=330, 13h=300, 14h=380, 15h=490, 16h=540, 17h=1250, 18h=720, 19h=590, 20h=710, 21h=400, 22h=300, 23h=340.\nHow much energy was used from 02:00 to 23:00?",
+      "model": "From 02:00 to 23:00 the appliances used 8290 Wh (8.29 kWh), the sum of 21 hourly values.",
+      "reference": "From 02:00 to 23:00 the appliances used 9120 Wh (9.12 kWh), the sum of 21 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-25: 00h=320, 01h=320, 02h=340, 03h=290, 04h=330, 05h=330, 06h=330, 07h=390, 08h=500, 09h=540, 10h=470, 11h=300, 12h=360, 13h=430, 14h=480, 15h=480, 16h=1390, 17h=710, 18h=940, 19h=710, 20h=1140, 21h=340, 22h=320, 23h=320.\nHow much energy was used from 15:00 to 19:00?",
+      "model": "From 15:00 to 19:00 the appliances used 3020 Wh (3.02 kWh), the sum of 4 hourly values.",
+      "reference": "From 15:00 to 19:00 the appliances used 3520 Wh (3.52 kWh), the sum of 4 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-24: 00h=300, 01h=340, 02h=330, 03h=320, 04h=320, 05h=640, 06h=430, 07h=970, 08h=340, 09h=230, 10h=400, 11h=610, 12h=770, 13h=710, 14h=900, 15h=850, 16h=850, 17h=1220, 18h=820, 19h=740, 20h=580, 21h=460, 22h=370, 23h=350.\nHow much energy was used between midnight and 06:00, and what share of the day is that?",
+      "model": "Between 00:00 and 06:00 the appliances used 2100 Wh, which is 15% of the daily 13590 Wh.",
+      "reference": "Between 00:00 and 06:00 the appliances used 2250 Wh, which is 16% of the daily 13850 Wh."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Tuesday 2016-05-10: 00h=310, 01h=330, 02h=340, 03h=340, 04h=300, 05h=430, 06h=380, 07h=360, 08h=340, 09h=330, 10h=320, 11h=340, 12h=350, 13h=320, 14h=320, 15h=340, 16h=380, 17h=760, 18h=610, 19h=630, 20h=570, 21h=410, 22h=350, 23h=340.\nWas more energy used in the morning (06-12h) or the evening (18-24h)?",
+      "model": "Morning used 1990 Wh and evening used 2890 Wh, so more was used in the evening (18-24h).",
+      "reference": "Morning used 2070 Wh and evening used 2910 Wh, so more was used in the evening (18-24h)."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Monday 2016-05-23: 00h=350, 01h=310, 02h=350, 03h=310, 04h=300, 05h=400, 06h=360, 07h=340, 08h=310, 09h=330, 10h=310, 11h=340, 12h=370, 13h=340, 14h=350, 15h=440, 16h=940, 17h=2280, 18h=740, 19h=720, 20h=630, 21h=410, 22h=380, 23h=350.\nHow much energy was used from 17:00 to 22:00?",
+      "model": "From 17:00 to 22:00 the appliances used 4020 Wh (4.02 kWh), the sum of 5 hourly values.",
+      "reference": "From 17:00 to 22:00 the appliances used 4780 Wh (4.78 kWh), the sum of 5 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Saturday 2016-05-14: 00h=350, 01h=380, 02h=360, 03h=360, 04h=360, 05h=340, 06h=380, 07h=680, 08h=800, 09h=710, 10h=950, 11h=580, 12h=700, 13h=680, 14h=640, 15h=780, 16h=670, 17h=1450, 18h=1000, 19h=540, 20h=520, 21h=450, 22h=370, 23h=290.\nHow much energy was used from 02:00 to 18:00?",
+      "model": "From 02:00 to 18:00 the appliances used 9910 Wh (9.91 kWh), the sum of 16 hourly values.",
+      "reference": "From 02:00 to 18:00 the appliances used 10440 Wh (10.44 kWh), the sum of 16 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Monday 2016-05-16: 00h=370, 01h=320, 02h=340, 03h=320, 04h=330, 05h=310, 06h=320, 07h=370, 08h=530, 09h=420, 10h=890, 11h=620, 12h=1240, 13h=1600, 14h=530, 15h=670, 16h=530, 17h=1460, 18h=930, 19h=690, 20h=580, 21h=410, 22h=280, 23h=360.\nHow much energy was used from 04:00 to 12:00?",
+      "model": "From 04:00 to 12:00 the appliances used 5130 Wh (5.13 kWh), the sum of 8 hourly values.",
+      "reference": "From 04:00 to 12:00 the appliances used 3790 Wh (3.79 kWh), the sum of 8 hourly values."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Wednesday 2016-05-25: 00h=320, 01h=320, 02h=340, 03h=290, 04h=330, 05h=330, 06h=330, 07h=390, 08h=500, 09h=540, 10h=470, 11h=300, 12h=360, 13h=430, 14h=480, 15h=480, 16h=1390, 17h=710, 18h=940, 19h=710, 20h=1140, 21h=340, 22h=320, 23h=320.\nIn how many hours did consumption exceed 750 Wh?",
+      "model": "3 hours exceeded 750 Wh: 15h, 18h, 20h.",
+      "reference": "3 hours exceeded 750 Wh: 16h, 18h, 20h."
+    },
+    {
+      "task": "daily_profile",
+      "source": "uci",
+      "prompt": "Hourly appliance energy (Wh) for Thursday 2016-05-12: 00h=340, 01h=340, 02h=340, 03h=300, 04h=340, 05h=370, 06h=290, 07h=350, 08h=310, 09h=290, 10h=350, 11h=300, 12h=330, 13h=340, 14h=340, 15h=410, 16h=710, 17h=1250, 18h=630, 19h=740, 20h=600, 21h=430, 22h=360, 23h=340.\nDuring which hour was consumption highest?",
+      "model": "The peak hour was 17:00-18:00 with 1250 Wh, which is 12% of the daily total of 10250 Wh.",
+      "reference": "The peak hour was 17:00-18:00 with 1250 Wh, which is 12% of the daily total of 10400 Wh."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "\n- temperature outside the building (north side) (T6): 8.4 °C\n- outdoor temperature (weather station) (T_out): 8.5 °C\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (8.4 °C) is measured by a sensor on the north side of the building. T_out (8.5 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.1 °C.",
+      "reference": "T6 (8.4 °C) is measured by a sensor on the north side of the building. T_out (8.5 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.2 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "temperature in the parents room (T9)=22.5 °C, outdoor temperature (weather station) (T_out)=8.4 °C\nHow much warmer is the parents room than outdoors?",
+      "model": "The parents room is 13.8 °C warmer than outdoors.",
+      "reference": "The parents room is 14.1 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "Weather at 2016-05-26 15:00: \n- outdoor temperature (weather station) (T_out): 20.2 °C\n- outdoor dew point (Tdewpoint): 9.4 °C\n- outdoor humidity (weather station) (RH_out): 50.0 %\nWhat is the dew-point spread, and is the air close to saturation?",
+      "model": "The spread is 7.2 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 50%).",
+      "reference": "The spread is 10.8 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 50%)."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "\n- temperature in the ironing room: 23.5 °C\n- outdoor temperature (weather station): 9.6 °C\nHow much warmer is the ironing room than outdoors?",
+      "model": "The ironing room is 12.3 °C warmer than outdoors.",
+      "reference": "The ironing room is 13.9 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "\n- temperature outside the building (north side) (T6): 15.0 °C\n- outdoor temperature (weather station) (T_out): 14.6 °C\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (15.0 °C) is measured by a sensor on the north side of the building. T_out (14.6 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.3 °C.",
+      "reference": "T6 (15.0 °C) is measured by a sensor on the north side of the building. T_out (14.6 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.4 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "temperature outside the building (north side) (T6) is 14.7 °C; outdoor temperature (weather station) (T_out) is 14.6 °C.\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (14.7 °C) is measured by a sensor on the north side of the building. T_out (14.6 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.3 °C.",
+      "reference": "T6 (14.7 °C) is measured by a sensor on the north side of the building. T_out (14.6 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.1 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "\n- temperature outside the building (north side) (T6): 20.4 °C\n- outdoor temperature (weather station) (T_out): 18.7 °C\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (20.4 °C) is measured by a sensor on the north side of the building. T_out (18.7 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 1.1 °C.",
+      "reference": "T6 (20.4 °C) is measured by a sensor on the north side of the building. T_out (18.7 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 1.7 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "Weather at Tuesday 24 May 2016 at 17:40: \n- outdoor temperature (weather station) (T_out): 14.1 °C\n- outdoor dew point (Tdewpoint): 7.8 °C\n- outdoor humidity (weather station) (RH_out): 66.3 %\nWhat is the dew-point spread, and is the air close to saturation?",
+      "model": "The spread is 5.2 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 66%).",
+      "reference": "The spread is 6.3 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 66%)."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "Weather at Wednesday 11 May 2016 at 11:10: \n- outdoor temperature (weather station) (T_out): 18.6 °C\n- outdoor dew point (Tdewpoint): 13.8 °C\n- outdoor humidity (weather station) (RH_out): 74.3 %\nWhat is the dew-point spread, and is the air close to saturation?",
+      "model": "The spread is 4.5 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 74%).",
+      "reference": "The spread is 4.8 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 74%)."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "temperature in the kitchen=24.0 °C, outdoor temperature (weather station)=10.2 °C\nHow much warmer is the kitchen than outdoors?",
+      "model": "The kitchen is 11.0 °C warmer than outdoors.",
+      "reference": "The kitchen is 13.8 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "\n- temperature outside the building (north side) (T6): 7.4 °C\n- outdoor temperature (weather station) (T_out): 8.4 °C\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (7.4 °C) is measured by a sensor on the north side of the building. T_out (8.4 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.4 °C.",
+      "reference": "T6 (7.4 °C) is measured by a sensor on the north side of the building. T_out (8.4 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 1.1 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "Weather at 2016-05-24 00:10: \n- outdoor temperature (weather station) (T_out): 11.1 °C\n- outdoor dew point (Tdewpoint): 8.7 °C\n- outdoor humidity (weather station) (RH_out): 85.3 %\nWhat is the dew-point spread, and is the air close to saturation?",
+      "model": "The spread is 2.2 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 85%).",
+      "reference": "The spread is 2.4 °C (T_out − Tdewpoint). That is not small, so the air is not saturated (RH_out 85%)."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "Weather at 2016-05-12 01:20: outdoor temperature (weather station) (T_out)=13.9 °C, outdoor dew point (Tdewpoint)=13.3 °C, outdoor humidity (weather station) (RH_out)=95.7 %\nWhat is the dew-point spread, and is the air close to saturation?",
+      "model": "The spread is 0.6 °C (T_out − Tdewpoint). That is small, so the air is close to saturation, consistent with RH_out of 96%.",
+      "reference": "The spread is 0.7 °C (T_out − Tdewpoint). That is small, so the air is close to saturation, consistent with RH_out of 96%."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "\n- temperature in the laundry room (T3): 26.6 °C\n- outdoor temperature (weather station) (T_out): 22.2 °C\nHow much warmer is the laundry room than outdoors?",
+      "model": "The laundry room is 16.9 °C warmer than outdoors.",
+      "reference": "The laundry room is 4.4 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "temperature in the laundry room=24.3 °C, outdoor temperature (weather station)=9.5 °C\nHow much warmer is the laundry room than outdoors?",
+      "model": "The laundry room is 13.4 °C warmer than outdoors.",
+      "reference": "The laundry room is 14.8 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "temperature in the parents room (T9)=23.8 °C, outdoor temperature (weather station) (T_out)=10.4 °C\nHow much warmer is the parents room than outdoors?",
+      "model": "The parents room is 11.1 °C warmer than outdoors.",
+      "reference": "The parents room is 13.4 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "temperature in the bathroom is 23.0 °C; outdoor temperature (weather station) is 8.6 °C.\nHow much warmer is the bathroom than outdoors?",
+      "model": "The bathroom is 13.8 °C warmer than outdoors.",
+      "reference": "The bathroom is 14.4 °C warmer than outdoors."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "\n- temperature outside the building (north side) (T6): 20.9 °C\n- outdoor temperature (weather station) (T_out): 16.4 °C\nWhy do these two outdoor temperatures differ?",
+      "model": "T6 (20.9 °C) is measured by a sensor on the north side of the building. T_out (16.4 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 0.5 °C.",
+      "reference": "T6 (20.9 °C) is measured by a sensor on the north side of the building. T_out (16.4 °C) comes from a nearby airport weather station (Chièvres). The location, sun exposure and the building itself make them differ, here by 4.5 °C."
+    },
+    {
+      "task": "outdoor_weather",
+      "source": "uci",
+      "prompt": "temperature in the living room=23.6 °C, outdoor temperature (weather station)=14.5 °C\nHow much warmer is the living room than outdoors?",
+      "model": "The living room is 10.3 °C warmer than outdoors.",
+      "reference": "The living room is 9.1 °C warmer than outdoors."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Sensor snapshot at 2016-05-11 09:30: temperature in the living room (T2) is 27.0 °C; temperature in the kitchen (T1) is 24.8 °C; temperature in the teenager room (T8) is 25.3 °C; temperature in the office room (T4) is 25.5 °C.\nWhich room is the warmest?",
+      "model": "The teenager room (T8) is the warmest room at 25.3 °C.",
+      "reference": "The living room (T2) is the warmest room at 27.0 °C."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Sensor snapshot at Monday 23 May 2016 at 04:20: temperature in the laundry room is 26.3 °C; temperature in the bathroom is 22.9 °C; temperature in the teenager room is 25.2 °C; temperature in the parents room is 23.3 °C.\nWhich room is the coldest?",
+      "model": "The parents room (T9) is the coldest room at 23.3 °C.",
+      "reference": "The bathroom (T5) is the coldest room at 22.9 °C."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Snapshot: temperature in the laundry room is 24.3 °C; temperature in the parents room is 22.6 °C; temperature in the ironing room is 23.1 °C; temperature in the living room is 25.4 °C.\nHow much higher is the temperature in the living room than in the laundry room?",
+      "model": "The living room is 2.0 °C lower than the laundry room (25.4 vs 24.3 °C).",
+      "reference": "The living room is 1.1 °C higher than the laundry room (25.4 vs 24.3 °C)."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Snapshot: temperature in the laundry room=25.0 °C, temperature in the kitchen=23.8 °C, temperature in the teenager room=23.9 °C\nHow much higher is the temperature in the kitchen than in the teenager room?",
+      "model": "The kitchen is 1.8 °C lower than the teenager room (23.8 vs 23.9 °C).",
+      "reference": "The kitchen is 0.1 °C lower than the teenager room (23.8 vs 23.9 °C)."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Snapshot: temperature in the parents room (T9)=24.0 °C, temperature in the bathroom (T5)=24.2 °C, temperature in the ironing room (T7)=24.6 °C, temperature in the laundry room (T3)=26.4 °C\nHow much higher is the temperature in the bathroom than in the parents room?",
+      "model": "The bathroom is 4.0 °C higher than the parents room (24.2 vs 24.0 °C).",
+      "reference": "The bathroom is 0.2 °C higher than the parents room (24.2 vs 24.0 °C)."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Sensor snapshot at 2016-05-23 19:40: temperature in the laundry room is 25.9 °C; temperature in the kitchen is 25.3 °C; temperature in the teenager room is 25.0 °C.\nWhich room is the coldest?",
+      "model": "The laundry room (T3) is the coldest room at 25.9 °C.",
+      "reference": "The teenager room (T8) is the coldest room at 25.0 °C."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Snapshot: temperature in the kitchen=23.9 °C, temperature in the parents room=22.6 °C, temperature in the ironing room=23.5 °C, temperature in the laundry room=24.6 °C, temperature outside the building (north side)=19.5 °C\nHow much higher is the temperature in the kitchen than in the laundry room?",
+      "model": "The kitchen is 2.0 °C higher than the laundry room (23.9 vs 24.6 °C).",
+      "reference": "The kitchen is 0.7 °C lower than the laundry room (23.9 vs 24.6 °C)."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Snapshot: RH_9 is 43.6 %; RH_8 is 44.5 %; RH_4 is 42.4 %.\nHow much higher is the humidity in the parents room than in the teenager room?",
+      "model": "The parents room is 1.8 percentage points lower than the teenager room (43.6 vs 44.5 %).",
+      "reference": "The parents room is 0.9 percentage points lower than the teenager room (43.6 vs 44.5 %)."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Snapshot: temperature in the office room=23.9 °C, temperature in the teenager room=23.6 °C, temperature in the parents room=23.0 °C\nHow much higher is the temperature in the teenager room than in the parents room?",
+      "model": "The teenager room is 3.0 °C higher than the parents room (23.6 vs 23.0 °C).",
+      "reference": "The teenager room is 0.5 °C higher than the parents room (23.6 vs 23.0 °C)."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Sensor snapshot at Wednesday 25 May 2016 at 16:00: RH_3 is 37.9 %; RH_5 is 54.8 %; RH_9 is 36.7 %; RH_2 is 34.7 %; RH_1 is 38.1 %.\nWhich room is the driest?",
+      "model": "The kitchen (RH_1) is the driest room at 38.1 %.",
+      "reference": "The living room (RH_2) is the driest room at 34.7 %."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Sensor snapshot at 2016-05-27 09:30: T1 is 23.6 °C; T9 is 22.9 °C; T7 is 23.8 °C; T3 is 26.1 °C; T5 is 22.5 °C.\nWhich room is the coldest?",
+      "model": "The parents room (T9) is the coldest room at 22.9 °C.",
+      "reference": "The bathroom (T5) is the coldest room at 22.5 °C."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Sensor snapshot at 2016-05-13 21:30: \n- humidity in the office room: 40.3 %\n- humidity in the teenager room: 43.9 %\n- humidity in the living room: 39.2 %\n- humidity in the parents room: 40.5 %\nWhich room is the driest?",
+      "model": "The office room (RH_4) is the driest room at 40.3 %.",
+      "reference": "The living room (RH_2) is the driest room at 39.2 %."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Snapshot: T1=24.9 °C, T8=23.8 °C, T5=22.7 °C, T6=25.0 °C, T2=26.5 °C, T3=28.7 °C\nHow much higher is the temperature in the teenager room than in the laundry room?",
+      "model": "The teenager room is 3.8 °C higher than the laundry room (23.8 vs 28.7 °C).",
+      "reference": "The teenager room is 4.9 °C lower than the laundry room (23.8 vs 28.7 °C)."
+    },
+    {
+      "task": "room_compare",
+      "source": "uci",
+      "prompt": "Sensor snapshot at 2016-05-11 05:20: \n- humidity in the parents room: 47.1 %\n- humidity in the office room: 45.5 %\n- humidity in the bathroom: 56.2 %\n- humidity in the teenager room: 51.2 %\n- humidity in the living room: 49.7 %\nWhich room is the driest?",
+      "model": "The living room (RH_2) is the driest room at 49.7 %.",
+      "reference": "The office room (RH_4) is the driest room at 45.5 %."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Context (8 readings, 15-min): \n09:15  150 Wh\n09:30  130 Wh\n09:45  150 Wh\n10:00  170 Wh\n10:15  160 Wh\n10:30  170 Wh\n10:45  140 Wh\n11:00  170 Wh\nThis house's 90th percentile is 200 Wh per 15 minutes.\nNew reading: 270 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 155 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +12.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (200 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 155 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +5.2 robust standard deviations from typical. It also exceeds the house's 90th percentile (200 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Previous two hours of household electricity readings: 290, 270, 280, 270, 280, 270, 280, 390 (Wh, oldest first, 15-minute intervals).\nThis house's 90th percentile is 410 Wh per 15 minutes.\nThe next reading is 560 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 280 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +23.9 robust standard deviations from typical. It also exceeds the house's 90th percentile (410 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 280 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +18.9 robust standard deviations from typical. It also exceeds the house's 90th percentile (410 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Check this reading for an anomaly. This house's 90th percentile is 170 Wh per 15 minutes. Recent history: 140, 100, 180, 910, 510, 150, 140, 150 (Wh, oldest first, 15-minute intervals). Current: 260 Wh at 2015-04-07 19:15.",
+      "model": "Yes, flag it. The recent median is 150 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is +3.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (170 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 150 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is +3.7 robust standard deviations from typical. It also exceeds the house's 90th percentile (170 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Context (8 readings, 15-min): 50, 50, 50, 50, 50, 50, 50, 50 (Wh, oldest first, 15-minute intervals)\nThis house's 90th percentile is 410 Wh per 15 minutes.\nNew reading: 600 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 50 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +52.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (410 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 50 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +55.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (410 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Check this reading for an anomaly. This house's 90th percentile is 520 Wh per 15 minutes. Recent history: 130, 520, 70, 110, 100, 90, 180, 80 (Wh, oldest first, 15-minute intervals). Current: 90 Wh at 2015-06-18 22:00.",
+      "model": "No. The recent median is 105 Wh with a robust spread (1.4826 × MAD) of 37 Wh, so the new reading is -0.1 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 105 Wh with a robust spread (1.4826 × MAD) of 37 Wh, so the new reading is -0.4 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Previous two hours of household electricity readings: 290, 160, 130, 140, 170, 150, 140, 150 (Wh, oldest first, 15-minute intervals).\nThis house's 90th percentile is 200 Wh per 15 minutes.\nThe next reading is 260 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 155 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +7.1 robust standard deviations from typical. It also exceeds the house's 90th percentile (200 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 150 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +7.4 robust standard deviations from typical. It also exceeds the house's 90th percentile (200 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Previous two hours of household electricity readings: 180, 140, 110, 110, 140, 120, 100, 130 (Wh, oldest first, 15-minute intervals).\nThis house's 90th percentile is 170 Wh per 15 minutes.\nThe next reading is 200 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 120 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +3.8 robust standard deviations from typical. It also exceeds the house's 90th percentile (170 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 125 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +3.4 robust standard deviations from typical. It also exceeds the house's 90th percentile (170 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Context (8 readings, 15-min): 350, 110, 90, 120, 130, 110, 140, 510 (Wh, oldest first, 15-minute intervals)\nThis house's 90th percentile is 520 Wh per 15 minutes.\nNew reading: 680 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 125 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is +18.3 robust standard deviations from typical. It also exceeds the house's 90th percentile (520 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 125 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +25.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (520 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Context (8 readings, 15-min): \n15:30  160 Wh\n15:45  120 Wh\n16:00  120 Wh\n16:15  240 Wh\n16:30  140 Wh\n16:45  80 Wh\n17:00  80 Wh\n17:15  640 Wh\nThis house's 90th percentile is 370 Wh per 15 minutes.\nNew reading: 1060 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 130 Wh with a robust spread (1.4826 × MAD) of 59 Wh, so the new reading is +16.1 robust standard deviations from typical. It also exceeds the house's 90th percentile (370 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 130 Wh with a robust spread (1.4826 × MAD) of 59 Wh, so the new reading is +15.7 robust standard deviations from typical. It also exceeds the house's 90th percentile (370 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Check this reading for an anomaly. This house's 90th percentile is 270 Wh per 15 minutes. Recent history: \n05:30  40 Wh\n05:45  30 Wh\n06:00  40 Wh\n06:15  40 Wh\n06:30  50 Wh\n06:45  50 Wh\n07:00  160 Wh\n07:15  250 Wh. Current: 300 Wh at 2015-04-28 07:30.",
+      "model": "Yes, flag it. The recent median is 45 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +17.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (270 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 45 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +25.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (270 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Previous two hours of household electricity readings: \n22:00  90 Wh\n22:15  240 Wh\n22:30  80 Wh\n22:45  90 Wh\n23:00  90 Wh\n23:15  80 Wh\n23:30  100 Wh\n23:45  80 Wh.\nThis house's 90th percentile is 270 Wh per 15 minutes.\nThe next reading is 50 Wh. Is this a consumption spike?",
+      "model": "No. The recent median is 90 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -2.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 90 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -2.7 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Context (8 readings, 15-min): 50, 50, 60, 70, 30, 30, 70, 60 (Wh, oldest first, 15-minute intervals)\nThis house's 90th percentile is 160 Wh per 15 minutes.\nNew reading: 30 Wh. Should it be flagged as anomalous?",
+      "model": "No. The recent median is 55 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is -1.1 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 55 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -1.7 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Context (8 readings, 15-min): 60, 50, 130, 90, 80, 150, 150, 360 (Wh, oldest first, 15-minute intervals)\nThis house's 90th percentile is 270 Wh per 15 minutes.\nNew reading: 290 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 105 Wh with a robust spread (1.4826 × MAD) of 52 Wh, so the new reading is +3.8 robust standard deviations from typical. It also exceeds the house's 90th percentile (270 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 110 Wh with a robust spread (1.4826 × MAD) of 59 Wh, so the new reading is +3.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (270 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Context (8 readings, 15-min): 40, 40, 30, 40, 30, 40, 220, 70 (Wh, oldest first, 15-minute intervals)\nThis house's 90th percentile is 170 Wh per 15 minutes.\nNew reading: 640 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 40 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +59.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (170 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 40 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +60.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (170 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Previous two hours of household electricity readings: \n05:30  40 Wh\n05:45  40 Wh\n06:00  40 Wh\n06:15  40 Wh\n06:30  110 Wh\n06:45  130 Wh\n07:00  40 Wh\n07:15  40 Wh.\nThis house's 90th percentile is 310 Wh per 15 minutes.\nThe next reading is 440 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 40 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +41.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (310 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 40 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +40.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (310 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Context (8 readings, 15-min): 260, 130, 320, 190, 80, 120, 100, 80 (Wh, oldest first, 15-minute intervals)\nThis house's 90th percentile is 390 Wh per 15 minutes.\nNew reading: 550 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 120 Wh with a robust spread (1.4826 × MAD) of 59 Wh, so the new reading is +7.4 robust standard deviations from typical. It also exceeds the house's 90th percentile (390 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 125 Wh with a robust spread (1.4826 × MAD) of 67 Wh, so the new reading is +6.4 robust standard deviations from typical. It also exceeds the house's 90th percentile (390 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Previous two hours of household electricity readings: 40, 30, 30, 30, 30, 30, 40, 50 (Wh, oldest first, 15-minute intervals).\nThis house's 90th percentile is 190 Wh per 15 minutes.\nThe next reading is 60 Wh. Is this a consumption spike?",
+      "model": "No. The recent median is 30 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +2.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 30 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +3.0 robust standard deviations from typical. Do not flag it: although it deviates from the last two hours, it is still below the 90th percentile (190 Wh)."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Context (8 readings, 15-min): 70, 80, 70, 70, 60, 70, 70, 120 (Wh, oldest first, 15-minute intervals)\nThis house's 90th percentile is 370 Wh per 15 minutes.\nNew reading: 410 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +35.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (370 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +34.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (370 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "refit",
+      "prompt": "Previous two hours of household electricity readings: 60, 50, 600, 190, 120, 140, 270, 630 (Wh, oldest first, 15-minute intervals).\nThis house's 90th percentile is 520 Wh per 15 minutes.\nThe next reading is 650 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 150 Wh with a robust spread (1.4826 × MAD) of 104 Wh, so the new reading is +4.2 robust standard deviations from typical. It also exceeds the house's 90th percentile (520 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 165 Wh with a robust spread (1.4826 × MAD) of 156 Wh, so the new reading is +3.1 robust standard deviations from typical. It also exceeds the house's 90th percentile (520 Wh). The data only shows total household energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Check this reading for an anomaly. Recent history: 200, 160, 130, 110, 120, 110, 120, 130, 110, 110, 110, 90 (Wh, oldest first, 10-minute intervals). Current: 80 Wh at 2016-05-22 19:40.",
+      "model": "No. The recent median is 110 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -2.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 115 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is -3.5 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Previous two hours of appliance readings: \n14:40  90 Wh\n14:50  130 Wh\n15:00  120 Wh\n15:10  140 Wh\n15:20  130 Wh\n15:30  130 Wh\n15:40  130 Wh\n15:50  130 Wh\n16:00  120 Wh\n16:10  110 Wh\n16:20  110 Wh\n16:30  110 Wh.\nThe next reading is 110 Wh. Is this a consumption spike?",
+      "model": "No. The recent median is 120 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is -1.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 125 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is -1.5 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Previous two hours of appliance readings: \n17:30  240 Wh\n17:40  200 Wh\n17:50  160 Wh\n18:00  130 Wh\n18:10  110 Wh\n18:20  120 Wh\n18:30  110 Wh\n18:40  120 Wh\n18:50  130 Wh\n19:00  110 Wh\n19:10  110 Wh\n19:20  110 Wh.\nThe next reading is 90 Wh. Is this a consumption spike?",
+      "model": "No. The recent median is 120 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -1.3 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 120 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -2.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Check this reading for an anomaly. Recent history: 320, 80, 60, 70, 60, 70, 70, 70, 80, 70, 70, 100 (Wh, oldest first, 10-minute intervals). Current: 410 Wh at 2016-05-11 08:00.",
+      "model": "Yes, flag it. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +35.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 70 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +34.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Previous two hours of appliance readings: 60, 50, 160, 170, 80, 60, 50, 50, 80, 100, 320, 160 (Wh, oldest first, 10-minute intervals).\nThe next reading is 100 Wh. Is this a consumption spike?",
+      "model": "No. The recent median is 80 Wh with a robust spread (1.4826 × MAD) of 44 Wh, so the new reading is +0.9 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 80 Wh with a robust spread (1.4826 × MAD) of 44 Wh, so the new reading is +0.4 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Context (12 readings, 10-min): 320, 160, 100, 100, 110, 100, 100, 100, 90, 110, 110, 110 (Wh, oldest first, 10-minute intervals)\nNew reading: 290 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 100 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +19.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 105 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +18.5 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Context (12 readings, 10-min): 50, 50, 60, 40, 50, 40, 80, 70, 60, 70, 110, 50 (Wh, oldest first, 10-minute intervals)\nNew reading: 50 Wh. Should it be flagged as anomalous?",
+      "model": "No. The recent median is 55 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is -0.5 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 55 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is -0.3 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Check this reading for an anomaly. Recent history: 350, 360, 340, 100, 80, 90, 80, 80, 100, 100, 100, 80 (Wh, oldest first, 10-minute intervals). Current: 210 Wh at 2016-05-16 15:20.",
+      "model": "Yes, flag it. The recent median is 95 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +7.8 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 100 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is +3.7 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Check this reading for an anomaly. Recent history: 40, 30, 40, 30, 60, 60, 70, 90, 60, 80, 70, 80 (Wh, oldest first, 10-minute intervals). Current: 70 Wh at 2016-05-20 17:50.",
+      "model": "No. The recent median is 60 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +0.4 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 60 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is +0.3 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Previous two hours of appliance readings: 60, 70, 190, 370, 100, 90, 110, 80, 120, 110, 80, 560 (Wh, oldest first, 10-minute intervals).\nThe next reading is 660 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 105 Wh with a robust spread (1.4826 × MAD) of 44 Wh, so the new reading is +12.1 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 105 Wh with a robust spread (1.4826 × MAD) of 37 Wh, so the new reading is +15.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Previous two hours of appliance readings: \n09:10  120 Wh\n09:20  100 Wh\n09:30  130 Wh\n09:40  100 Wh\n09:50  110 Wh\n10:00  80 Wh\n10:10  90 Wh\n10:20  80 Wh\n10:30  150 Wh\n10:40  490 Wh\n10:50  320 Wh\n11:00  360 Wh.\nThe next reading is 470 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 115 Wh with a robust spread (1.4826 × MAD) of 37 Wh, so the new reading is +9.6 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 115 Wh with a robust spread (1.4826 × MAD) of 44 Wh, so the new reading is +8.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Context (12 readings, 10-min): 720, 600, 260, 310, 270, 250, 270, 230, 200, 150, 80, 550 (Wh, oldest first, 10-minute intervals)\nNew reading: 620 Wh. Should it be flagged as anomalous?",
+      "model": "Yes, flag it. The recent median is 265 Wh with a robust spread (1.4826 × MAD) of 89 Wh, so the new reading is +3.9 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 265 Wh with a robust spread (1.4826 × MAD) of 82 Wh, so the new reading is +4.4 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Context (12 readings, 10-min): 70, 400, 620, 330, 250, 260, 240, 230, 220, 90, 70, 370 (Wh, oldest first, 10-minute intervals)\nNew reading: 280 Wh. Should it be flagged as anomalous?",
+      "model": "No. The recent median is 245 Wh with a robust spread (1.4826 × MAD) of 111 Wh, so the new reading is +0.2 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 245 Wh with a robust spread (1.4826 × MAD) of 156 Wh, so the new reading is +0.2 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Check this reading for an anomaly. Recent history: \n11:20  60 Wh\n11:30  60 Wh\n11:40  80 Wh\n11:50  70 Wh\n12:00  70 Wh\n12:10  60 Wh\n12:20  230 Wh\n12:30  190 Wh\n12:40  180 Wh\n12:50  80 Wh\n13:00  80 Wh\n13:10  60 Wh. Current: 360 Wh at 2016-05-09 13:20.",
+      "model": "Yes, flag it. The recent median is 75 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +19.6 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 75 Wh with a robust spread (1.4826 × MAD) of 22 Wh, so the new reading is +12.8 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Previous two hours of appliance readings: \n17:30  410 Wh\n17:40  540 Wh\n17:50  310 Wh\n18:00  110 Wh\n18:10  110 Wh\n18:20  110 Wh\n18:30  120 Wh\n18:40  160 Wh\n18:50  110 Wh\n19:00  120 Wh\n19:10  110 Wh\n19:20  110 Wh.\nThe next reading is 110 Wh. Is this a consumption spike?",
+      "model": "No. The recent median is 110 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is -1.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 115 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is -0.5 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Context (12 readings, 10-min): 40, 40, 60, 60, 50, 60, 50, 50, 40, 50, 60, 60 (Wh, oldest first, 10-minute intervals)\nNew reading: 50 Wh. Should it be flagged as anomalous?",
+      "model": "No. The recent median is 50 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +0.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 50 Wh with a robust spread (1.4826 × MAD) of 15 Wh, so the new reading is +0.0 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Context (12 readings, 10-min): 130, 140, 150, 140, 130, 130, 100, 120, 100, 80, 60, 60 (Wh, oldest first, 10-minute intervals)\nNew reading: 60 Wh. Should it be flagged as anomalous?",
+      "model": "No. The recent median is 125 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is -1.9 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour.",
+      "reference": "No. The recent median is 125 Wh with a robust spread (1.4826 × MAD) of 30 Wh, so the new reading is -2.2 robust standard deviations from typical. Do not flag it: it is within 3 robust standard deviations of recent behaviour."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Previous two hours of appliance readings: 210, 100, 380, 620, 310, 270, 280, 240, 280, 230, 170, 170 (Wh, oldest first, 10-minute intervals).\nThe next reading is 620 Wh. Is this a consumption spike?",
+      "model": "Yes, flag it. The recent median is 255 Wh with a robust spread (1.4826 × MAD) of 89 Wh, so the new reading is +3.9 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 255 Wh with a robust spread (1.4826 × MAD) of 74 Wh, so the new reading is +4.9 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "spike_check",
+      "source": "uci",
+      "prompt": "Check this reading for an anomaly. Recent history: 100, 110, 100, 110, 100, 100, 80, 100, 90, 100, 90, 170 (Wh, oldest first, 10-minute intervals). Current: 500 Wh at 2016-05-15 20:30.",
+      "model": "Yes, flag it. The recent median is 100 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +41.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault.",
+      "reference": "Yes, flag it. The recent median is 100 Wh with a robust spread (1.4826 × MAD) of 10 Wh, so the new reading is +40.0 robust standard deviations from typical. It also exceeds the house's 90th percentile (210 Wh). The data only shows total appliance energy, so it cannot tell which appliance caused the spike or whether it indicates a fault."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-06-13 a weekend day?",
+      "model": "No, 2015-06-13 is a Friday, so its week status is weekday.",
+      "reference": "Yes, 2015-06-13 is a Saturday, so its week status is weekend."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "What day of the week was 2015-06-18?",
+      "model": "2015-06-18 was a Saturday.",
+      "reference": "2015-06-18 was a Thursday."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-04-11 a weekend day?",
+      "model": "No, 2015-04-11 is a Friday, so its week status is weekday.",
+      "reference": "Yes, 2015-04-11 is a Saturday, so its week status is weekend."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-05-25 a weekend day?",
+      "model": "No, 2015-05-25 is a Friday, so its week status is weekday.",
+      "reference": "No, 2015-05-25 is a Monday, so its week status is weekday."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "What day of the week was 2015-05-20?",
+      "model": "2015-05-20 was a Saturday.",
+      "reference": "2015-05-20 was a Wednesday."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-04-19 a weekend day?",
+      "model": "No, 2015-04-19 is a Friday, so its week status is weekday.",
+      "reference": "Yes, 2015-04-19 is a Sunday, so its week status is weekend."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-05-05 a weekend day?",
+      "model": "No, 2015-05-05 is a Friday, so its week status is weekday.",
+      "reference": "No, 2015-05-05 is a Tuesday, so its week status is weekday."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "What day of the week was 2015-04-12?",
+      "model": "2015-04-12 was a Wednesday.",
+      "reference": "2015-04-12 was a Sunday."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-04-18 a weekend day?",
+      "model": "No, 2015-04-18 is a Friday, so its week status is weekday.",
+      "reference": "Yes, 2015-04-18 is a Saturday, so its week status is weekend."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "What day of the week was 2015-04-16?",
+      "model": "2015-04-16 was a Wednesday.",
+      "reference": "2015-04-16 was a Thursday."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-06-21 a weekend day?",
+      "model": "No, 2015-06-21 is a Friday, so its week status is weekday.",
+      "reference": "Yes, 2015-06-21 is a Sunday, so its week status is weekend."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "What day of the week was 2015-05-10?",
+      "model": "2015-05-10 was a Saturday.",
+      "reference": "2015-05-10 was a Sunday."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-05-04 a weekend day?",
+      "model": "No, 2015-05-04 is a Friday, so its week status is weekday.",
+      "reference": "No, 2015-05-04 is a Monday, so its week status is weekday."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-04-29 a weekend day?",
+      "model": "No, 2015-04-29 is a Friday, so its week status is weekday.",
+      "reference": "No, 2015-04-29 is a Wednesday, so its week status is weekday."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-04-26 a weekend day?",
+      "model": "No, 2015-04-26 is a Friday, so its week status is weekday.",
+      "reference": "Yes, 2015-04-26 is a Sunday, so its week status is weekend."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-04-04 a weekend day?",
+      "model": "No, 2015-04-04 is a Friday, so its week status is weekday.",
+      "reference": "Yes, 2015-04-04 is a Saturday, so its week status is weekend."
+    },
+    {
+      "task": "time_features",
+      "source": "refit",
+      "prompt": "Is 2015-05-16 a weekend day?",
+      "model": "No, 2015-05-16 is a Friday, so its week status is weekday.",
+      "reference": "Yes, 2015-05-16 is a Saturday, so its week status is weekend."
+    },
+    {
+      "task": "time_features",
+      "source": "uci",
+      "prompt": "What day of the week was 2016-05-26?",
+      "model": "2016-05-26 was a Saturday.",
+      "reference": "2016-05-26 was a Thursday."
+    },
+    {
+      "task": "time_features",
+      "source": "uci",
+      "prompt": "Is 2016-05-19 a weekend day?",
+      "model": "No, 2016-05-19 is a Friday, so its week status is weekday.",
+      "reference": "No, 2016-05-19 is a Thursday, so its week status is weekday."
+    },
+    {
+      "task": "units_cost",
+      "source": "uci",
+      "prompt": "Electricity costs €0.31 per kWh. At 2016-05-15 17:40 the appliances used 330 Wh in 10 minutes. What did that interval cost?",
+      "model": "330 Wh = 0.330 kWh, and 0.330 × €0.31 = €0.1103.",
+      "reference": "330 Wh = 0.330 kWh, and 0.330 × €0.31 = €0.1023."
+    },
+    {
+      "task": "units_cost",
+      "source": "uci",
+      "prompt": "Electricity costs €0.31 per kWh. At 2016-05-26 09:50 the appliances used 820 Wh in 10 minutes. What did that interval cost?",
+      "model": "820 Wh = 0.820 kWh, and 0.820 × €0.31 = €0.2372.",
+      "reference": "820 Wh = 0.820 kWh, and 0.820 × €0.31 = €0.2542."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-06-20 12:30 to 2015-06-20 16:15 (15-minute intervals): 600, 500, 350, 90, 120, 120, 120, 130, 200, 100, 110, 100, 80, 120, 100, 80 (Wh, oldest first, 15-minute intervals).\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 80 Wh, at 13:15, 13:30.",
+      "reference": "The lowest reading is 80 Wh, at 15:30, 16:15."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-05-28 06:30 to 2015-05-28 10:15 (15-minute intervals): 70, 380, 300, 120, 470, 190, 280, 130, 420, 960, 400, 330, 160, 160, 110, 40 (Wh, oldest first, 15-minute intervals).\nWhat is the average reading?",
+      "model": "The average is 308.8 Wh per 15-minute interval (equivalent to an average power of about 1235 W).",
+      "reference": "The average is 282.5 Wh per 15-minute interval (equivalent to an average power of about 1130 W)."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-06-28 15:30 to 2015-06-28 17:15 (15-minute intervals): \n15:30  330 Wh\n15:45  310 Wh\n16:00  310 Wh\n16:15  280 Wh\n16:30  160 Wh\n16:45  250 Wh\n17:00  260 Wh\n17:15  210 Wh.\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 160 Wh, at 16:15.",
+      "reference": "The lowest reading is 160 Wh, at 16:30."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-05-22 11:00 to 2015-05-22 14:45 (15-minute intervals): \n11:00  40 Wh\n11:15  40 Wh\n11:30  40 Wh\n11:45  40 Wh\n12:00  40 Wh\n12:15  40 Wh\n12:30  40 Wh\n12:45  110 Wh\n13:00  40 Wh\n13:15  40 Wh\n13:30  40 Wh\n13:45  420 Wh\n14:00  40 Wh\n14:15  40 Wh\n14:30  40 Wh\n14:45  240 Wh.\nHow much energy did the household use in total over this period?",
+      "model": "The total is 1220 Wh (1.220 kWh) across 16 readings.",
+      "reference": "The total is 1290 Wh (1.290 kWh) across 16 readings."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-04-12 11:15 to 2015-04-12 13:00 (15-minute intervals): 600, 600, 540, 500, 540, 310, 530, 430 (Wh, oldest first, 15-minute intervals).\nWhat is the average reading?",
+      "model": "The average is 548.8 Wh per 15-minute interval (equivalent to an average power of about 2195 W).",
+      "reference": "The average is 506.2 Wh per 15-minute interval (equivalent to an average power of about 2025 W)."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-06-01 15:15 to 2015-06-01 16:00 (15-minute intervals): 40, 190, 120, 210 (Wh, oldest first, 15-minute intervals).\nHow much energy did the household use in total over this period?",
+      "model": "The total is 590 Wh (0.590 kWh) across 4 readings.",
+      "reference": "The total is 560 Wh (0.560 kWh) across 4 readings."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-04-27 09:30 to 2015-04-27 10:45 (15-minute intervals): 400, 290, 130, 420, 300, 40 (Wh, oldest first, 15-minute intervals).\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 40 Wh, at 09:30, 09:45.",
+      "reference": "The lowest reading is 40 Wh, at 10:45."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-04-27 22:45 to 2015-04-28 02:30 (15-minute intervals): 60, 60, 50, 80, 70, 50, 90, 50, 50, 50, 80, 110, 60, 50, 50, 70 (Wh, oldest first, 15-minute intervals).\nHow much energy did the household use in total over this period?",
+      "model": "The total is 1020 Wh (1.020 kWh) across 16 readings.",
+      "reference": "The total is 1030 Wh (1.030 kWh) across 16 readings."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-04-22 07:30 to 2015-04-22 10:15 (15-minute intervals): 70, 120, 180, 620, 150, 140, 150, 160, 80, 70, 420, 740 (Wh, oldest first, 15-minute intervals).\nHow much energy did the household use in total over this period?",
+      "model": "The total is 2630 Wh (2.630 kWh) across 12 readings.",
+      "reference": "The total is 2900 Wh (2.900 kWh) across 12 readings."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-05-10 17:30 to 2015-05-10 19:15 (15-minute intervals): 380, 480, 530, 620, 570, 390, 140, 140 (Wh, oldest first, 15-minute intervals).\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 620 Wh, at 17:30.",
+      "reference": "The highest reading is 620 Wh, at 18:15."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-05-28 15:30 to 2015-05-28 18:15 (15-minute intervals): \n15:30  60 Wh\n15:45  50 Wh\n16:00  50 Wh\n16:15  140 Wh\n16:30  90 Wh\n16:45  80 Wh\n17:00  80 Wh\n17:15  140 Wh\n17:30  70 Wh\n17:45  70 Wh\n18:00  80 Wh\n18:15  60 Wh.\nWhat is the average reading?",
+      "model": "The average is 76.7 Wh per 15-minute interval (equivalent to an average power of about 307 W).",
+      "reference": "The average is 80.8 Wh per 15-minute interval (equivalent to an average power of about 323 W)."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-06-07 22:00 to 2015-06-08 01:45 (15-minute intervals): \n22:00  60 Wh\n22:15  60 Wh\n22:30  180 Wh\n22:45  130 Wh\n23:00  90 Wh\n23:15  90 Wh\n23:30  80 Wh\n23:45  50 Wh\n00:00  40 Wh\n00:15  50 Wh\n00:30  50 Wh\n00:45  40 Wh\n01:00  40 Wh\n01:15  50 Wh\n01:30  50 Wh\n01:45  40 Wh.\nWhat is the average reading?",
+      "model": "The average is 63.8 Wh per 15-minute interval (equivalent to an average power of about 255 W).",
+      "reference": "The average is 68.8 Wh per 15-minute interval (equivalent to an average power of about 275 W)."
+    },
+    {
+      "task": "window_stats",
+      "source": "refit",
+      "prompt": "Household electricity readings from 2015-05-06 04:45 to 2015-05-06 06:00 (15-minute intervals): 50, 70, 100, 50, 40, 100 (Wh, oldest first, 15-minute intervals).\nWhat is the total energy used?",
+      "model": "The total is 420 Wh (0.420 kWh) across 6 readings.",
+      "reference": "The total is 410 Wh (0.410 kWh) across 6 readings."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-16 14:40 to 2016-05-16 15:50 (10-minute intervals): 100, 100, 100, 80, 210, 90, 100, 90 (Wh, oldest first, 10-minute intervals).\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 210 Wh, at 15:10.",
+      "reference": "The highest reading is 210 Wh, at 15:20."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-17 20:50 to 2016-05-17 23:40 (10-minute intervals): 110, 90, 60, 80, 50, 60, 50, 60, 80, 50, 40, 20, 30, 30, 60, 60, 60, 60 (Wh, oldest first, 10-minute intervals).\nHow much energy did the appliances use in total over this period?",
+      "model": "The total is 1130 Wh (1.130 kWh) across 18 readings.",
+      "reference": "The total is 1050 Wh (1.050 kWh) across 18 readings."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-11 08:20 to 2016-05-11 09:10 (10-minute intervals): 60, 70, 80, 80, 40, 50 (Wh, oldest first, 10-minute intervals).\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 80 Wh, at 08:50, 09:00.",
+      "reference": "The highest reading is 80 Wh, at 08:40, 08:50."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-18 21:00 to 2016-05-18 21:50 (10-minute intervals): \n21:00  100 Wh\n21:10  110 Wh\n21:20  90 Wh\n21:30  70 Wh\n21:40  60 Wh\n21:50  60 Wh.\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 110 Wh, at 21:00.",
+      "reference": "The highest reading is 110 Wh, at 21:10."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-22 13:50 to 2016-05-22 14:20 (10-minute intervals): 100, 110, 110, 110 (Wh, oldest first, 10-minute intervals).\nWhat is the average reading?",
+      "model": "The average is 105.0 Wh per 10-minute interval (equivalent to an average power of about 630 W).",
+      "reference": "The average is 107.5 Wh per 10-minute interval (equivalent to an average power of about 645 W)."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-09 13:30 to 2016-05-09 15:20 (10-minute intervals): \n13:30  370 Wh\n13:40  110 Wh\n13:50  60 Wh\n14:00  70 Wh\n14:10  240 Wh\n14:20  60 Wh\n14:30  50 Wh\n14:40  60 Wh\n14:50  50 Wh\n15:00  60 Wh\n15:10  80 Wh\n15:20  60 Wh.\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 50 Wh, at 14:30, 14:40.",
+      "reference": "The lowest reading is 50 Wh, at 14:30, 14:50."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-24 17:40 to 2016-05-24 20:30 (10-minute intervals): \n17:40  160 Wh\n17:50  480 Wh\n18:00  260 Wh\n18:10  100 Wh\n18:20  110 Wh\n18:30  110 Wh\n18:40  120 Wh\n18:50  120 Wh\n19:00  110 Wh\n19:10  160 Wh\n19:20  110 Wh\n19:30  110 Wh\n19:40  120 Wh\n19:50  130 Wh\n20:00  120 Wh\n20:10  100 Wh\n20:20  90 Wh\n20:30  110 Wh.\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 90 Wh, at 18:10.",
+      "reference": "The lowest reading is 90 Wh, at 20:20."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-14 12:40 to 2016-05-14 13:50 (10-minute intervals): \n12:40  110 Wh\n12:50  130 Wh\n13:00  110 Wh\n13:10  130 Wh\n13:20  130 Wh\n13:30  120 Wh\n13:40  90 Wh\n13:50  100 Wh.\nHow much energy did the appliances use in total over this period?",
+      "model": "The total is 900 Wh (0.900 kWh) across 8 readings.",
+      "reference": "The total is 920 Wh (0.920 kWh) across 8 readings."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-13 07:50 to 2016-05-13 10:40 (10-minute intervals): 560, 660, 330, 270, 290, 230, 250, 190, 80, 70, 60, 80, 80, 70, 60, 80, 70, 80 (Wh, oldest first, 10-minute intervals).\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 50 Wh, at 09:10.",
+      "reference": "The lowest reading is 60 Wh, at 09:30, 10:10."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-15 17:30 to 2016-05-15 19:20 (10-minute intervals): \n17:30  200 Wh\n17:40  330 Wh\n17:50  290 Wh\n18:00  120 Wh\n18:10  80 Wh\n18:20  80 Wh\n18:30  100 Wh\n18:40  110 Wh\n18:50  100 Wh\n19:00  110 Wh\n19:10  100 Wh\n19:20  100 Wh.\nWhat is the average reading?",
+      "model": "The average is 141.7 Wh per 10-minute interval (equivalent to an average power of about 850 W).",
+      "reference": "The average is 143.3 Wh per 10-minute interval (equivalent to an average power of about 860 W)."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-17 23:10 to 2016-05-18 02:00 (10-minute intervals): \n23:10  60 Wh\n23:20  60 Wh\n23:30  60 Wh\n23:40  60 Wh\n23:50  60 Wh\n00:00  50 Wh\n00:10  60 Wh\n00:20  50 Wh\n00:30  50 Wh\n00:40  50 Wh\n00:50  50 Wh\n01:00  50 Wh\n01:10  40 Wh\n01:20  60 Wh\n01:30  50 Wh\n01:40  60 Wh\n01:50  60 Wh\n02:00  60 Wh.\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 60 Wh, at 23:10, 23:20, 23:30, 23:40, 00:50, 01:00, 01:10, 01:20, 01:30, 01:40, 01:50, 02:00.",
+      "reference": "The highest reading is 60 Wh, at 23:10, 23:20, 23:30, 23:40, 23:50, 00:10, 01:20, 01:40, 01:50, 02:00."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-14 14:10 to 2016-05-14 14:40 (10-minute intervals): 110, 110, 100, 90 (Wh, oldest first, 10-minute intervals).\nWhich interval had the lowest consumption?",
+      "model": "The lowest reading is 90 Wh, at 14:30.",
+      "reference": "The lowest reading is 90 Wh, at 14:40."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-09 13:00 to 2016-05-09 13:30 (10-minute intervals): \n13:00  80 Wh\n13:10  60 Wh\n13:20  360 Wh\n13:30  370 Wh.\nWhat is the total energy used?",
+      "model": "The total is 620 Wh (0.620 kWh) across 4 readings.",
+      "reference": "The total is 870 Wh (0.870 kWh) across 4 readings."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-22 09:20 to 2016-05-22 10:10 (10-minute intervals): 100, 130, 100, 110, 80, 90 (Wh, oldest first, 10-minute intervals).\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 130 Wh, at 09:20.",
+      "reference": "The highest reading is 130 Wh, at 09:30."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-19 18:50 to 2016-05-19 21:40 (10-minute intervals): 70, 70, 100, 110, 100, 110, 100, 170, 110, 130, 120, 90, 90, 70, 80, 70, 60, 60 (Wh, oldest first, 10-minute intervals).\nHow many intervals exceeded 150 Wh?",
+      "model": "None of the 18 intervals exceeded 150 Wh; the maximum was 170 Wh.",
+      "reference": "1 of the 18 intervals exceeded 150 Wh."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-12 10:50 to 2016-05-12 12:40 (10-minute intervals): \n10:50  60 Wh\n11:00  50 Wh\n11:10  50 Wh\n11:20  50 Wh\n11:30  50 Wh\n11:40  50 Wh\n11:50  50 Wh\n12:00  50 Wh\n12:10  60 Wh\n12:20  60 Wh\n12:30  50 Wh\n12:40  60 Wh.\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 60 Wh, at 11:50, 12:00, 12:10, 12:20, 12:30.",
+      "reference": "The highest reading is 60 Wh, at 10:50, 12:10, 12:20, 12:40."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-20 06:10 to 2016-05-20 07:20 (10-minute intervals): 50, 50, 60, 90, 90, 80, 90, 80 (Wh, oldest first, 10-minute intervals).\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 90 Wh, at 06:10, 06:30, 06:40.",
+      "reference": "The highest reading is 90 Wh, at 06:40, 06:50, 07:10."
+    },
+    {
+      "task": "window_stats",
+      "source": "uci",
+      "prompt": "Appliance energy readings from 2016-05-26 20:50 to 2016-05-26 21:20 (10-minute intervals): \n20:50  90 Wh\n21:00  100 Wh\n21:10  80 Wh\n21:20  60 Wh.\nWhich interval had the highest consumption?",
+      "model": "The highest reading is 100 Wh, at 21:50.",
+      "reference": "The highest reading is 100 Wh, at 21:00."
+    }
+  ]
+}
