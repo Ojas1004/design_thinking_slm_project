@@ -16,7 +16,7 @@ Each folder has:
 - `eval_full.jsonl`: every answer from `scripts/evaluate_full.py` (up to 200 test questions per task and source,
   same seed for both runs, so the comparison is paired)
 
-To recompute `paper/results.json`, tables and figures from these answers without retraining:
+To recompute the statistics, tables and figures (written to `paper/`, which git ignores) from these answers without retraining:
 
 ```bash
 mkdir -p out/qwen3_scratch out/qwen3_scratch_v1

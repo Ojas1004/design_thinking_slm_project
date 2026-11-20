@@ -15,11 +15,10 @@ the research article, and the chat demo in Ollama.
 | Dataset (`default`: UCI house, 33,916 pairs; `large`: UCI + 20 REFIT homes, 200,335 pairs) | https://huggingface.co/datasets/Design-Thinking-SLM/smart-home-energy-slm |
 | Model 1: Qwen3 architecture trained **from scratch** (109M), with GGUF for Ollama | https://huggingface.co/Design-Thinking-SLM/smart-home-energy-qwen3-scratch |
 | Model 2: **LoRA** on Qwen2.5-0.5B-Instruct, with GGUF for Ollama | https://huggingface.co/Design-Thinking-SLM/smart-home-energy-slm |
-| Research article (IEEE format, LaTeX) | [`paper/`](paper/) |
 
 ## Results at a glance
 
-From-scratch model, 3,956 held-out test questions (details and statistical tests in [`paper/`](paper/)):
+From-scratch model, 3,956 held-out test questions (statistical tests from `scripts/analyze_eval.py`):
 
 | | First version (UCI corpus only) | Final version (UCI + REFIT) |
 |---|---|---|
@@ -85,7 +84,6 @@ sums and dates in code and let the model explain the result.
 | `Modelfile`, `Modelfile.lora` | **Step 6.** Ollama recipes for the two models |
 | `scripts/check_ollama.py` | Asks one test question per task through Ollama and compares with the reference |
 | `docs/demo_questions.md` | Questions to paste into the chat demo, with the answers the model gives |
-| `paper/` | Research article: `main.tex`, `refs.bib`, figures, `results.json` |
 | `docs/` | Design-thinking sheets: problem framing, persona, How-Might-We, business model canvas |
 | `convert_to_hf.py`, `chat.py` | Parquet conversion of the original corpus; terminal chat with the LoRA adapter |
 | `notebooks/data_conversion.ipynb` | First, superseded pipeline (kept for comparison) |
@@ -168,7 +166,7 @@ configuration. It writes `out/qwen0.5b-energy-lora/final` and reaches validation
 ```bash
 python scripts/export_qwen3_to_hf.py                        # needed by the evaluation (and by Step 5)
 python scripts/evaluate_full.py out/qwen3_scratch/hf_qwen3 out/qwen3_scratch/eval_full.jsonl 200
-python scripts/analyze_eval.py                              # -> paper/results.json, paper/tables, paper/figures
+python scripts/analyze_eval.py                              # -> paper/results.json, tables and figures (not tracked)
 python scripts/make_article_figures.py                      # data and loss figures
 ```
 
@@ -218,12 +216,6 @@ the latest message, because the models were trained on single questions. `Modelf
 repetition penalty, which stops greedy decoding from looping on unusual questions.
 
 `python scripts/check_ollama.py energy-lora` asks one test question per task through Ollama's API.
-
-## Step 7: Research article
-
-`paper/` holds the article in IEEE conference format. To compile it, upload `main.tex`, `refs.bib` and `figures/`
-to Overleaf (pdfLaTeX + BibTeX). The tables in `main.tex` were pasted from `paper/tables/` (written by
-`analyze_eval.py`).
 
 ## Data licence and citations
 
