@@ -8,7 +8,7 @@
 
 **Team:** Ojas Chaudhary (Leader), Parameswar Sahoo, Omsai, Nandhakishore. Jain University, Design Thinking course (25ESHS01), guided by Dr. Sujeet S. Jagtap.
 
-**Latest project milestone (25 November 2026):** The model has been trained **from random weights**, evaluated on 3,956 held-out questions, converted to GGUF, and **published** as [`ojaschaudhary20/energy-slm`](https://ollama.com/ojaschaudhary20/energy-slm). It answers short questions about household electricity readings (costs, load levels, spikes, short-horizon forecasts) and says **"cannot be determined"** when the meter data cannot answer.
+**Latest project milestone (20 November 2026):** The model has been trained **from random weights**, evaluated on 3,956 held-out questions, converted to GGUF, and **published** as [`ojaschaudhary20/energy-slm`](https://ollama.com/ojaschaudhary20/energy-slm). It answers short questions about household electricity readings (costs, load levels, spikes, short-horizon forecasts) and says **"cannot be determined"** when the meter data cannot answer.
 
 > **Scope:** This is a course prototype, **not** a general chatbot and not a tool for billing, forecasting or safety decisions. "Low", "moderate", "high" and "peak" are percentiles of each house's own training data, not an official standard.
 
